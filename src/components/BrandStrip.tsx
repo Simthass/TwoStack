@@ -1,0 +1,151 @@
+// File: src/components/BrandStrip.tsx
+
+"use client";
+
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
+
+// Your actual brands with images
+const BRANDS = [
+  { id: 1, name: "Brand 1", logo: "/images/brand1.png" },
+  { id: 2, name: "Brand 2", logo: "/images/brand2.png" },
+  { id: 3, name: "Brand 3", logo: "/images/brand3.png" },
+  { id: 4, name: "Brand 4", logo: "/images/brand4.png" },
+  { id: 5, name: "Brand 5", logo: "/images/brand5.png" },
+  { id: 6, name: "Brand 6", logo: "/images/brand6.png" },
+];
+
+// Get initial brands (deterministic - no random)
+const getInitialBrands = () => {
+  return BRANDS.slice(0, 4);
+};
+
+// Shuffle function
+const shuffleArray = (array: typeof BRANDS) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+// Get 4 unique random brands
+const getRandomUniqueBrands = () => {
+  const shuffled = shuffleArray(BRANDS);
+  return shuffled.slice(0, 4);
+};
+
+export default function BrandStrip() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [brands, setBrands] = useState(getInitialBrands);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // After mount, shuffle for dynamic display
+  useEffect(() => {
+    setIsMounted(true);
+    setBrands(getRandomUniqueBrands());
+  }, []);
+
+  // Auto-swap all 4 logos individually from left to right
+  useEffect(() => {
+    if (!isInView || !isMounted) return;
+    
+    const interval = setInterval(() => {
+      if (isTransitioning) return;
+      
+      setIsTransitioning(true);
+      
+      const newBrands = getRandomUniqueBrands();
+      
+      const updateBrands = (index: number) => {
+        if (index >= 4) {
+          setIsTransitioning(false);
+          return;
+        }
+        
+        setBrands(prev => {
+          const updated = [...prev];
+          updated[index] = newBrands[index];
+          return updated;
+        });
+        
+        setTimeout(() => {
+          updateBrands(index + 1);
+        }, 200);
+      };
+      
+      updateBrands(0);
+      
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isInView, isTransitioning, isMounted]);
+
+  return (
+    <section 
+      ref={sectionRef}
+      className="relative w-full bg-[#fdfdfe] overflow-hidden py-4 md:py-6"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+        className="text-center pb-4 md:pb-5"
+      >
+        <span className="font-inter text-black/50 text-sm md:text-base tracking-wide">
+          Trusted by innovative businesses.
+        </span>
+      </motion.div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-black/15">
+        {[0, 1, 2, 3].map((boxIndex) => {
+          const brand = brands[boxIndex];
+
+          return (
+            <div
+              key={boxIndex}
+              className="relative px-4 py-4 md:px-6 md:py-5 border-r border-b border-black/15 bg-white/20 hover:bg-white/40 transition-all duration-500 overflow-hidden h-[80px] md:h-[100px] flex items-center justify-center"
+            >
+              <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                
+                <AnimatePresence mode="wait">
+                  {brand && (
+                    <motion.div
+                      key={`${boxIndex}-${brand.id}`}
+                      className="absolute z-10 flex items-center justify-center"
+                      initial={{ y: 40, opacity: 0, scale: 0.6 }}
+                      animate={{ y: 0, opacity: 1, scale: 1 }}
+                      exit={{ y: -40, opacity: 0, scale: 0.6 }}
+                      transition={{
+                        duration: 0.5,
+                        ease: "easeOut" as const,
+                        delay: boxIndex * 0.08,
+                      }}
+                    >
+                      <div className="relative w-20 h-8 md:w-28 md:h-10">
+                        <Image
+                          src={brand.logo}
+                          alt={brand.name}
+                          fill
+                          className="object-contain brightness-0 grayscale"
+                          sizes="(max-width: 768px) 80px, 112px"
+                          priority={boxIndex < 2}
+                        />
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+    </section>
+  );
+}
