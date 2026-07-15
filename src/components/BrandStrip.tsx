@@ -8,12 +8,12 @@ import Image from "next/image";
 
 // Your actual brands with images
 const BRANDS = [
-  { id: 1, name: "Brand 1", logo: "/images/brand1.png" },
-  { id: 2, name: "Brand 2", logo: "/images/brand2.png" },
-  { id: 3, name: "Brand 3", logo: "/images/brand3.png" },
-  { id: 4, name: "Brand 4", logo: "/images/brand4.png" },
-  { id: 5, name: "Brand 5", logo: "/images/brand5.png" },
-  { id: 6, name: "Brand 6", logo: "/images/brand6.png" },
+  { id: 1, name: "Faux Fur Boa", logo: "/images/brand1.png" },
+  { id: 2, name: "ISports Cricket", logo: "/images/brand2.png" },
+  { id: 3, name: "The Great Outdoors", logo: "/images/brand3.png" },
+  { id: 4, name: "AmazonShopLK", logo: "/images/brand4.png" },
+  { id: 5, name: "Brand 5", logo: "/images/brand5.png" }, // TODO: Replace with real brand name
+  { id: 6, name: "Brand 6", logo: "/images/brand6.png" }, // TODO: Replace with real brand name
 ];
 
 // Get initial brands (deterministic - no random)
@@ -41,49 +41,38 @@ export default function BrandStrip() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [brands, setBrands] = useState(getInitialBrands);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const isTransitioningRef = useRef(false);
 
-  // After mount, shuffle for dynamic display
+  // After mount, set initial brands
   useEffect(() => {
     setIsMounted(true);
-    setBrands(getRandomUniqueBrands());
+    setBrands(BRANDS.slice(0, 4));
   }, []);
 
-  // Auto-swap all 4 logos individually from left to right
+  // Clean auto-swap of logos without interval teardowns or cascading timeouts
   useEffect(() => {
     if (!isInView || !isMounted) return;
     
     const interval = setInterval(() => {
-      if (isTransitioning) return;
+      if (isTransitioningRef.current) return;
       
+      isTransitioningRef.current = true;
       setIsTransitioning(true);
       
       const newBrands = getRandomUniqueBrands();
+      setBrands(newBrands);
       
-      const updateBrands = (index: number) => {
-        if (index >= 4) {
-          setIsTransitioning(false);
-          return;
-        }
-        
-        setBrands(prev => {
-          const updated = [...prev];
-          updated[index] = newBrands[index];
-          return updated;
-        });
-        
-        setTimeout(() => {
-          updateBrands(index + 1);
-        }, 200);
-      };
+      setTimeout(() => {
+        isTransitioningRef.current = false;
+        setIsTransitioning(false);
+      }, 600);
       
-      updateBrands(0);
-      
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [isInView, isTransitioning, isMounted]);
+  }, [isInView, isMounted]);
 
   return (
     <section 
@@ -133,7 +122,6 @@ export default function BrandStrip() {
                           fill
                           className="object-contain brightness-0 grayscale"
                           sizes="(max-width: 768px) 80px, 112px"
-                          priority={boxIndex < 2}
                         />
                       </div>
                     </motion.div>

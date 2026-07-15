@@ -26,30 +26,14 @@ const staggerContainer = {
 
 // Company logos for the trusted by section
 const companies = [
-  { id: 1, name: "Company 1", logo: "/images/brand1.png" },
-  { id: 2, name: "Company 2", logo: "/images/brand2.png" },
-  { id: 3, name: "Company 3", logo: "/images/brand3.png" },
-  { id: 4, name: "Company 4", logo: "/images/brand4.png" },
+  { id: 1, name: "Faux Fur Boa", logo: "/images/brand1.png" },
+  { id: 2, name: "ISports Cricket", logo: "/images/brand2.png" },
+  { id: 3, name: "The Great Outdoors", logo: "/images/brand3.png" },
+  { id: 4, name: "AmazonShopLK", logo: "/images/brand4.png" },
 ];
 
 export default function HeroNew() {
-  const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        if (rect.top < windowHeight && rect.bottom > 0) {
-          const scrolled = (windowHeight - rect.top) / (rect.height + windowHeight);
-          setScrollProgress(Math.min(1, Math.max(0, scrolled)));
-        }
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // WhatsApp link
   const whatsappLink = "https://wa.me/94767732288?text=Hi%20Two%20Stack%2C%20I'd%20like%20to%20start%20building%20my%20project.";
@@ -82,8 +66,9 @@ export default function HeroNew() {
                   {company.logo ? (
                     <Image
                       src={company.logo}
-                      alt={company.name}
+                      alt={`${company.name} logo`}
                       fill
+                      sizes="36px"
                       className="object-contain p-1.5"
                     />
                   ) : (

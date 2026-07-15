@@ -5,6 +5,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CTASection() {
   const sectionRef = useRef(null);
@@ -113,12 +114,13 @@ export default function CTASection() {
         <div
           className="absolute inset-0 bg-[#060606] overflow-hidden [border-radius:50%_50%_0_0/100px_100px_0_0] md:[border-radius:50%_50%_0_0/260px_260px_0_0]"
         >
-          <div className="absolute inset-0 pointer-events-none opacity-[0.02]">
+          <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
             <div
               className="w-full h-full"
               style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-                backgroundSize: '256px 256px',
+                backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAD8/vwAAACCCwTTAAAABnRSTlMAMwCFP1T6tV1zAAAAPklEQVQ4y2NgGAWjYBSMglEwCgYZmBgcHRyZGBicmNycGZgYXN0cuRkYHNxB2omJgcnDEQ4cGBgYXBjhNqMAlacK4RttNHEAAAAASUVORK5CYII=")`,
+                backgroundRepeat: 'repeat',
+                backgroundSize: '64px 64px',
               }}
             />
           </div>
@@ -290,10 +292,12 @@ export default function CTASection() {
                       className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-black/30 hover:bg-gray-50 transition-all duration-300"
                       aria-label={social.name}
                     >
-                      <img
+                      <Image
                         src={social.icon}
                         alt={social.name}
-                        className="w-5 h-5 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                        width={20}
+                        height={20}
+                        className="object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
                       />
                     </a>
                   ))}

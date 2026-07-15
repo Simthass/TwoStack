@@ -31,8 +31,35 @@ export default function Footer() {
           variants={fadeUpVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="flex flex-col items-center gap-4"
+          className="flex flex-col items-center gap-6"
         >
+          {/* NAP (Name, Address, Phone) — crawlable text for SEO and GEO */}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center">
+            <span className="font-inter text-white/30 text-xs">
+              Two Stack — AI-Native Development Studio
+            </span>
+            <span className="hidden sm:inline w-px h-3 bg-white/10" />
+            <span className="font-inter text-white/30 text-xs">
+              Colombo, Sri Lanka
+            </span>
+            <span className="hidden sm:inline w-px h-3 bg-white/10" />
+            <a
+              href="mailto:twostacklk@gmail.com"
+              className="font-inter text-white/30 text-xs hover:text-white/50 transition-colors"
+            >
+              twostacklk@gmail.com
+            </a>
+            <span className="hidden sm:inline w-px h-3 bg-white/10" />
+            <a
+              href="https://wa.me/94767732288"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-inter text-white/30 text-xs hover:text-white/50 transition-colors"
+            >
+              +94 76 773 2288
+            </a>
+          </div>
+
           {/* Back to Top Button */}
           <button
             onClick={scrollToTop}

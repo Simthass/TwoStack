@@ -12,11 +12,11 @@ import { useState, useEffect } from "react";
 // public/images/project-5.png
 
 const CARDS = [
-  { id: 1, src: "/images/project-1.png", alt: "Project 1" },
-  { id: 2, src: "/images/project-2.png", alt: "Project 2" },
-  { id: 3, src: "/images/project-3.png", alt: "Project 3" },
-  { id: 4, src: "/images/project-4.png", alt: "Project 4" },
-  { id: 5, src: "/images/project-5.png", alt: "Project 5" },
+  { id: 1, src: "/images/project-1.png", alt: "Portfolio project screenshot 1" }, // TODO: Replace with real project name, e.g. "Faux Fur Boa e-commerce website"
+  { id: 2, src: "/images/project-2.png", alt: "Portfolio project screenshot 2" }, // TODO: Replace with real project name
+  { id: 3, src: "/images/project-3.png", alt: "Portfolio project screenshot 3" }, // TODO: Replace with real project name
+  { id: 4, src: "/images/project-4.png", alt: "Portfolio project screenshot 4" }, // TODO: Replace with real project name
+  { id: 5, src: "/images/project-5.png", alt: "Portfolio project screenshot 5" }, // TODO: Replace with real project name
 ] as const;
 
 // Duplicate for seamless loop

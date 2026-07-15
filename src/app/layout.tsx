@@ -21,7 +21,7 @@ const SITE_NAME = "Two Stack";
 const TITLE =
   "Two Stack | AI-Native Web, Mobile & Automation Development Studio in Sri Lanka";
 const DESCRIPTION =
-  "Two Stack is an AI-native software development studio building high-performance web apps, mobile apps, and intelligent automation systems. Partner with a Sri Lanka-based team engineering products for startups and businesses worldwide.";
+  "Two Stack is an AI-native development studio in Sri Lanka building web apps, mobile apps, and automation systems for startups and businesses worldwide.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -46,6 +46,9 @@ export const metadata: Metadata = {
     "startup MVP development",
     "AI product development",
     "full stack development agency",
+    "AI automation Sri Lanka",
+    "WhatsApp AI chatbot Sri Lanka",
+    "e-commerce development Sri Lanka",
   ],
 
   authors: [{ name: "Two Stack", url: SITE_URL }],
@@ -86,18 +89,18 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/images/favicon.ico" },
-      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       {
-        url: "/images/android-chrome-192x192.png",
+        url: "/android-chrome-192x192.png",
         sizes: "192x192",
         type: "image/png",
       },
     ],
     apple: [
       {
-        url: "/images/apple-touch-icon.png",
+        url: "/apple-touch-icon.png",
         sizes: "180x180",
         type: "image/png",
       },
@@ -113,10 +116,10 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Two Stack — AI-Native Development Studio",
+        alt: "Two Stack — AI-Native Development Studio in Sri Lanka",
       },
     ],
     locale: "en_US",
@@ -127,16 +130,79 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/images/og-image.jpg"],
-    // creator: "@yourhandle",
+    images: ["/og-image.jpg"],
+    // TODO: Add your Twitter handle once created, e.g.:
+    // creator: "@twostack",
   },
 
-  // Fill these in once you register with each console
+  // TODO: Paste your Google Search Console verification code below.
+  // 1. Go to https://search.google.com/search-console
+  // 2. Add property → URL prefix → https://twostack.lk
+  // 3. Choose "HTML tag" verification method
+  // 4. Copy ONLY the content="..." value and paste it below
   verification: {
-    google: "your-google-search-console-verification-code",
+    google: "TODO_PASTE_YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE_HERE",
     // yandex: "your-yandex-code",
     // other: { "msvalidate.01": "your-bing-code" },
   },
+};
+
+/* ------------------------------------------------------------------ */
+/*  Structured Data – JSON-LD                                          */
+/* ------------------------------------------------------------------ */
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#organization`,
+  name: "Two Stack",
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/logo.png`,
+  image: `${SITE_URL}/og-image.jpg`,
+  description: DESCRIPTION,
+  areaServed: "Worldwide",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Colombo",
+    addressCountry: "LK",
+  },
+  telephone: "+94767732288",
+  email: "twostacklk@gmail.com",
+  sameAs: [
+    // TODO: Add your social media URLs here as you create them, e.g.:
+    // "https://www.linkedin.com/company/two-stack",
+    // "https://twitter.com/twostack",
+    // "https://github.com/two-stack",
+    // "https://www.facebook.com/twostack",
+    // "https://www.instagram.com/twostack",
+  ],
+  serviceType: [
+    "Web Development",
+    "Mobile App Development",
+    "AI Product Development",
+    "Automation Systems",
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+  name: SITE_NAME,
+  url: SITE_URL,
+  publisher: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+  // Note: SearchAction is omitted because there is no internal search feature.
+  // If you add site search in the future, uncomment and configure this:
+  // potentialAction: {
+  //   "@type": "SearchAction",
+  //   target: {
+  //     "@type": "EntryPoint",
+  //     urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
+  //   },
+  //   "query-input": "required name=search_term_string",
+  // },
 };
 
 export default function RootLayout({
@@ -147,34 +213,18 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${satoshi.variable}`}>
       <body className="bg-[#fdfefd] antialiased">
-        {/* Organization structured data — helps Google show rich results / knowledge panel */}
+        {/* Organization structured data — ProfessionalService schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              name: "Two Stack",
-              url: SITE_URL,
-              image: `${SITE_URL}/images/og-image.jpg`,
-              description: DESCRIPTION,
-              areaServed: "Worldwide",
-              address: {
-                "@type": "PostalAddress",
-                addressCountry: "LK",
-              },
-              sameAs: [
-                // "https://www.linkedin.com/company/two-stack",
-                // "https://twitter.com/yourhandle",
-                // "https://github.com/your-org",
-              ],
-              serviceType: [
-                "Web Development",
-                "Mobile App Development",
-                "AI Product Development",
-                "Automation Systems",
-              ],
-            }),
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        {/* WebSite structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
           }}
         />
         {children}

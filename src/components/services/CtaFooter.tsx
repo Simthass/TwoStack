@@ -29,9 +29,8 @@ export default function CtaFooter() {
 
   // Team member images - replace with your actual image paths
   const teamMembers = [
-    { id: 1, name: "Team member 1", image: "/images/team-1.jpg" },
-    { id: 2, name: "Team member 2", image: "/images/team-2.jpg" },
-    // Add more team members as needed
+    { id: 1, name: "Simthass", image: "/images/team-1.jpg" },
+    { id: 2, name: "Muaz", image: "/images/team-2.jpg" },
   ];
 
   // Scroll to top function
@@ -53,12 +52,13 @@ export default function CtaFooter() {
           className="absolute inset-0 bg-[#0a0a0a] overflow-hidden [border-radius:50%_50%_0_0/100px_100px_0_0] md:[border-radius:50%_50%_0_0/260px_260px_0_0]"
         >
           {/* Subtle grain texture */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.02]">
+          <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
             <div
               className="w-full h-full"
               style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-                backgroundSize: '256px 256px',
+                backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAD8/vwAAACCCwTTAAAABnRSTlMAMwCFP1T6tV1zAAAAPklEQVQ4y2NgGAWjYBSMglEwCgYZmBgcHRyZGBicmNycGZgYXN0cuRkYHNxB2omJgcnDEQ4cGBgYXBjhNqMAlacK4RttNHEAAAAASUVORK5CYII=")`,
+                backgroundRepeat: 'repeat',
+                backgroundSize: '64px 64px',
               }}
             />
           </div>

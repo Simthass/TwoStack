@@ -1,18 +1,23 @@
 "use client";
 
+// Ultra-lightweight 64x64 precomputed base64 noise texture.
+// Eliminates CPU/GPU software rasterization freezes caused by SVG feTurbulence.
+const NOISE_TEXTURE = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAD8/vwAAACCCwTTAAAABnRSTlMAMwCFP1T6tV1zAAAAPklEQVQ4y2NgGAWjYBSMglEwCgYZmBgcHRyZGBicmNycGZgYXN0cuRkYHNxB2omJgcnDEQ4cGBgYXBjhNqMAlacK4RttNHEAAAAASUVORK5CYII=`;
+
 export default function Grain() {
   return (
     <>
       <style>{`
         @keyframes grain-shift {
-          0%   { transform: translateX(0%) translateY(0%); }
-          25%  { transform: translateX(-5%) translateY(-10%); }
-          50%  { transform: translateX(-10%) translateY(-5%); }
-          75%  { transform: translateX(-5%) translateY(-10%); }
-          100% { transform: translateX(0%) translateY(0%); }
+          0%   { transform: translate3d(0%, 0%, 0); }
+          25%  { transform: translate3d(-2%, -4%, 0); }
+          50%  { transform: translate3d(-4%, -2%, 0); }
+          75%  { transform: translate3d(-2%, -4%, 0); }
+          100% { transform: translate3d(0%, 0%, 0); }
         }
         .grain-layer {
           animation: grain-shift 14s linear infinite;
+          will-change: transform;
         }
       `}</style>
 
@@ -24,19 +29,19 @@ export default function Grain() {
           zIndex: 100,
           pointerEvents: "none",
           overflow: "hidden",
-          opacity: 0.05,
+          opacity: 0.04,
         }}
       >
         <div
           className="grain-layer"
           style={{
             position: "absolute",
-            inset: "-30%",
-            width: "160%",
-            height: "160%",
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23grain)'/%3E%3C/svg%3E")`,
+            inset: "-10%",
+            width: "120%",
+            height: "120%",
+            backgroundImage: `url("${NOISE_TEXTURE}")`,
             backgroundRepeat: "repeat",
-            backgroundSize: "220px 220px",
+            backgroundSize: "64px 64px",
           }}
         />
       </div>

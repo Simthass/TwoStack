@@ -1,0 +1,46 @@
+# Two Stack
+
+> AI-native web, mobile, and automation development studio based in Colombo, Sri Lanka. We build the website, the automation layer, and the intelligence layer — as one connected system.
+
+## About
+
+Two Stack is a software development studio that builds complete digital ecosystems for businesses. We combine web development, AI-powered automation, and business intelligence into one unified system — not three separate tools from three separate vendors.
+
+We are based in Colombo, Sri Lanka, and work with startups and businesses worldwide.
+
+## Core Services
+
+### Presence Layer (Web & Mobile Development)
+- Marketing websites built to convert
+- E-commerce storefronts with payment gateway integration
+- Client and customer portals
+- Internal tools and admin dashboards
+- iOS and Android mobile apps (native and cross-platform)
+
+### Automation Layer (AI & Workflow Automation)
+- WhatsApp AI assistants (Sinhala, Tamil, and English)
+- Order and workflow tracking
+- Automated reminders and follow-ups
+- System-to-system sync (CRM, payments, calendar)
+
+### Intelligence Layer (Dashboards & Analytics)
+- Real-time business dashboards
+- Demand and cash flow forecasting
+- Automated weekly and monthly reporting
+- Decision flags and anomaly detection
+
+## Tech Stack
+
+Next.js, React, TypeScript, Node.js, AI/ML, Python
+
+## Target Audience
+
+Startups, SMEs, and enterprises looking for custom software development, AI automation, and digital transformation — in Sri Lanka and worldwide.
+
+## Contact
+
+- Website: https://twostack.lk
+- Services: https://twostack.lk/services
+- Email: twostacklk@gmail.com
+- WhatsApp: +94 76 773 2288
+- Location: Colombo, Sri Lanka

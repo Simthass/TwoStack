@@ -37,7 +37,6 @@ const createMarqueeItems = (title: string, color: string) => {
 
 export default function ServicesMarquee() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [isMobile, setIsMobile] = useState(false);
@@ -49,21 +48,6 @@ export default function ServicesMarquee() {
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        if (rect.top < windowHeight && rect.bottom > 0) {
-          const scrolled = (windowHeight - rect.top) / (rect.height + windowHeight);
-          setScrollProgress(Math.min(1, Math.max(0, scrolled)));
-        }
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // ✅ FIXED: Removed duplicate 'as const'

@@ -1,5 +1,6 @@
 // File: app/page.tsx
 
+import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Grain from "@/components/Grain";
@@ -11,7 +12,29 @@ import FAQSection from "@/components/FAQSection";
 import ProcessSection from "@/components/ProcessSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import { FAQS } from "@/lib/faq-data";
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://twostack.lk",
+  },
+};
+
+/* ------------------------------------------------------------------ */
+/*  FAQPage JSON-LD — generated from the shared faq-data.ts           */
+/* ------------------------------------------------------------------ */
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 
 export default function Home() {
   return (
@@ -43,6 +66,14 @@ export default function Home() {
         
         <Footer />
       </main>
+
+      {/* FAQPage structured data — mirrors on-page FAQ content exactly */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
     </>
   );
 }
