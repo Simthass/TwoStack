@@ -14,14 +14,17 @@ const satoshi = localFont({
   variable: "--font-satoshi",
   display: "swap",
   weight: "300 900",
+  // Mitigates Cumulative Layout Shift (CLS) when loading custom typography
+  adjustFontFallback: "Arial",
 });
 
 const SITE_URL = "https://twostack.lk";
-const SITE_NAME = "Two Stack";
+const SITE_NAME = "TwoStack";
+
 const TITLE =
-  "Two Stack | AI-Native Web, Mobile & Automation Development Studio in Sri Lanka";
+  "TwoStack | AI-Native Web, E-commerce & Mobile App Development Sri Lanka";
 const DESCRIPTION =
-  "Two Stack is an AI-native development studio in Sri Lanka building web apps, mobile apps, and automation systems for startups and businesses worldwide.";
+  "TwoStack is a high-performance software agency in Sri Lanka building production-grade AI-powered web applications, custom e-commerce stores, and native mobile apps.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -33,48 +36,34 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
 
   keywords: [
-    "AI development studio",
-    "AI-native software development",
-    "web development Sri Lanka",
-    "mobile app development Sri Lanka",
-    "custom software development agency",
-    "SaaS development company",
-    "AI automation solutions",
-    "Next.js development agency",
-    "React development company",
-    "software development Colombo",
-    "startup MVP development",
-    "AI product development",
-    "full stack development agency",
+    "TwoStack",
+    "twostack.lk",
+    "AI powered web development in Sri Lanka",
+    "web development in Sri Lanka",
+    "Ecommerce development in Sri Lanka",
+    "Mobile application development in Sri Lanka",
+    "software development agency Colombo",
     "AI automation Sri Lanka",
-    "WhatsApp AI chatbot Sri Lanka",
-    "e-commerce development Sri Lanka",
   ],
 
-  authors: [{ name: "Two Stack", url: SITE_URL }],
-  creator: "Two Stack",
-  publisher: "Two Stack",
-
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   applicationName: SITE_NAME,
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
 
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-
-  // Canonical + language alternates
+  // Fixes indexing fragmentation by enforcing a strict canonical root
   alternates: {
-    canonical: SITE_URL,
+    canonical: "./",
+    languages: {
+      "en-US": "/en-US",
+    },
   },
 
-  // Crawler directives
   robots: {
     index: true,
     follow: true,
-    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -83,31 +72,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
-  // Category helps some rich-result classifiers
-  category: "technology",
-
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      {
-        url: "/android-chrome-192x192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-    ],
-    apple: [
-      {
-        url: "/apple-touch-icon.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
-    ],
-  },
-
-  manifest: "/site.webmanifest",
 
   openGraph: {
     title: TITLE,
@@ -119,7 +83,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Two Stack — AI-Native Development Studio in Sri Lanka",
+        alt: "TwoStack Studio — Enterprise Systems Sri Lanka",
       },
     ],
     locale: "en_US",
@@ -131,78 +95,52 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     images: ["/og-image.jpg"],
-    // TODO: Add your Twitter handle once created, e.g.:
-    // creator: "@twostack",
   },
 
-  // TODO: Paste your Google Search Console verification code below.
-  // 1. Go to https://search.google.com/search-console
-  // 2. Add property → URL prefix → https://twostack.lk
-  // 3. Choose "HTML tag" verification method
-  // 4. Copy ONLY the content="..." value and paste it below
   verification: {
-    google: "TODO_PASTE_YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE_HERE",
-    // yandex: "your-yandex-code",
-    // other: { "msvalidate.01": "your-bing-code" },
+    google: "WBML3VdMKMqT7xf5PFjv3Lz6caUTmoHiCbjHjgCHwJo",
   },
 };
 
 /* ------------------------------------------------------------------ */
-/*  Structured Data – JSON-LD                                          */
+/*  Structured Data – JSON-LD (Updated for TwoStack & Local SEO)      */
 /* ------------------------------------------------------------------ */
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "@id": `${SITE_URL}/#organization`,
-  name: "Two Stack",
+  name: SITE_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/images/logo.png`,
   image: `${SITE_URL}/og-image.jpg`,
   description: DESCRIPTION,
-  areaServed: "Worldwide",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Colombo",
-    addressCountry: "LK",
-  },
+  priceRange: "$$$",
   telephone: "+94767732288",
   email: "twostacklk@gmail.com",
-  sameAs: [
-    // TODO: Add your social media URLs here as you create them, e.g.:
-    // "https://www.linkedin.com/company/two-stack",
-    // "https://twitter.com/twostack",
-    // "https://github.com/two-stack",
-    // "https://www.facebook.com/twostack",
-    // "https://www.instagram.com/twostack",
-  ],
-  serviceType: [
-    "Web Development",
-    "Mobile App Development",
-    "AI Product Development",
-    "Automation Systems",
-  ],
-};
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": `${SITE_URL}/#website`,
-  name: SITE_NAME,
-  url: SITE_URL,
-  publisher: {
-    "@id": `${SITE_URL}/#organization`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Colombo",
+    addressLocality: "Colombo",
+    addressRegion: "Western Province",
+    addressCountry: "LK",
   },
-  // Note: SearchAction is omitted because there is no internal search feature.
-  // If you add site search in the future, uncomment and configure this:
-  // potentialAction: {
-  //   "@type": "SearchAction",
-  //   target: {
-  //     "@type": "EntryPoint",
-  //     urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
-  //   },
-  //   "query-input": "required name=search_term_string",
-  // },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "6.9271",
+    longitude: "79.8612",
+  },
+  areaServed: [
+    { "@type": "Country", name: "Sri Lanka" },
+    { "@type": "Country", name: "Worldwide" },
+  ],
+  // Entity cross-linking for Google Knowledge Graph
+  sameAs: [
+    "https://www.linkedin.com/company/twostacklk",
+    "https://github.com/twostacklk",
+    "https://www.facebook.com/twostacklk",
+    "https://www.instagram.com/twostacklk",
+  ],
 };
 
 export default function RootLayout({
@@ -213,18 +151,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${satoshi.variable}`}>
       <body className="bg-[#fdfefd] antialiased">
-        {/* Organization structured data — ProfessionalService schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        {/* WebSite structured data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
           }}
         />
         {children}
