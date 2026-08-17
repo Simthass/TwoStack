@@ -1,5 +1,3 @@
-// File: src/components/WhatYouGetSection.tsx
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -8,62 +6,71 @@ import { useRef, useState, useEffect } from "react";
 type DemoMessage = { from: "in" | "out"; text: string };
 
 const AI_MESSAGES: DemoMessage[] = [
-  { from: "out", text: "Hi, has the payment for invoice INV-2291 gone through?" },
-  { from: "in", text: "Checking now. INV-2291 is still pending, due in 3 days." },
+  {
+    from: "out",
+    text: "Hi, has the payment for invoice INV-2291 gone through?",
+  },
+  {
+    from: "in",
+    text: "Checking now. INV-2291 is still pending, due in 3 days.",
+  },
   { from: "in", text: "Want me to send the customer a reminder now?" },
   { from: "out", text: "Yes please" },
-  { from: "in", text: "Reminder sent. I'll flag it again if it's not cleared by the due date." }
+  {
+    from: "in",
+    text: "Reminder sent. I'll flag it again if it's not cleared by the due date.",
+  },
 ];
 
 const CARDS = [
   {
     id: "followup",
-    label: "automation",
-    title: "The follow-up that never gets forgotten",
+    label: "AI Automation Layers",
+    title: "Asynchronous Transactional Nudges",
     description:
-      "A reminder, a check-in, a nudge — sent on schedule, without anyone having to remember to send it.",
-    tint: "#6B8F4E"
+      "Automated multithreaded workflows dispatch payment queries, abandoned checkout alerts, and localized order status pings without manual configuration overhead.",
+    tint: "#6B8F4E",
   },
   {
     id: "oneplace",
-    label: "systems",
-    title: "One place instead of five tabs",
+    label: "Custom Architecture Systems",
+    title: "Unified Data Aggregation Points",
     description:
-      "Customers, orders, and conversations living in one system, not scattered across spreadsheets and chats.",
-    tint: "#3E6690"
+      "Consolidate operational records, high-velocity checkout states, and client customer relations matrices under a secure serverless dashboard layer.",
+    tint: "#3E6690",
   },
   {
     id: "custom",
-    label: "presence",
-    title: "Built around your business, not a template",
+    label: "Optimized Web Development",
+    title: "Headless Node Frameworks",
     description:
-      "A website shaped by how you actually work — not a generic theme with your logo swapped in.",
-    tint: "#C9683B"
+      "Engineered on robust client baselines using optimized React and Next.js technology stacks for immediate page rendering performance.",
+    tint: "#C9683B",
   },
   {
     id: "numbers",
-    label: "visibility",
-    title: "Numbers you don't have to go looking for",
+    label: "Business Intelligence Vectors",
+    title: "Granular Performance Audits",
     description:
-      "A clear view of what's actually happening in your business, without compiling it yourself.",
-    tint: "#8B4F94"
+      "Monitor conversion drops, payment channel latency, and operational processing costs with integrated zero-latency data reporting layers.",
+    tint: "#8B4F94",
   },
   {
     id: "proof",
-    label: "verification",
-    title: "Proof that something actually happened",
+    label: "Local Payment Optimizations",
+    title: "Cryptographic IPG Confirmations",
     description:
-      "Confirmation that a task was done or a message was sent — not just a claim typed in after the fact.",
-    tint: "#1D9E75"
+      "Clean execution loops verifying webhooks across commercial Sri Lankan bank gateways including commercial ledgers and automated ledger updates.",
+    tint: "#1D9E75",
   },
   {
     id: "person",
-    label: "support",
-    title: "A person, not a support queue",
+    label: "Technical Engineering Support",
+    title: "Direct Pipeline Maintenance",
     description:
-      "When something needs changing, you message someone who already knows your business.",
-    tint: "#B8862E"
-  }
+      "Gain explicit access to Principal full-stack system architects managing code deployment, framework migrations, and infrastructure safety profiles.",
+    tint: "#B8862E",
+  },
 ] as const;
 
 function tintBg(hex: string) {
@@ -87,11 +94,13 @@ function AssistantVisual() {
           setTimeout(() => {
             setIsTyping(false);
             setVisibleMsgs((prev) => [...prev, msg]);
-          }, reveal)
+          }, reveal),
         );
         elapsed = reveal + 400;
       } else {
-        timeouts.current.push(setTimeout(() => setVisibleMsgs((prev) => [...prev, msg]), elapsed));
+        timeouts.current.push(
+          setTimeout(() => setVisibleMsgs((prev) => [...prev, msg]), elapsed),
+        );
         elapsed += 750;
       }
     });
@@ -99,7 +108,8 @@ function AssistantVisual() {
   }, []);
 
   useEffect(() => {
-    if (threadRef.current) threadRef.current.scrollTop = threadRef.current.scrollHeight;
+    if (threadRef.current)
+      threadRef.current.scrollTop = threadRef.current.scrollHeight;
   }, [visibleMsgs, isTyping]);
 
   return (
@@ -110,8 +120,12 @@ function AssistantVisual() {
             TS
           </div>
           <div className="flex-1 min-w-0">
-            <div className="font-inter text-[12px] font-medium text-white">Two Stack assistant</div>
-            <div className="font-inter text-[10px] text-white/40">Always on</div>
+            <div className="font-inter text-[12px] font-medium text-white">
+              TwoStack Assistant
+            </div>
+            <div className="font-inter text-[10px] text-white/40">
+              Active Production Node
+            </div>
           </div>
         </div>
         <div
@@ -119,11 +133,8 @@ function AssistantVisual() {
           className="px-3 py-3 flex flex-col gap-2 min-h-[220px] max-h-[220px] overflow-y-auto bg-[#141414]"
         >
           {visibleMsgs.map((msg, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25 }}
               className={`flex ${msg.from === "out" ? "justify-end" : "justify-start"}`}
             >
               <div
@@ -135,7 +146,7 @@ function AssistantVisual() {
               >
                 {msg.text}
               </div>
-            </motion.div>
+            </div>
           ))}
           {isTyping && (
             <div className="flex justify-start">
@@ -145,7 +156,11 @@ function AssistantVisual() {
                     key={i}
                     className="w-1.5 h-1.5 rounded-full bg-white/30"
                     animate={{ opacity: [0.3, 1, 0.3] }}
-                    transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2 }}
+                    transition={{
+                      duration: 1.2,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                    }}
                   />
                 ))}
               </div>
@@ -163,20 +178,22 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
       return (
         <div className="flex flex-col gap-2 w-[85%]">
           {[
-            { label: "INV-2291", status: "Reminder sent", active: true },
-            { label: "INV-2274", status: "Paid", active: false },
-            { label: "INV-2260", status: "Due in 5 days", active: false }
+            { label: "INV-2291", status: "Webhook Dispatched", active: true },
+            { label: "INV-2274", status: "Settled Ledger", active: false },
+            { label: "INV-2260", status: "Awaiting Sync", active: false },
           ].map((row) => (
             <div
               key={row.label}
               className="flex items-center justify-between rounded-lg bg-white/70 border border-[#0a0a0a]/5 px-3 py-2"
             >
-              <span className="font-inter text-[11px] text-[#0a0a0a]/70">{row.label}</span>
+              <span className="font-inter text-[11px] text-[#0a0a0a]/70">
+                {row.label}
+              </span>
               <span
                 className="font-inter text-[10px] font-semibold px-2 py-0.5 rounded-full"
                 style={{
                   color: row.active ? "#fff" : "rgba(10,10,10,0.4)",
-                  background: row.active ? tint : "transparent"
+                  background: row.active ? tint : "transparent",
                 }}
               >
                 {row.status}
@@ -188,14 +205,19 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
     case "oneplace":
       return (
         <div className="flex items-center justify-center gap-2 w-[80%]">
-          {["Orders", "Chats", "Customers"].map((label, i) => (
+          {["Data Matrix", "API Sync", "CRM Core"].map((label, i) => (
             <div
               key={label}
               className="flex-1 rounded-xl bg-white border-2 px-3 py-4 flex flex-col items-center gap-1.5"
               style={{ marginTop: i === 1 ? -8 : 0, borderColor: `${tint}` }}
             >
-              <span className="w-2.5 h-2.5 rounded-full" style={{ background: tint }} />
-              <span className="font-inter text-[10px] text-[#0a0a0a]/70 font-medium">{label}</span>
+              <span
+                className="w-2.5 h-2.5 rounded-full"
+                style={{ background: tint }}
+              />
+              <span className="font-inter text-[10px] text-[#0a0a0a]/70 font-medium whitespace-nowrap">
+                {label}
+              </span>
             </div>
           ))}
         </div>
@@ -203,15 +225,30 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
     case "custom":
       return (
         <div className="w-[85%] rounded-xl overflow-hidden border border-[#0a0a0a]/10 bg-white shadow-sm">
-          <div className="flex items-center gap-1.5 px-3 py-2 border-b border-[#0a0a0a]/10" style={{ background: `${tint}18` }}>
-            <span className="w-2 h-2 rounded-full" style={{ background: tint }} />
+          <div
+            className="flex items-center gap-1.5 px-3 py-2 border-b border-[#0a0a0a]/10"
+            style={{ background: `${tint}18` }}
+          >
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ background: tint }}
+            />
             <span className="w-2 h-2 rounded-full bg-[#0a0a0a]/15" />
             <span className="w-2 h-2 rounded-full bg-[#0a0a0a]/15" />
           </div>
           <div className="p-3 flex flex-col gap-2">
-            <div className="h-3 rounded" style={{ width: "60%", background: tint }} />
-            <div className="h-2 rounded bg-[#0a0a0a]/10" style={{ width: "90%" }} />
-            <div className="h-2 rounded bg-[#0a0a0a]/10" style={{ width: "75%" }} />
+            <div
+              className="h-3 rounded"
+              style={{ width: "60%", background: tint }}
+            />
+            <div
+              className="h-2 rounded bg-[#0a0a0a]/10"
+              style={{ width: "90%" }}
+            />
+            <div
+              className="h-2 rounded bg-[#0a0a0a]/10"
+              style={{ width: "75%" }}
+            />
             <div
               className="h-6 rounded-full mt-1"
               style={{ width: "40%", background: tint }}
@@ -223,26 +260,29 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
       return (
         <div className="grid grid-cols-3 gap-2 w-[85%]">
           {[
-            { label: "Revenue", value: "Rs. 1.2M" },
-            { label: "Overdue", value: "Rs. 37K" },
-            { label: "Active", value: "84" }
+            { label: "IPG Yield", value: "Rs. 1.2M" },
+            { label: "Latency", value: "14ms" },
+            { label: "Endpoints", value: "84" },
           ].map((stat, i) => (
             <div
               key={stat.label}
               className="rounded-lg px-2.5 py-2.5 border"
               style={{
                 background: i === 0 ? tint : "#fff",
-                borderColor: i === 0 ? tint : "rgba(10,10,10,0.1)"
+                borderColor: i === 0 ? tint : "rgba(10,10,10,0.1)",
               }}
             >
               <div
                 className="font-inter text-[9px]"
-                style={{ color: i === 0 ? "rgba(255,255,255,0.75)" : "rgba(10,10,10,0.4)" }}
+                style={{
+                  color:
+                    i === 0 ? "rgba(255,255,255,0.75)" : "rgba(10,10,10,0.4)",
+                }}
               >
                 {stat.label}
               </div>
               <div
-                className="font-satoshi font-semibold text-[13px] mt-0.5"
+                className="font-satoshi font-semibold text-[11px] mt-0.5 whitespace-nowrap"
                 style={{ color: i === 0 ? "#fff" : "#0a0a0a" }}
               >
                 {stat.value}
@@ -255,22 +295,33 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
       return (
         <div className="flex flex-col gap-2 w-[80%]">
           {[
-            { label: "Perera Stores", done: true },
-            { label: "Fernando Mart", done: true },
-            { label: "Silva Wholesale", done: false }
+            { label: "IPG Callback Hook", done: true },
+            { label: "SSL Validation", done: true },
+            { label: "Database Shard", done: false },
           ].map((row) => (
-            <div key={row.label} className="flex items-center gap-2.5 rounded-lg bg-white border border-[#0a0a0a]/10 px-3 py-2">
+            <div
+              key={row.label}
+              className="flex items-center gap-2.5 rounded-lg bg-white border border-[#0a0a0a]/10 px-3 py-2"
+            >
               <span
                 className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                 style={{ background: row.done ? tint : "rgba(10,10,10,0.08)" }}
               >
                 {row.done && (
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 12L9 17L20 6" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M4 12L9 17L20 6"
+                      stroke="#fff"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 )}
               </span>
-              <span className="font-inter text-[11px] text-[#0a0a0a]/70">{row.label}</span>
+              <span className="font-inter text-[11px] text-[#0a0a0a]/70 truncate">
+                {row.label}
+              </span>
             </div>
           ))}
         </div>
@@ -285,7 +336,9 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
             TS
           </div>
           <div className="bg-white border border-[#0a0a0a]/10 rounded-2xl rounded-bl-md px-3.5 py-2.5 shadow-sm">
-            <span className="font-inter text-[12px] text-[#0a0a0a]/80">On it, fixing that now</span>
+            <span className="font-inter text-[12px] text-[#0a0a0a]/80">
+              Hot-fix executed.
+            </span>
           </div>
         </div>
       );
@@ -298,54 +351,40 @@ export default function WhatYouGetSection() {
   return (
     <section className="w-full bg-[#fdfdfe] border-t border-[#0a0a0a]/10 py-12 sm:py-16 md:py-20 lg:py-28 px-6 lg:px-[35px]">
       <div className="mx-auto max-w-[1300px]">
-
-        {/* Header */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" as const }}
+        <h2
           className="font-satoshi font-bold text-[#0a0a0a] leading-[1.05] mb-8 sm:mb-10 md:mb-14 lg:mb-20"
-          style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", maxWidth: "620px" }}
+          style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", maxWidth: "800px" }}
         >
-          What you get.
-        </motion.h2>
+          High-performance systems configuration overview.
+        </h2>
 
-        {/* Lead card */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" as const }}
-          className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6 lg:gap-16 items-center border border-[#0a0a0a]/10 rounded-2xl bg-white/40 p-5 sm:p-6 lg:p-12 mb-5 lg:mb-7"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6 lg:gap-16 items-center border border-[#0a0a0a]/10 rounded-2xl bg-white/40 p-5 sm:p-6 lg:p-12 mb-5 lg:mb-7">
           <div>
-            <div className="font-inter text-[11px] text-[#0a0a0a]/40 mb-3 uppercase tracking-wider">system</div>
+            <div className="font-inter text-[11px] text-[#0a0a0a]/40 mb-3 uppercase tracking-wider">
+              Consolidated Infrastructure Architecture
+            </div>
             <h3 className="font-satoshi font-bold text-[#0a0a0a] text-xl sm:text-2xl lg:text-[34px] leading-[1.1]">
-              One system. Built-in intelligence, built-in automation.
+              Wired software ecosystems. Autonomous workflows. Integrated
+              intelligence.
             </h3>
-            <p className="mt-3 sm:mt-4 font-inter text-[#0a0a0a]/55 text-[14px] sm:text-[15px] leading-relaxed max-w-md">
-              Your website — none of it just sits there. It's built to
-              notice what's happening and act on it, whether that's replying to a customer at
-              2am or flagging something before it becomes a problem.
+            <p className="mt-4 font-inter text-[#0a0a0a]/60 text-[14px] sm:text-[15px] leading-relaxed max-w-xl">
+              Our codebases do not sit inert. Every web interface is
+              programmatically wired into automated business operation
+              cycles—dispatching localized multi-lingual user communications,
+              executing transactional banking confirmations, and updating
+              tracking shards natively without introducing server blocks.
             </p>
           </div>
           <div className="flex justify-center py-4 lg:py-0">
             <AssistantVisual />
           </div>
-        </motion.div>
+        </div>
 
-        {/* Grid cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-7">
           {CARDS.map((card, index) => (
-            <motion.div
+            <div
               key={card.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: index * 0.06, ease: "easeOut" as const }}
-              className="rounded-2xl overflow-hidden border"
-              style={{ borderColor: `${card.tint}30` }}
+              className="rounded-2xl overflow-hidden border border-black/10"
             >
               <div
                 className="h-[160px] sm:h-[180px] lg:h-[220px] flex items-center justify-center"
@@ -367,10 +406,9 @@ export default function WhatYouGetSection() {
                   {card.description}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-
       </div>
     </section>
   );

@@ -1,17 +1,23 @@
 import type { MetadataRoute } from "next";
-
-const SITE_URL = "https://twostack.lk";
+import { SITE } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
+  const protectedPaths = ["/api/", "/admin/"];
+
   return {
     rules: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/admin/"],
+        disallow: protectedPaths,
+      },
+      {
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+        disallow: protectedPaths,
       },
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    sitemap: `${SITE.url}/sitemap.xml`,
+    host: SITE.url,
   };
 }

@@ -12,7 +12,7 @@ const layers = [
     name: "Presence",
     tagline: "Where people find you and act.",
     description:
-      "The front end of the business — built to convert, not just to exist. Fast, on-brand, and built to plug straight into the automation and intelligence layers behind it.",
+      "The front end of the business - built to convert, not just to exist. Fast, on-brand, and built to plug straight into the automation and intelligence layers behind it.",
     items: [
       {
         k: "Marketing website",
@@ -37,7 +37,7 @@ const layers = [
     name: "Automation",
     tagline: "The work that used to sit with a person.",
     description:
-      "Every enquiry answered, every lead qualified, every order tracked — without someone on your team doing it by hand at 11pm.",
+      "Every enquiry answered, every lead qualified, every order tracked - without someone on your team doing it by hand at 11pm.",
     items: [
       {
         k: "WhatsApp AI assistant",
@@ -49,7 +49,7 @@ const layers = [
       },
       {
         k: "Reminders and follow-ups",
-        v: "Payment due dates, abandoned enquiries, appointment reminders — sent without anyone having to remember.",
+        v: "Payment due dates, abandoned enquiries, appointment reminders - sent without anyone having to remember.",
       },
       {
         k: "System-to-system sync",
@@ -62,7 +62,7 @@ const layers = [
     name: "Intelligence",
     tagline: "What's actually happening, at a glance.",
     description:
-      "The layer that turns everything the first two are doing into a clear picture — so decisions stop being guesses.",
+      "The layer that turns everything the first two are doing into a clear picture - so decisions stop being guesses.",
     items: [
       {
         k: "Dashboards",
@@ -78,7 +78,7 @@ const layers = [
       },
       {
         k: "Decision flags",
-        v: "The system tells you what needs attention — a slow-moving order, an unusual pattern — before you have to go looking.",
+        v: "The system tells you what needs attention - a slow-moving order, an unusual pattern - before you have to go looking.",
       },
     ],
   },
@@ -89,16 +89,16 @@ const fadeUpVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const }
-  }
+    transition: { duration: 0.6, ease: "easeOut" as const },
+  },
 };
 
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+  },
 };
 
 export default function SystemLayers() {
@@ -106,10 +106,10 @@ export default function SystemLayers() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="system" 
-      className="w-full bg-[#fdfdfe] border-t border-[#0a0a0a]/10 py-20 lg:py-28 px-6 lg:px-[35px]"
+      id="system"
+      className="w-full bg-[#ffffff] border-t border-[#000000]/10 py-20 lg:py-28 px-6 lg:px-[35px]"
     >
       <div className="mx-auto max-w-[1300px]">
         <motion.div
@@ -118,10 +118,11 @@ export default function SystemLayers() {
           animate={isInView ? "visible" : "hidden"}
           className="mb-12 lg:mb-16"
         >
-          <div className="font-inter text-[13px] tracking-wider text-[#0a0a0a]/40 mb-3">
-            — What you get
+          <div className="font-inter text-[13px] tracking-wider text-[#000000]/40 mb-3">
+            - What you get
           </div>
-          <h2 className="font-satoshi font-bold text-[#0a0a0a] leading-[1.05]"
+          <h2
+            className="font-satoshi font-bold text-[#000000] leading-[1.05]"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
           >
             Three layers. Built as one system, not three vendors.
@@ -138,19 +139,19 @@ export default function SystemLayers() {
             <motion.div
               key={layer.code}
               variants={fadeUpVariants}
-              className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 pt-10 border-t border-[#0a0a0a]/10"
+              className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8 pt-10 border-t border-[#000000]/10"
             >
               <div>
-                <div className="font-inter text-xs text-[#0a0a0a]/40 mb-2">
+                <div className="font-inter text-xs text-[#000000]/40 mb-2">
                   {layer.code}
                 </div>
-                <h3 className="font-satoshi font-bold text-[#0a0a0a] text-2xl mb-2">
+                <h3 className="font-satoshi font-bold text-[#000000] text-2xl mb-2">
                   {layer.name}
                 </h3>
-                <p className="font-inter text-sm text-[#0a0a0a]/40 mb-3">
+                <p className="font-inter text-sm text-[#000000]/40 mb-3">
                   {layer.tagline}
                 </p>
-                <p className="font-inter text-[15px] leading-relaxed text-[#0a0a0a]/60">
+                <p className="font-inter text-[15px] leading-relaxed text-[#000000]/60">
                   {layer.description}
                 </p>
               </div>
@@ -158,10 +159,10 @@ export default function SystemLayers() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
                 {layer.items.map((item) => (
                   <div key={item.k}>
-                    <h4 className="font-satoshi font-semibold text-[#0a0a0a] text-base mb-1.5">
+                    <h4 className="font-satoshi font-semibold text-[#000000] text-base mb-1.5">
                       {item.k}
                     </h4>
-                    <p className="font-inter text-[14px] leading-relaxed text-[#0a0a0a]/60">
+                    <p className="font-inter text-[14px] leading-relaxed text-[#000000]/60">
                       {item.v}
                     </p>
                   </div>

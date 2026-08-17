@@ -1,11 +1,9 @@
-// File: src/components/HeroNew.tsx
-
 "use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import PortfolioMarquee from "./PortfolioMarquee";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -20,11 +18,10 @@ const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+  },
 };
 
-// Company logos for the trusted by section
 const companies = [
   { id: 1, name: "Faux Fur Boa", logo: "/images/brand1.png" },
   { id: 2, name: "ISports Cricket", logo: "/images/brand2.png" },
@@ -34,29 +31,25 @@ const companies = [
 
 export default function HeroNew() {
   const sectionRef = useRef<HTMLElement>(null);
-
-  // WhatsApp link
-  const whatsappLink = "https://wa.me/94767732288?text=Hi%20Two%20Stack%2C%20I'd%20like%20to%20start%20building%20my%20project.";
+  const whatsappLink =
+    "https://wa.me/94767732288?text=Hi%20TwoStack%2C%20I'd%20like%20to%20start%20building%20my%20project.";
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="relative w-full bg-black overflow-hidden"
     >
-
-      {/* Main Hero Content - Center Aligned */}
       <div className="relative z-10 w-full px-4 sm:px-6 md:px-12 pt-28 sm:pt-24 md:pt-28 pb-8">
-        
-        {/* Single Column - Center Aligned */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto"
+          className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto"
         >
-
-          {/* Trust Badge - With Company Images */}
-          <motion.div variants={fadeUp(0.2)} className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <motion.div
+            variants={fadeUp(0.2)}
+            className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6"
+          >
             <div className="flex -space-x-2">
               {companies.map((company) => (
                 <div
@@ -66,7 +59,7 @@ export default function HeroNew() {
                   {company.logo ? (
                     <Image
                       src={company.logo}
-                      alt={`${company.name} logo`}
+                      alt={`${company.name} client logo`}
                       fill
                       sizes="36px"
                       className="object-contain p-1.5"
@@ -79,30 +72,37 @@ export default function HeroNew() {
                 </div>
               ))}
             </div>
-            <span className="font-inter text-white/30 text-[10px] sm:text-xs tracking-wide">
-              TRUSTED BY 10+ COMPANIES
+            <span className="font-inter text-white/30 text-[10px] sm:text-xs tracking-wide uppercase">
+              Enterprise Software Studio Sri Lanka
             </span>
           </motion.div>
 
-          {/* Main Headline - Center Aligned */}
-          <motion.h1 variants={fadeUp(0.35)} className="mt-0 w-full">
-            <div className="font-satoshi font-semibold text-white leading-[1.1]">
-              <div className="text-[32px] sm:text-[44px] md:text-[56px] lg:text-[70px]">
-                Intelligence, automation, and
-              </div>
-              <div className="text-[32px] sm:text-[44px] md:text-[56px] lg:text-[70px] mt-1 sm:mt-0">
-                presence — built as one system.
-              </div>
-            </div>
+          {/* Optimized, Concise SEO H1 */}
+          <motion.h1
+            variants={fadeUp(0.35)}
+            className="mt-0 w-full font-satoshi font-semibold text-white leading-[1.1] text-[36px] sm:text-[48px] md:text-[60px] lg:text-[72px]"
+          >
+            AI-Powered Web, Mobile & Ecommerce Development in Sri Lanka.
           </motion.h1>
 
-          {/* Body Copy - Center Aligned */}
-          <motion.p variants={fadeUp(0.5)} className="mt-4 sm:mt-6 font-inter text-white/50 leading-relaxed max-w-2xl text-sm sm:text-base">
-            Most agencies hand you a website and call it done. We build the layer that predicts what's coming, the layer that runs your operations without you, and the layer that shows up professionally everywhere your customers look — all on one foundation.
+          {/* Shortened, authoritative SEO paragraph */}
+          <motion.p
+            variants={fadeUp(0.5)}
+            className="mt-6 font-inter text-white/50 leading-relaxed max-w-4xl text-sm sm:text-base md:text-lg"
+          >
+            TwoStack engineers custom mobile applications, high-performance web
+            architectures, and
+            <br className="hidden md:block" />
+            intelligent e-commerce platforms. We build secure, scalable digital
+            infrastructure
+            <br className="hidden md:block" />
+            tailored for enterprise growth.
           </motion.p>
 
-          {/* CTA Buttons - Center Aligned */}
-          <motion.div variants={fadeUp(0.7)} className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-4 sm:mt-6">
+          <motion.div
+            variants={fadeUp(0.7)}
+            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8"
+          >
             <motion.a
               href={whatsappLink}
               target="_blank"
@@ -116,20 +116,17 @@ export default function HeroNew() {
                 →
               </span>
             </motion.a>
-            
+
             <Link
               href="/services"
               className="inline-flex items-center gap-2 bg-transparent border border-white/20 text-white font-inter font-medium px-6 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm hover:border-white/50 transition-all duration-300"
             >
-              VIEW SERVICES
+              EXPLORE SERVICES
             </Link>
           </motion.div>
-
         </motion.div>
-
       </div>
 
-      {/* Portfolio Marquee - Bottom of Hero */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -138,7 +135,6 @@ export default function HeroNew() {
       >
         <PortfolioMarquee />
       </motion.div>
-
     </section>
   );
 }

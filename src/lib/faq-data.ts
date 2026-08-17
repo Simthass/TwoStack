@@ -1,7 +1,3 @@
-// File: src/lib/faq-data.ts
-// Single source of truth for FAQ content — used by both the FAQSection component
-// and the FAQPage JSON-LD structured data schema.
-
 export interface FAQ {
   id: number;
   question: string;
@@ -13,7 +9,7 @@ export const FAQS: FAQ[] = [
     id: 1,
     question: "Do we need to change our existing systems?",
     answer:
-      "No. If you already have a system in place — whether it's a CRM, accounting software, or spreadsheets — we connect to it and pull your data across. We only rebuild what's actually holding you back, not everything for the sake of it.",
+      "No. If you already have a system in place - whether it's a CRM, accounting software, or spreadsheets - we connect to it and pull your data across. We only rebuild what's actually holding you back, not everything for the sake of it.",
   },
   {
     id: 2,
@@ -23,7 +19,8 @@ export const FAQS: FAQ[] = [
   },
   {
     id: 3,
-    question: "What exactly do you build — is it just the website or everything?",
+    question:
+      "What exactly do you build - is it just the website or everything?",
     answer:
       "We build the complete digital ecosystem your business runs on. That includes your website (frontend, backend, CMS), automation and AI assistants, hosting and domain setup, SEO and performance optimization, security and analytics, and payment gateway integrations.",
   },
@@ -49,7 +46,7 @@ export const FAQS: FAQ[] = [
     id: 7,
     question: "What industries do you work with in Sri Lanka?",
     answer:
-      "We work with businesses across all industries — from retail and e-commerce to logistics, healthcare, and fintech. We've built systems for Sri Lankan businesses ranging from boutique stores to large enterprises. Every industry has its own workflow, and we build around yours.",
+      "We work with businesses across all industries - from retail and e-commerce to logistics, healthcare, and fintech. We've built systems for Sri Lankan businesses ranging from boutique stores to large enterprises. Every industry has its own workflow, and we build around yours.",
   },
   {
     id: 8,
@@ -61,7 +58,7 @@ export const FAQS: FAQ[] = [
     id: 9,
     question: "What if my team isn't tech-savvy?",
     answer:
-      "That's exactly why we exist. We build systems that your team can actually use — not complicated software that requires a manual. We train your team, provide clear documentation, and we're just a WhatsApp message away if something needs changing.",
+      "That's exactly why we exist. We build systems that your team can actually use - not complicated software that requires a manual. We train your team, provide clear documentation, and we're just a WhatsApp message away if something needs changing.",
   },
   {
     id: 10,
@@ -73,6 +70,6 @@ export const FAQS: FAQ[] = [
     id: 11,
     question: "Do you handle hosting and domain setup?",
     answer:
-      "Yes. We handle everything — domain registration, SSL certificates, hosting setup, and ongoing maintenance. We use fast, reliable servers with local CDN coverage to ensure your site loads quickly for Sri Lankan users.",
+      "Yes. We handle everything - domain registration, SSL certificates, hosting setup, and ongoing maintenance. We use fast, reliable servers with local CDN coverage to ensure your site loads quickly for Sri Lankan users.",
   },
 ];

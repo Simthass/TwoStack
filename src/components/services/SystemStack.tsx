@@ -35,7 +35,7 @@ export default function SystemStack() {
           The system
         </span>
         <span className="inline-flex items-center gap-1.5 text-xs font-inter text-white/40">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#2E9E7C]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#ffffff]" />
           one connected build
         </span>
       </div>
@@ -60,14 +60,14 @@ export default function SystemStack() {
             opacity="0.15"
           />
           {/* travelling pulses */}
-          <circle r="4" fill="#C9683B">
+          <circle r="4" fill="#ffffff">
             <animateMotion
               dur="4.2s"
               repeatCount="indefinite"
               path={`M 60 20 L 60 ${viewH - 20}`}
             />
           </circle>
-          <circle r="4" fill="#C9683B" opacity="0.5">
+          <circle r="4" fill="#ffffff" opacity="0.5">
             <animateMotion
               dur="4.2s"
               begin="2.1s"
@@ -94,7 +94,7 @@ export default function SystemStack() {
                 cy={layer.y + 30}
                 r="6"
                 fill="white"
-                stroke="#0a0a0a"
+                stroke="#000000"
                 strokeWidth="2.5"
               />
 
@@ -116,7 +116,7 @@ export default function SystemStack() {
                 width="500"
                 height="140"
                 rx="12"
-                fill="#0a0a0a"
+                fill="#000000"
                 stroke="white"
                 strokeWidth="1"
                 opacity="0.6"
@@ -151,7 +151,7 @@ export default function SystemStack() {
                     width={145}
                     height={32}
                     rx={16}
-                    fill="#0a0a0a"
+                    fill="#000000"
                     stroke="white"
                     strokeWidth="1"
                     opacity="0.6"
@@ -176,7 +176,7 @@ export default function SystemStack() {
 
       <div className="flex gap-5 px-5 py-3.5 border-t border-white/10 text-xs font-inter text-white/40">
         <span className="inline-flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#C9683B]" /> flows
+          <span className="w-2 h-2 rounded-full bg-[#ffffff]" /> flows
           between layers
         </span>
         <span className="ml-auto">built as one system</span>

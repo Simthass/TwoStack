@@ -1,21 +1,18 @@
-// File: src/components/FAQSection.tsx
-
 "use client";
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { FAQS } from "@/lib/faq-data";
 
-// Custom Chevron Down Icon (no external dependency)
 const ChevronDownIcon = ({ className }: { className?: string }) => (
-  <svg 
-    className={className} 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
     strokeLinejoin="round"
   >
     <polyline points="6 9 12 15 18 9" />
@@ -31,49 +28,34 @@ export default function FAQSection() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // ✅ FIXED: Added 'as const' to ease array
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }
-    }
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
+    },
   };
 
   const staggerContainer = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.08, delayChildren: 0.1 }
-    }
-  };
-
-  // Helper function to render answer with line breaks
-  const renderAnswer = (text: string) => {
-    return text.split('\n').map((line, index) => (
-      <span key={index}>
-        {line}
-        {index < text.split('\n').length - 1 && <br />}
-      </span>
-    ));
+      transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+    },
   };
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="relative w-full bg-white border-t border-[#0a0a0a]/10 overflow-hidden py-16 md:py-24"
     >
-      
-      {/* Subtle background pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-black/20 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full bg-black/10 blur-3xl" />
       </div>
 
       <div className="max-w-3xl mx-auto px-6 md:px-12">
-        
-        {/* Header - Centered */}
         <motion.div
           variants={fadeUpVariants}
           initial="hidden"
@@ -81,11 +63,10 @@ export default function FAQSection() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="font-satoshi text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-2">
-            Questions you're probably thinking.
+            Technical Architecture Specifications & FAQ
           </h2>
         </motion.div>
 
-        {/* FAQ List - Centered with dividers */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -96,14 +77,9 @@ export default function FAQSection() {
             const isOpen = openIndex === index;
 
             return (
-              <motion.div
-                key={faq.id}
-                variants={fadeUpVariants}
-                className="group"
-              >
-                {/* Divider - Full width */}
+              <div key={faq.id} className="group">
                 <div className="w-full h-px bg-black/10" />
-                
+
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full text-left py-5 md:py-6 transition-all duration-300"
@@ -113,34 +89,27 @@ export default function FAQSection() {
                       {faq.question}
                     </span>
                     <motion.div
-                      animate={{ 
-                        rotate: isOpen ? 180 : 0 
-                      }}
-                      transition={{ 
-                        duration: 0.3, 
-                        ease: [0.16, 1, 0.3, 1] as const  // ✅ FIXED: Added 'as const'
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{
+                        duration: 0.3,
+                        ease: [0.16, 1, 0.3, 1] as const,
                       }}
                       className="flex-shrink-0 mt-1"
                     >
                       <ChevronDownIcon className="w-5 h-5 text-black/40" />
                     </motion.div>
                   </div>
-                  
-                  {/* Answer */}
+
                   <motion.div
-                    initial={{ 
-                      height: 0, 
-                      opacity: 0,
-                      marginTop: 0
-                    }}
-                    animate={{ 
+                    initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                    animate={{
                       height: isOpen ? "auto" : 0,
                       opacity: isOpen ? 1 : 0,
-                      marginTop: isOpen ? 12 : 0
+                      marginTop: isOpen ? 12 : 0,
                     }}
-                    transition={{ 
-                      duration: 0.3, 
-                      ease: [0.16, 1, 0.3, 1] as const  // ✅ FIXED: Added 'as const'
+                    transition={{
+                      duration: 0.3,
+                      ease: [0.16, 1, 0.3, 1] as const,
                     }}
                     className="overflow-hidden"
                   >
@@ -150,16 +119,14 @@ export default function FAQSection() {
                   </motion.div>
                 </button>
 
-                {/* Final divider after last item */}
                 {index === FAQS.length - 1 && (
                   <div className="w-full h-px bg-black/10" />
                 )}
-              </motion.div>
+              </div>
             );
           })}
         </motion.div>
       </div>
-
     </section>
   );
 }

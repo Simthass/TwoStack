@@ -10,7 +10,7 @@ const steps = [
   {
     n: "01",
     title: "Audit",
-    body: "We sit inside how your business actually runs for a week — where enquiries go, what gets typed twice, what a manager checks every morning by hand.",
+    body: "We sit inside how your business actually runs for a week - where enquiries go, what gets typed twice, what a manager checks every morning by hand.",
   },
   {
     n: "02",
@@ -25,7 +25,7 @@ const steps = [
   {
     n: "04",
     title: "Improve",
-    body: "Once it's stable, we keep watching it monthly — fixing what's off, and telling you honestly what's worth building next.",
+    body: "Once it's stable, we keep watching it monthly - fixing what's off, and telling you honestly what's worth building next.",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Process() {
     <section 
       ref={sectionRef}
       id="how" 
-      className="w-full bg-[#fdfdfe] border-t border-[#0a0a0a]/10 py-20 lg:py-28 px-6 lg:px-[35px]"
+      className="w-full bg-[#ffffff] border-t border-[#000000]/10 py-20 lg:py-28 px-6 lg:px-[35px]"
     >
       <div className="mx-auto max-w-[1300px]">
         <motion.div
@@ -71,7 +71,7 @@ export default function Process() {
           animate={isInView ? "visible" : "hidden"}
           className="mb-12 text-center"
         >
-          <h2 className="font-satoshi font-bold text-[#0a0a0a] leading-[1.05]"
+          <h2 className="font-satoshi font-bold text-[#000000] leading-[1.05]"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
           >
             One process, whichever layers you need.
@@ -85,13 +85,13 @@ export default function Process() {
           className="relative pl-8 max-w-2xl mx-auto"
           ref={progressRef}
         >
-          {/* Track — full height, faint */}
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-[#0a0a0a]/10" />
+          {/* Track - full height, faint */}
+          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-[#000000]/10" />
           
-          {/* Progress line — grows top to bottom with scroll */}
+          {/* Progress line - grows top to bottom with scroll */}
           <motion.div
             style={{ scaleY, transformOrigin: "top" }}
-            className="absolute left-[7px] top-2 bottom-2 w-px bg-[#0a0a0a]"
+            className="absolute left-[7px] top-2 bottom-2 w-px bg-[#000000]"
           />
 
           <div className="flex flex-col gap-10">
@@ -101,14 +101,14 @@ export default function Process() {
                 variants={fadeUpVariants}
                 className="relative"
               >
-                <div className="absolute -left-8 top-1 w-3.5 h-3.5 rounded-full bg-[#0a0a0a] border-2 border-[#fdfdfe] ring-1 ring-[#0a0a0a]/10 z-10" />
-                <div className="font-inter text-xs text-[#0a0a0a]/40 mb-1">
+                <div className="absolute -left-8 top-1 w-3.5 h-3.5 rounded-full bg-[#000000] border-2 border-[#ffffff] ring-1 ring-[#000000]/10 z-10" />
+                <div className="font-inter text-xs text-[#000000]/40 mb-1">
                   {step.n}
                 </div>
-                <h3 className="font-satoshi font-semibold text-[#0a0a0a] text-xl mb-2">
+                <h3 className="font-satoshi font-semibold text-[#000000] text-xl mb-2">
                   {step.title}
                 </h3>
-                <p className="font-inter text-[15px] leading-relaxed text-[#0a0a0a]/60 max-w-[56ch]">
+                <p className="font-inter text-[15px] leading-relaxed text-[#000000]/60 max-w-[56ch]">
                   {step.body}
                 </p>
               </motion.div>
