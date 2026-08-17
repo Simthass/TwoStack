@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion, useInView, type Variants } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const SERVICES = [
   {
@@ -9,32 +9,59 @@ const SERVICES = [
     title: "Web & Ecommerce Development",
     subtitle:
       "High-performance serverless architectures, custom Next.js storefronts, and secure local IPG bank integrations optimized for conversions.",
-    color: "#C9683B",
   },
   {
     id: "02",
     title: "AI Optimization & Automation",
     subtitle:
       "Multi-lingual LLM applications, localized WhatsApp transactional pipelines, and automated synchronization hooks engineered for scale.",
-    color: "#2E9E7C",
   },
   {
     id: "03",
     title: "Mobile Application Engineering",
     subtitle:
       "Native iOS and Android software clients deploying complex cross-platform synchronization scripts and low-latency background operations.",
-    color: "#6A5FCF",
   },
 ] as const;
 
-const createMarqueeItems = (title: string, color: string) => {
-  const items: { type: "text" | "dot"; content?: string; color?: string }[] =
-    [];
+type MarqueeItem =
+  | { type: "text"; content: string }
+  | { type: "dot" };
+
+const createMarqueeItems = (title: string): MarqueeItem[] => {
+  const items: MarqueeItem[] = [];
+
   for (let i = 0; i < 8; i++) {
     items.push({ type: "text", content: title });
-    items.push({ type: "dot", color });
+    items.push({ type: "dot" });
   }
+
   return items;
+};
+
+const headlineVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const rowVariants: Variants = {
+  hidden: { opacity: 0, x: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0.1 + i * 0.1,
+      ease: "easeOut",
+    },
+  }),
 };
 
 export default function ServicesMarquee() {
@@ -47,32 +74,12 @@ export default function ServicesMarquee() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
+
     checkMobile();
     window.addEventListener("resize", checkMobile);
+
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
-
-  const headlineVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
-  const rowVariants = {
-    hidden: { opacity: 0, x: 30 },
-    visible: (i: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-        delay: 0.1 + i * 0.1,
-        ease: "easeOut",
-      },
-    }),
-  };
 
   const ghostFontSize = isMobile ? "28px" : "64px";
   const marqueeFontSize = isMobile ? "28px" : "64px";
@@ -81,32 +88,29 @@ export default function ServicesMarquee() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-white border-t border-[#0a0a0a]/10 overflow-hidden pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-8 sm:pb-12 md:pb-16 lg:pb-20"
+      className="relative w-full overflow-hidden border-t border-black/10 bg-white pt-8 pb-8 sm:pt-12 sm:pb-12 md:pt-16 md:pb-16 lg:pt-20 lg:pb-20"
     >
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 md:px-12">
+      <div className="mx-auto max-w-[1600px] px-4 sm:px-6 md:px-12">
         <motion.div
           variants={headlineVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="w-full mb-6 sm:mb-8 md:mb-12 lg:mb-16 text-center"
+          className="mb-6 w-full text-center sm:mb-8 md:mb-12 lg:mb-16"
         >
           <h2
-            className="font-satoshi font-bold text-black leading-tight"
+            className="font-satoshi font-bold leading-tight text-black"
             style={{ fontSize: headlineFontSize, letterSpacing: "-0.02em" }}
           >
             Core Software Engineering Sectors
           </h2>
         </motion.div>
 
-        <div className="w-full flex flex-col gap-0">
-          <div className="w-full border-t border-black/20 mb-4 sm:mb-6 md:mb-8" />
+        <div className="flex w-full flex-col gap-0">
+          <div className="mb-4 w-full border-t border-black/20 sm:mb-6 md:mb-8" />
 
           {SERVICES.map((service, index) => {
             const isHovered = hoveredIndex === index;
-            const marqueeItems = createMarqueeItems(
-              service.title,
-              service.color,
-            );
+            const marqueeItems = createMarqueeItems(service.title);
 
             return (
               <div key={service.id}>
@@ -115,7 +119,7 @@ export default function ServicesMarquee() {
                   variants={rowVariants}
                   initial="hidden"
                   animate={isInView ? "visible" : "hidden"}
-                  className="relative group"
+                  className="group relative"
                   onMouseEnter={() => !isMobile && setHoveredIndex(index)}
                   onMouseLeave={() => !isMobile && setHoveredIndex(null)}
                   onClick={() =>
@@ -131,12 +135,13 @@ export default function ServicesMarquee() {
                       }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
                     >
-                      <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap justify-center">
-                        <span className="font-mono text-[10px] sm:text-sm text-black/30">
+                      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4">
+                        <span className="font-mono text-[10px] text-black/30 sm:text-sm">
                           [{service.id}]
                         </span>
+
                         <span
-                          className="font-satoshi font-bold text-black/80 whitespace-normal text-center"
+                          className="whitespace-normal text-center font-satoshi font-bold text-black/80"
                           style={{
                             fontSize: ghostFontSize,
                             letterSpacing: "-0.02em",
@@ -146,7 +151,8 @@ export default function ServicesMarquee() {
                           {service.title}
                         </span>
                       </div>
-                      <span className="font-inter text-black/60 text-xs sm:text-sm md:text-base max-w-2xl text-center leading-relaxed px-2 sm:px-4 mt-2">
+
+                      <span className="mt-2 max-w-2xl px-2 text-center font-inter text-xs leading-relaxed text-black/60 sm:px-4 sm:text-sm md:text-base">
                         {service.subtitle}
                       </span>
                     </motion.div>
@@ -177,7 +183,7 @@ export default function ServicesMarquee() {
                             item.type === "text" ? (
                               <span
                                 key={idx}
-                                className="font-satoshi font-bold text-black/90 whitespace-nowrap text-center flex-shrink-0"
+                                className="flex-shrink-0 whitespace-nowrap text-center font-satoshi font-bold text-black/90"
                                 style={{
                                   fontSize: marqueeFontSize,
                                   letterSpacing: "-0.02em",
@@ -189,8 +195,8 @@ export default function ServicesMarquee() {
                             ) : (
                               <span
                                 key={idx}
-                                className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 rounded-full flex-shrink-0"
-                                style={{ background: item.color }}
+                                aria-hidden="true"
+                                className="h-2 w-2 flex-shrink-0 rounded-full bg-black sm:h-3 sm:w-3 md:h-4 md:w-4"
                               />
                             ),
                           )}
@@ -201,13 +207,13 @@ export default function ServicesMarquee() {
                 </motion.div>
 
                 {index < SERVICES.length - 1 && (
-                  <div className="w-full border-t border-black/20 my-2 sm:my-3 md:my-5" />
+                  <div className="my-2 w-full border-t border-black/20 sm:my-3 md:my-5" />
                 )}
               </div>
             );
           })}
 
-          <div className="w-full border-t border-black/20 mt-4 sm:mt-6 md:md:8" />
+          <div className="mt-4 w-full border-t border-black/20 sm:mt-6 md:mt-8" />
         </div>
       </div>
     </section>
