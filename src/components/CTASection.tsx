@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import Image from "next/image";
 
 export default function CTASection() {
   const sectionRef = useRef(null);
@@ -85,18 +84,64 @@ export default function CTASection() {
   const SOCIAL_LINKS = [
     {
       name: "Facebook",
-      href: "https://www.facebook.com/twostacklk",
-      icon: "/images/social/facebook.png",
+      href: "https://www.facebook.com/twostack.lk",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+        </svg>
+      ),
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/twostacklk",
-      icon: "/images/social/instagram.png",
+      href: "https://www.instagram.com/twostack.lk",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      ),
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/company/twostacklk",
-      icon: "/images/social/linkedin.png",
+      href: "https://www.linkedin.com/company/twostack-lk",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      ),
     },
   ];
 
@@ -132,7 +177,7 @@ export default function CTASection() {
               variants={fadeUpVariants}
               className="inline-block font-inter text-[13px] uppercase tracking-wider text-white/40"
             >
-              Initialize Engineering Consultation
+              Book a free consultation
             </motion.span>
 
             <motion.h2
@@ -140,16 +185,15 @@ export default function CTASection() {
               className="mt-5 font-satoshi font-bold text-white leading-[1.05]"
               style={{ fontSize: "clamp(2.25rem, 6vw, 5rem)" }}
             >
-              Request Custom System Architects
+              Let&apos;s talk about your project
             </motion.h2>
 
             <motion.p
               variants={fadeUpVariants}
               className="mt-6 font-inter text-white/50 text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
             >
-              Submit your operational requirements. Our full-stack software
-              development architects will draft a formal infrastructure
-              specification sheet layout.
+              Tell us what you need. Our team will get back to you with a clear
+              plan and a straightforward quote.
             </motion.p>
           </div>
 
@@ -166,7 +210,7 @@ export default function CTASection() {
                         htmlFor="name"
                         className="font-inter text-black/60 text-xs uppercase tracking-wider block mb-1.5"
                       >
-                        Corporate / Representative Name *
+                        Your Name *
                       </label>
                       <input
                         type="text"
@@ -185,7 +229,7 @@ export default function CTASection() {
                         htmlFor="email"
                         className="font-inter text-black/60 text-xs uppercase tracking-wider block mb-1.5"
                       >
-                        Secure Corporate Email *
+                        Your Email *
                       </label>
                       <input
                         type="email"
@@ -206,7 +250,7 @@ export default function CTASection() {
                       htmlFor="phone"
                       className="font-inter text-black/60 text-xs uppercase tracking-wider block mb-1.5"
                     >
-                      Contact Number (WhatsApp Enabled)
+                      Phone Number (WhatsApp)
                     </label>
                     <input
                       type="tel"
@@ -222,7 +266,7 @@ export default function CTASection() {
 
                   <div className="mt-4">
                     <label className="font-inter text-black/60 text-xs uppercase tracking-wider block mb-3">
-                      Target Software Engineering Domains
+                      What do you need help with?
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {serviceOptions.map((service) => (
@@ -247,9 +291,7 @@ export default function CTASection() {
                     disabled={isSubmitting}
                     className="mt-6 w-full bg-black text-white font-inter font-medium text-sm px-6 py-3 rounded-xl hover:bg-black/85 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
                   >
-                    {isSubmitting
-                      ? "Processing Node..."
-                      : "Transmit Project Scope via WhatsApp"}
+                    {isSubmitting ? "Sending..." : "Send via WhatsApp"}
                   </button>
                 </form>
               </div>
@@ -258,13 +300,13 @@ export default function CTASection() {
             <div className="lg:col-span-2 space-y-6">
               <div className="bg-[#ffffff] rounded-2xl p-6 md:p-8 border border-black/10 shadow-sm">
                 <p className="font-inter text-black/40 text-xs uppercase tracking-wider mb-4">
-                  Corporate Verification Shards
+                  Contact details
                 </p>
 
                 <div className="space-y-4">
                   <div>
                     <p className="font-inter text-black/40 text-xs mb-1">
-                      Secure Mailbox
+                      Email
                     </p>
                     <a
                       href="mailto:twostacklk@gmail.com"
@@ -276,7 +318,7 @@ export default function CTASection() {
 
                   <div>
                     <p className="font-inter text-black/40 text-xs mb-1">
-                      Direct Secure Line
+                      Phone / WhatsApp
                     </p>
                     <a
                       href="https://wa.me/94767732288"
@@ -301,7 +343,7 @@ export default function CTASection() {
 
               <div className="bg-[#ffffff] rounded-2xl p-6 md:p-8 border border-black/10 shadow-sm">
                 <p className="font-inter text-black/40 text-xs uppercase tracking-wider mb-4">
-                  Entity Graph Mapping
+                  Follow us
                 </p>
                 <div className="flex gap-3">
                   {SOCIAL_LINKS.map((social) => (
@@ -310,16 +352,10 @@ export default function CTASection() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center hover:border-black/30 hover:bg-black/5 transition-all duration-300"
+                      className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-black/80 transition-all duration-300 shadow-sm"
                       aria-label={social.name}
                     >
-                      <Image
-                        src={social.icon}
-                        alt={`${social.name} connection anchor`}
-                        width={20}
-                        height={20}
-                        className="object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
-                      />
+                      {social.icon}
                     </a>
                   ))}
                 </div>

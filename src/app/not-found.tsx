@@ -15,14 +15,14 @@ export default function NotFound() {
       <main className="min-h-[75vh] bg-[#000000] px-6 pb-24 pt-36 text-white md:pt-44">
         <div className="mx-auto max-w-[1300px]">
           <p className="font-inter text-xs uppercase tracking-[0.18em] text-white/35">
-            404 · Route unavailable
+            404 · Page not found
           </p>
           <h1 className="mt-5 max-w-4xl font-satoshi text-5xl font-bold leading-[0.98] sm:text-6xl md:text-8xl">
-            This page is not part of the stack.
+            We couldn&apos;t find that page.
           </h1>
           <p className="mt-7 max-w-xl font-inter text-base leading-7 text-white/50">
-            The URL may have moved or never existed. Continue through the core
-            TwoStack pages below.
+            The page may have moved or no longer exists. Try one of the pages
+            below instead.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link href="/" className="rounded-full bg-white px-6 py-3 font-inter text-sm font-medium text-black">

@@ -6,24 +6,24 @@ import { useRef } from "react";
 const STEPS = [
   {
     number: "01",
-    meta: "Phase 1: Systems Audit",
-    title: "Infrastructure Mapping",
+    meta: "Step 1: Look at what you have",
+    title: "Understand your business",
     description:
-      "We dissect your technical processes—analyzing database friction, tracking API drops, and isolating routine overhead operations that waste engineering resources.",
+      "We look at how your business works today, what's slowing you down, and where you're losing time or customers.",
   },
   {
     number: "02",
-    meta: "Phase 2: Custom Engineering",
-    title: "Production Stack Build",
+    meta: "Step 2: Build it",
+    title: "Design and build",
     description:
-      "We architect your digital platform, custom Next.js web application engines, API nodes, and localized workflow networks utilizing precise serverless design architectures.",
+      "We build your website, app or system using modern, reliable tools like Next.js — designed around how your team actually works.",
   },
   {
     number: "03",
-    meta: "Phase 3: Lifecycle Management",
-    title: "Deployment & Optimization",
+    meta: "Step 3: Launch and improve",
+    title: "Launch and keep improving",
     description:
-      "We launch your environment under structural safety controls. We constantly execute performance audits, refine data loops, and coordinate continuous integration updates.",
+      "We launch carefully, check everything works, and keep an eye on performance so we can fix and improve things over time.",
   },
 ];
 
@@ -45,11 +45,11 @@ export default function ProcessSection() {
             className="font-satoshi font-bold text-[#0a0a0a] leading-[1.05]"
             style={{ fontSize: "clamp(2.25rem, 4.5vw, 3.75rem)" }}
           >
-            Engineering Timeline & Execution Pipeline
+            How we work, step by step.
           </h2>
           <p className="mt-4 font-inter text-[#0a0a0a]/50 text-base lg:text-lg">
-            Deterministic execution phases. Transparent milestones. Highly
-            available architecture delivery.
+            A clear process with no surprises — you always know what happens
+            next.
           </p>
         </div>
 

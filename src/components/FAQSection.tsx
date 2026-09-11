@@ -63,7 +63,7 @@ export default function FAQSection() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="font-satoshi text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-2">
-            Technical Architecture Specifications & FAQ
+            Frequently Asked Questions
           </h2>
         </motion.div>
 

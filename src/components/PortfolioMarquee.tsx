@@ -7,29 +7,29 @@ import { useState, useEffect } from "react";
 const CARDS = [
   {
     id: 1,
-    src: "/fauxfurboa.png",
-    alt: "Portfolio project screenshot 1",
-  }, // TODO: Replace with real project name, e.g. "Faux Fur Boa e-commerce website"
+    src: "/fauxfurboa.webp",
+    alt: "Faux Fur Boa online store built by TwoStack",
+  },
   {
     id: 2,
-    src: "/project-2.png",
-    alt: "Portfolio project screenshot 2",
-  }, // TODO: Replace with real project name
+    src: "/project-2.webp",
+    alt: "Ecommerce website project built by TwoStack",
+  },
   {
     id: 3,
-    src: "/images/project-3.png",
-    alt: "Portfolio project screenshot 3",
-  }, // TODO: Replace with real project name
+    src: "/project-3.webp",
+    alt: "Web application project built by TwoStack",
+  },
   {
     id: 4,
-    src: "/images/project-4.png",
-    alt: "Portfolio project screenshot 4",
-  }, // TODO: Replace with real project name
+    src: "/project-4.webp",
+    alt: "Mobile app project built by TwoStack",
+  },
   {
     id: 5,
-    src: "/images/project-5.png",
-    alt: "Portfolio project screenshot 5",
-  }, // TODO: Replace with real project name
+    src: "/project-5.webp",
+    alt: "Business dashboard project built by TwoStack",
+  },
 ] as const;
 
 // Duplicate for seamless loop

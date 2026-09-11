@@ -13,10 +13,9 @@ export const SITE = {
   description:
     "TwoStack is a software development studio in Colombo, Sri Lanka building high-performance web applications, ecommerce systems, mobile apps, POS platforms, custom software and AI automation.",
   social: {
-    linkedin: "https://www.linkedin.com/company/twostacklk",
-    github: "https://github.com/twostacklk",
-    facebook: "https://www.facebook.com/twostacklk",
-    instagram: "https://www.instagram.com/twostacklk",
+    linkedin: "https://www.linkedin.com/company/twostack-lk",
+    facebook: "https://www.facebook.com/twostack.lk",
+    instagram: "https://www.instagram.com/twostack.lk",
   },
 } as const;
 

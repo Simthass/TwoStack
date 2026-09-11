@@ -9,7 +9,7 @@ import { breadcrumbSchema, createMetadata, jsonLd, webPageSchema } from "@/lib/s
 
 const path = "/process";
 const description =
-  "See how TwoStack scopes, designs, engineers, launches and supports custom web, ecommerce, mobile, POS, AI automation and software projects in Sri Lanka.";
+  "See how TwoStack plans, designs, builds, launches and supports web, ecommerce, mobile app, POS and AI automation projects in Sri Lanka.";
 
 export const metadata: Metadata = createMetadata({
   title: "Our Software Development Process",
@@ -21,50 +21,50 @@ const STEPS = [
   {
     number: "01",
     phase: "Discovery",
-    title: "Map the business before touching the code.",
+    title: "We understand your business first.",
     body:
-      "We identify the users, workflows, bottlenecks, existing systems, required integrations and the commercial result the product is expected to create. The output is a shared problem definition rather than a list of screens.",
-    output: "Workflow map · risks · integration inventory · success criteria",
+      "We talk to you about who uses the system, where the bottlenecks are, what tools you already use, and what a successful outcome actually looks like. The result is a clear, shared understanding of the problem — not just a list of screens to build.",
+    output: "How your work flows today · risks · what needs to connect · what success looks like",
   },
   {
     number: "02",
     phase: "Scope",
-    title: "Turn the problem into a buildable contract.",
+    title: "We turn the plan into something clear and buildable.",
     body:
-      "Features are separated into must-have, later and unnecessary. We define roles, core journeys, data boundaries, acceptance criteria and delivery milestones before implementation creates expensive ambiguity.",
-    output: "Scope · architecture · milestones · acceptance criteria",
+      "We decide what's must-have, what can wait, and what's unnecessary. User roles, key screens, data, and delivery milestones are all agreed before we start building — so there's no expensive guesswork halfway through.",
+    output: "What's included · how it's structured · milestones · what 'done' means",
   },
   {
     number: "03",
-    phase: "Product & UX",
-    title: "Design the system people will actually operate.",
+    phase: "Design",
+    title: "We design around how people will actually use it.",
     body:
-      "Information architecture, interaction states and responsive behaviour are designed around real user tasks. We keep the TwoStack approach deliberate: clear hierarchy, low visual noise and no template-driven interface decisions.",
-    output: "Flows · responsive UI · component rules · interaction states",
+      "Screens, navigation and mobile behaviour are designed around real tasks people need to complete. We keep things clear and simple, avoiding clutter and generic, template-driven designs.",
+    output: "User flows · mobile-friendly design · consistent components",
   },
   {
     number: "04",
-    phase: "Engineering",
-    title: "Build vertically, test continuously.",
+    phase: "Build",
+    title: "We build it properly, and test as we go.",
     body:
-      "Frontend, backend, data, permissions and integrations are implemented as one product. We review working slices throughout the build, test failure states and keep deployment repeatable rather than leaving integration until the end.",
-    output: "Working increments · tests · staging · review evidence",
+      "The frontend, backend, data and integrations are all built together as one product. We review progress regularly, test that things actually work, and keep the process repeatable instead of leaving all the testing until the very end.",
+    output: "Working versions to review · tests · a staging site · progress updates",
   },
   {
     number: "05",
-    phase: "Launch & Run",
-    title: "Production is the start of the feedback loop.",
+    phase: "Launch & Support",
+    title: "Launch is the start, not the finish line.",
     body:
-      "We validate the production environment, analytics, indexing, monitoring and operational handover. After launch, support can cover fixes, security maintenance and planned improvements based on observed usage.",
-    output: "Production release · monitoring · handover · improvement backlog",
+      "We check everything works properly in the live environment — including analytics, search engine indexing, and monitoring — and hand it over clearly. After launch, support can cover fixes, security updates and planned improvements.",
+    output: "A live, working product · monitoring · handover · a list of what to improve next",
   },
 ] as const;
 
 const PRINCIPLES = [
-  ["One accountable stack", "The public experience, backend and automation are designed together so business rules do not fragment across vendors."],
-  ["Evidence over promises", "Working software, test results, staging reviews and measurable acceptance criteria replace vague progress updates."],
-  ["Scope before speed", "Fast delivery is useful only when the team agrees on what finished means. Ambiguity is handled before it becomes rework."],
-  ["Responsive by default", "Mobile, tablet and desktop behaviour is designed as part of the component system, not patched after the desktop version."],
+  ["One team, one system", "Your website, backend and automation are designed together, so the same rules and logic apply everywhere instead of getting lost between different vendors."],
+  ["We show, not just tell", "You see working software, test results and real progress — not vague status updates that are hard to verify."],
+  ["Plan before we build", "Moving fast only helps if everyone agrees on what 'finished' looks like. We sort out unclear points before they turn into rework."],
+  ["Mobile-friendly from day one", "Mobile, tablet and desktop are all designed together from the start, not patched on afterwards."],
 ] as const;
 
 export default function ProcessPage() {
@@ -101,11 +101,11 @@ export default function ProcessPage() {
                 How TwoStack works
               </p>
               <h1 className="mt-5 max-w-5xl font-satoshi text-[clamp(2.7rem,8vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-white">
-                A software process built to remove ambiguity before it becomes code.
+                A clear process, so you always know what's happening.
               </h1>
               <div className="mt-8 grid grid-cols-1 gap-7 border-t border-white/12 pt-7 md:grid-cols-[1fr_.7fr] md:gap-16">
                 <p className="max-w-2xl font-inter text-base leading-7 text-white/58 sm:text-lg sm:leading-8">
-                  We move from operational reality to a scoped product, then from working increments to a measured production launch. No black-box build phase and no “almost done” status that cannot be demonstrated.
+                  We go from understanding your business to a working product, step by step. No mystery "build phase" and no vague "almost done" updates you can't actually see for yourself.
                 </p>
                 <div className="flex flex-wrap items-start gap-3 md:justify-end">
                   <Link href="/services" className="rounded-full border border-white/20 px-5 py-2.5 font-inter text-sm text-white hover:border-white/45">
@@ -150,9 +150,9 @@ export default function ProcessPage() {
           <div className="mx-auto max-w-[1300px]">
             <Reveal>
               <div className="grid grid-cols-1 gap-7 md:grid-cols-[.72fr_1.28fr] md:gap-14">
-                <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">Operating principles</p>
+                <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">How we work</p>
                 <h2 className="max-w-3xl font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
-                  What stays true regardless of the technology.
+                  A few things that never change, no matter the project.
                 </h2>
               </div>
             </Reveal>

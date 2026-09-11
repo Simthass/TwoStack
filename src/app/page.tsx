@@ -1,5 +1,3 @@
-// File: app/page.tsx
-
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";

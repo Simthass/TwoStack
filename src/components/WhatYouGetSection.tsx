@@ -25,50 +25,50 @@ const AI_MESSAGES: DemoMessage[] = [
 const CARDS = [
   {
     id: "followup",
-    label: "AI Automation Layers",
-    title: "Asynchronous Transactional Nudges",
+    label: "AI Automation",
+    title: "Automatic follow-ups",
     description:
-      "Automated multithreaded workflows dispatch payment queries, abandoned checkout alerts, and localized order status pings without manual configuration overhead.",
+      "Payment reminders, abandoned cart alerts and order updates are sent out on their own — no one on your team has to remember to send them.",
     tint: "#6B8F4E",
   },
   {
     id: "oneplace",
-    label: "Custom Architecture Systems",
-    title: "Unified Data Aggregation Points",
+    label: "Custom Software",
+    title: "Everything in one place",
     description:
-      "Consolidate operational records, high-velocity checkout states, and client customer relations matrices under a secure serverless dashboard layer.",
+      "Your orders, sales and customer details live in one dashboard, so your team isn't jumping between five different tools.",
     tint: "#3E6690",
   },
   {
     id: "custom",
-    label: "Optimized Web Development",
-    title: "Headless Node Frameworks",
+    label: "Web Development",
+    title: "Fast, modern websites",
     description:
-      "Engineered on robust client baselines using optimized React and Next.js technology stacks for immediate page rendering performance.",
+      "Built with React and Next.js so your pages load quickly, even on slower mobile connections.",
     tint: "#C9683B",
   },
   {
     id: "numbers",
-    label: "Business Intelligence Vectors",
-    title: "Granular Performance Audits",
+    label: "Reporting",
+    title: "Clear performance reports",
     description:
-      "Monitor conversion drops, payment channel latency, and operational processing costs with integrated zero-latency data reporting layers.",
+      "See where customers drop off, how payments are performing, and where the business is losing time — in plain numbers, not jargon.",
     tint: "#8B4F94",
   },
   {
     id: "proof",
-    label: "Local Payment Optimizations",
-    title: "Cryptographic IPG Confirmations",
+    label: "Local Payments",
+    title: "Sri Lankan bank payments that just work",
     description:
-      "Clean execution loops verifying webhooks across commercial Sri Lankan bank gateways including commercial ledgers and automated ledger updates.",
+      "Payments through local bank gateways are checked and confirmed automatically, so nothing gets lost between the checkout and your records.",
     tint: "#1D9E75",
   },
   {
     id: "person",
-    label: "Technical Engineering Support",
-    title: "Direct Pipeline Maintenance",
+    label: "Ongoing Support",
+    title: "A real team behind your system",
     description:
-      "Gain explicit access to Principal full-stack system architects managing code deployment, framework migrations, and infrastructure safety profiles.",
+      "You get direct access to the developers who built your system for updates, fixes and changes — not a support ticket queue.",
     tint: "#B8862E",
   },
 ] as const;
@@ -124,7 +124,7 @@ function AssistantVisual() {
               TwoStack Assistant
             </div>
             <div className="font-inter text-[10px] text-white/40">
-              Active Production Node
+              Online now
             </div>
           </div>
         </div>
@@ -178,9 +178,9 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
       return (
         <div className="flex flex-col gap-2 w-[85%]">
           {[
-            { label: "INV-2291", status: "Webhook Dispatched", active: true },
-            { label: "INV-2274", status: "Settled Ledger", active: false },
-            { label: "INV-2260", status: "Awaiting Sync", active: false },
+            { label: "INV-2291", status: "Reminder sent", active: true },
+            { label: "INV-2274", status: "Paid", active: false },
+            { label: "INV-2260", status: "Waiting", active: false },
           ].map((row) => (
             <div
               key={row.label}
@@ -205,7 +205,7 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
     case "oneplace":
       return (
         <div className="flex items-center justify-center gap-2 w-[80%]">
-          {["Data Matrix", "API Sync", "CRM Core"].map((label, i) => (
+          {["Orders", "Payments", "Customers"].map((label, i) => (
             <div
               key={label}
               className="flex-1 rounded-xl bg-white border-2 px-3 py-4 flex flex-col items-center gap-1.5"
@@ -260,9 +260,9 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
       return (
         <div className="grid grid-cols-3 gap-2 w-[85%]">
           {[
-            { label: "IPG Yield", value: "Rs. 1.2M" },
-            { label: "Latency", value: "14ms" },
-            { label: "Endpoints", value: "84" },
+            { label: "Sales", value: "Rs. 1.2M" },
+            { label: "Load time", value: "0.4s" },
+            { label: "Orders", value: "84" },
           ].map((stat, i) => (
             <div
               key={stat.label}
@@ -295,9 +295,9 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
       return (
         <div className="flex flex-col gap-2 w-[80%]">
           {[
-            { label: "IPG Callback Hook", done: true },
-            { label: "SSL Validation", done: true },
-            { label: "Database Shard", done: false },
+            { label: "Payment confirmed", done: true },
+            { label: "Site secured (SSL)", done: true },
+            { label: "Data backed up", done: false },
           ].map((row) => (
             <div
               key={row.label}
@@ -337,7 +337,7 @@ function CardVisual({ id, tint }: { id: string; tint: string }) {
           </div>
           <div className="bg-white border border-[#0a0a0a]/10 rounded-2xl rounded-bl-md px-3.5 py-2.5 shadow-sm">
             <span className="font-inter text-[12px] text-[#0a0a0a]/80">
-              Hot-fix executed.
+              Fix shipped.
             </span>
           </div>
         </div>
@@ -355,24 +355,23 @@ export default function WhatYouGetSection() {
           className="font-satoshi font-bold text-[#0a0a0a] leading-[1.05] mb-8 sm:mb-10 md:mb-14 lg:mb-20"
           style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)", maxWidth: "800px" }}
         >
-          High-performance systems configuration overview.
+          What you actually get when you work with us.
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6 lg:gap-16 items-center border border-[#0a0a0a]/10 rounded-2xl bg-white/40 p-5 sm:p-6 lg:p-12 mb-5 lg:mb-7">
           <div>
             <div className="font-inter text-[11px] text-[#0a0a0a]/40 mb-3 uppercase tracking-wider">
-              Consolidated Infrastructure Architecture
+              Everything connected
             </div>
             <h3 className="font-satoshi font-bold text-[#0a0a0a] text-xl sm:text-2xl lg:text-[34px] leading-[1.1]">
-              Wired software ecosystems. Autonomous workflows. Integrated
-              intelligence.
+              Your website, automation and reports, working together.
             </h3>
             <p className="mt-4 font-inter text-[#0a0a0a]/60 text-[14px] sm:text-[15px] leading-relaxed max-w-xl">
-              Our codebases do not sit inert. Every web interface is
-              programmatically wired into automated business operation
-              cycles—dispatching localized multi-lingual user communications,
-              executing transactional banking confirmations, and updating
-              tracking shards natively without introducing server blocks.
+              Your website isn&apos;t just a page that sits there. It&apos;s
+              connected to the rest of your business, so it can send
+              messages to customers in their own language, confirm payments
+              automatically, and keep your records up to date without
+              slowing anything down.
             </p>
           </div>
           <div className="flex justify-center py-4 lg:py-0">

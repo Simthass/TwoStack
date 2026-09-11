@@ -22,8 +22,7 @@ const satoshi = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default:
-      "TwoStack | Web, Ecommerce, Mobile App & AI Development Sri Lanka",
+    default: "TwoStack | Web, Ecommerce, Mobile App & AI Development Sri Lanka",
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
@@ -78,8 +77,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={SITE.language} className={`${inter.variable} ${satoshi.variable}`}>
-      <body className="bg-[#ffffff] antialiased">
+    <html
+      lang={SITE.language}
+      className={`${inter.variable} ${satoshi.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="bg-[#ffffff] antialiased" suppressHydrationWarning>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLd(organizationGraph) }}

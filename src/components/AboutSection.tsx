@@ -43,8 +43,8 @@ export default function AboutIntroSection() {
             letterSpacing: "-0.02em",
           }}
         >
-          Resilient web architecture, secure mobile platforms, and customized
-          local payment integration systems engineered in Sri Lanka.
+          Reliable websites, secure mobile apps, and local payment setups, built
+          for Sri Lankan businesses.
         </motion.h2>
 
         <motion.div
@@ -55,13 +55,11 @@ export default function AboutIntroSection() {
 
         <motion.p
           variants={fadeUpVariants}
-          className="mt-8 font-inter text-black/60 text-base md:text-lg leading-relaxed max-w-3xl"
+          className="mt-8 mb-8 font-inter text-black/60 text-base md:text-lg leading-relaxed max-w-3xl"
         >
-          TwoStack is an architectural software development studio operating out
-          of Colombo, Sri Lanka. We optimize modern enterprise infrastructures
-          by consolidating client presence layers with asynchronous API data
-          pipelines, robust local Internet Payment Gateways (IPG), and machine
-          learning orchestration models built for operational velocity.
+          TwoStack is a software development Agency based in Colombo, Sri Lanka.
+          We build websites, apps and payment systems that connect smoothly with
+          each other, so your business runs faster with less manual work.
         </motion.p>
       </motion.div>
     </section>

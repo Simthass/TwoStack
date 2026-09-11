@@ -1,5 +1,3 @@
-// File: src/components/services/Process.tsx
-
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -34,16 +32,16 @@ const fadeUpVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const }
-  }
+    transition: { duration: 0.6, ease: "easeOut" as const },
+  },
 };
 
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+  },
 };
 
 export default function Process() {
@@ -53,15 +51,15 @@ export default function Process() {
 
   const { scrollYProgress } = useScroll({
     target: progressRef,
-    offset: ["start 0.8", "end 0.2"]
+    offset: ["start 0.8", "end 0.2"],
   });
 
   const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="how" 
+      id="how"
       className="w-full bg-[#ffffff] border-t border-[#000000]/10 py-20 lg:py-28 px-6 lg:px-[35px]"
     >
       <div className="mx-auto max-w-[1300px]">
@@ -71,7 +69,8 @@ export default function Process() {
           animate={isInView ? "visible" : "hidden"}
           className="mb-12 text-center"
         >
-          <h2 className="font-satoshi font-bold text-[#000000] leading-[1.05]"
+          <h2
+            className="font-satoshi font-bold text-[#000000] leading-[1.05]"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
           >
             One process, whichever layers you need.
@@ -87,7 +86,7 @@ export default function Process() {
         >
           {/* Track - full height, faint */}
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-[#000000]/10" />
-          
+
           {/* Progress line - grows top to bottom with scroll */}
           <motion.div
             style={{ scaleY, transformOrigin: "top" }}

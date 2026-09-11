@@ -137,10 +137,10 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
                 </p>
                 <div>
                   <h2 className="font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
-                    One product, not disconnected deliverables.
+                    Built as one system, not separate pieces.
                   </h2>
                   <p className="mt-5 max-w-2xl font-inter text-base leading-7 text-black/55">
-                    The interface, backend, data model, integrations and operational controls are scoped as one system. That is where most long-term reliability comes from.
+                    The screens, the backend, the data and the integrations are all planned together. That's what makes it reliable long after launch.
                   </p>
                 </div>
               </div>

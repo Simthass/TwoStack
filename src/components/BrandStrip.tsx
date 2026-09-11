@@ -7,22 +7,22 @@ import Image from "next/image";
 const BRANDS = [
   {
     id: 1,
-    name: "Faux Fur Boa E-commerce Storefront",
+    name: "Faux Fur Boa",
     logo: "/images/brand1.png",
   },
   {
     id: 2,
-    name: "ISports Cricket Digital Ecosystem",
+    name: "ISports Cricket",
     logo: "/images/brand2.png",
   },
-  { id: 3, name: "The Great Outdoors Platform", logo: "/images/brand3.png" },
+  { id: 3, name: "The Great Outdoors", logo: "/images/brand3.png" },
   {
     id: 4,
-    name: "AmazonShopLK Retail Infrastructure",
+    name: "AmazonShopLK",
     logo: "/images/brand4.png",
   },
-  { id: 5, name: "Enterprise System Node 5", logo: "/images/brand5.png" },
-  { id: 6, name: "Enterprise System Node 6", logo: "/images/brand6.png" },
+  { id: 5, name: "TwoStack client", logo: "/images/brand5.png" },
+  { id: 6, name: "TwoStack client", logo: "/images/brand6.png" },
 ];
 
 const getInitialBrands = () => BRANDS.slice(0, 4);
@@ -84,7 +84,7 @@ export default function BrandStrip() {
         className="text-center pb-4 md:pb-5"
       >
         <h2 className="font-inter text-black/55 text-sm md:text-base font-medium tracking-wide">
-          Production Systems Deployed for Innovative Brands
+          Trusted by growing brands
         </h2>
       </motion.div>
 
@@ -115,7 +115,7 @@ export default function BrandStrip() {
                       <div className="relative w-20 h-8 md:w-28 md:h-10">
                         <Image
                           src={brand.logo}
-                          alt={`${brand.name} corporate entity identity`}
+                          alt={`${brand.name} logo`}
                           fill
                           className="object-contain brightness-0 grayscale"
                           sizes="(max-width: 768px) 80px, 112px"

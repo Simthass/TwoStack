@@ -8,25 +8,35 @@ const SERVICES = [
     id: "01",
     title: "Web & Ecommerce Development",
     subtitle:
-      "High-performance serverless architectures, custom Next.js storefronts, and secure local IPG bank integrations optimized for conversions.",
+      "Fast, modern websites and online stores, connected to Sri Lankan bank payments and built to turn visitors into customers.",
   },
   {
     id: "02",
-    title: "AI Optimization & Automation",
+    title: "AI Automation",
     subtitle:
-      "Multi-lingual LLM applications, localized WhatsApp transactional pipelines, and automated synchronization hooks engineered for scale.",
+      "AI assistants that reply to customers in Sinhala, Tamil or English on WhatsApp, plus automated order updates and reminders.",
   },
   {
     id: "03",
-    title: "Mobile Application Engineering",
+    title: "Mobile App Development",
     subtitle:
-      "Native iOS and Android software clients deploying complex cross-platform synchronization scripts and low-latency background operations.",
+      "iOS and Android apps that connect smoothly with your website and backend, so everything stays in sync.",
+  },
+  {
+    id: "04",
+    title: "POS System Development",
+    subtitle:
+      "Fast, reliable POS software that connects instantly to your web and mobile platforms, ensuring real-time inventory updates across your entire business.",
+  },
+  {
+    id: "05",
+    title: "Cusotm Software Development",
+    subtitle:
+      "We turn your ideas into easy-to-use digital tools, built from the ground up exactly the way you need them.",
   },
 ] as const;
 
-type MarqueeItem =
-  | { type: "text"; content: string }
-  | { type: "dot" };
+type MarqueeItem = { type: "text"; content: string } | { type: "dot" };
 
 const createMarqueeItems = (title: string): MarqueeItem[] => {
   const items: MarqueeItem[] = [];
@@ -101,7 +111,7 @@ export default function ServicesMarquee() {
             className="font-satoshi font-bold leading-tight text-black"
             style={{ fontSize: headlineFontSize, letterSpacing: "-0.02em" }}
           >
-            Core Software Engineering Sectors
+            What we build
           </h2>
         </motion.div>
 

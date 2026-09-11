@@ -90,13 +90,10 @@ export default function HeroNew() {
             variants={fadeUp(0.5)}
             className="mt-6 font-inter text-white/50 leading-relaxed max-w-4xl text-sm sm:text-base md:text-lg"
           >
-            TwoStack engineers custom mobile applications, high-performance web
-            architectures, and
+            TwoStack builds custom mobile apps, fast websites, and smart online
+            stores.
             <br className="hidden md:block" />
-            intelligent e-commerce platforms. We build secure, scalable digital
-            infrastructure
-            <br className="hidden md:block" />
-            tailored for enterprise growth.
+            We build secure, reliable software that grows with your business.
           </motion.p>
 
           <motion.div
