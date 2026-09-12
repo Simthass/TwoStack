@@ -14,7 +14,7 @@ import { FAQS } from "@/lib/faq-data";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://twostack.lk",
+    canonical: "/",
   },
 };
 
