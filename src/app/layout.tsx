@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "TwoStack | Software Development Studio in Sri Lanka",
+    title: "TwoStack | Software Development Agency in Sri Lanka",
     description: SITE.description,
     url: SITE.url,
     siteName: SITE.name,
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "TwoStack software development studio in Colombo, Sri Lanka",
+        alt: "TwoStack software development Agency in Colombo, Sri Lanka",
       },
     ],
     locale: SITE.locale,
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TwoStack | Software Development Studio in Sri Lanka",
+    title: "TwoStack | Software Development Agency in Sri Lanka",
     description: SITE.description,
     images: ["/og-image.jpg"],
   },

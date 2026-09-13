@@ -7,7 +7,11 @@ import { Reveal } from "@/components/services/Reveal";
 import type { ServicePageData } from "@/lib/service-data";
 import { SERVICE_ORDER, SERVICES } from "@/lib/service-data";
 
-export default function ServiceLandingPage({ service }: { service: ServicePageData }) {
+export default function ServiceLandingPage({
+  service,
+}: {
+  service: ServicePageData;
+}) {
   const related = SERVICE_ORDER.filter((slug) => slug !== service.slug)
     .slice(0, 3)
     .map((slug) => SERVICES[slug]);
@@ -20,12 +24,27 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
         <section className="relative overflow-hidden bg-[#000000] px-5 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 md:pt-40 lg:px-[35px]">
           <div className="mx-auto max-w-[1300px]">
             <Reveal>
-              <nav aria-label="Breadcrumb" className="mb-8 font-inter text-[12px] text-white/40">
-                <Link href="/" className="transition-colors hover:text-white/70">Home</Link>
+              <nav
+                aria-label="Breadcrumb"
+                className="mb-8 font-inter text-[12px] text-white/40"
+              >
+                <Link
+                  href="/"
+                  className="transition-colors hover:text-white/70"
+                >
+                  Home
+                </Link>
                 <span className="mx-2">/</span>
-                <Link href="/services" className="transition-colors hover:text-white/70">Services</Link>
+                <Link
+                  href="/services"
+                  className="transition-colors hover:text-white/70"
+                >
+                  Services
+                </Link>
                 <span className="mx-2">/</span>
-                <span aria-current="page" className="text-white/60">{service.metadataTitle}</span>
+                <span aria-current="page" className="text-white/60">
+                  {service.metadataTitle}
+                </span>
               </nav>
             </Reveal>
 
@@ -36,7 +55,6 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
                     <span
                       aria-hidden="true"
                       className="h-2.5 w-2.5 rounded-full bg-white"
-                      
                     />
                     <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-white/45">
                       {service.eyebrow}
@@ -66,17 +84,25 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
               </div>
 
               <Reveal delay={0.08}>
-                <aside className="border-t border-white/15 pt-5 lg:mt-8" aria-label="Problems this service solves">
+                <aside
+                  className="border-t border-white/15 pt-5 lg:mt-8"
+                  aria-label="Problems this service solves"
+                >
                   <p className="font-inter text-[11px] uppercase tracking-[0.16em] text-white/35">
                     When this becomes useful
                   </p>
                   <div className="mt-4 divide-y divide-white/10 border-b border-white/10">
                     {service.problems.map((problem, index) => (
-                      <div key={problem} className="grid grid-cols-[34px_1fr] gap-3 py-4">
+                      <div
+                        key={problem}
+                        className="grid grid-cols-[34px_1fr] gap-3 py-4"
+                      >
                         <span className="font-inter text-[11px] text-white/25">
                           {String(index + 1).padStart(2, "0")}
                         </span>
-                        <p className="font-inter text-sm leading-6 text-white/65">{problem}</p>
+                        <p className="font-inter text-sm leading-6 text-white/65">
+                          {problem}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -91,7 +117,7 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
             <Reveal>
               <div className="grid grid-cols-1 gap-7 border-b border-black/10 pb-10 md:grid-cols-[.72fr_1.28fr] md:gap-14">
                 <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
-                  01 — Capability
+                  01 - Capability
                 </p>
                 <h2 className="font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
                   What TwoStack actually builds.
@@ -113,7 +139,6 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
                     <span
                       aria-hidden="true"
                       className="h-2 w-2 rounded-full bg-black"
-                      
                     />
                   </div>
                   <h3 className="font-satoshi text-2xl font-semibold tracking-[-0.02em] text-[#000000]">
@@ -133,14 +158,16 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
             <Reveal>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-[.72fr_1.28fr] md:gap-14">
                 <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
-                  02 — System thinking
+                  02 - System thinking
                 </p>
                 <div>
                   <h2 className="font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
                     Built as one system, not separate pieces.
                   </h2>
                   <p className="mt-5 max-w-2xl font-inter text-base leading-7 text-black/55">
-                    The screens, the backend, the data and the integrations are all planned together. That's what makes it reliable long after launch.
+                    The screens, the backend, the data and the integrations are
+                    all planned together. That's what makes it reliable long
+                    after launch.
                   </p>
                 </div>
               </div>
@@ -169,10 +196,11 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
           <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <Reveal>
               <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-white/35">
-                03 — Local operating context
+                03 - Local operating context
               </p>
               <h2 className="mt-5 font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em]">
-                Built in Colombo. Designed for the way the business actually runs.
+                Built in Colombo. Designed for the way the business actually
+                runs.
               </h2>
               <p className="mt-6 max-w-xl font-inter text-base leading-7 text-white/55">
                 {service.localNote}
@@ -203,7 +231,7 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
           <div className="mx-auto max-w-[1100px]">
             <Reveal>
               <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
-                04 — Questions
+                04 - Questions
               </p>
               <h2 className="mt-4 max-w-3xl font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
                 Answers before the sales call.
@@ -221,7 +249,12 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
                       <h3 className="font-satoshi text-xl font-medium leading-7 text-[#000000] sm:text-2xl">
                         {faq.question}
                       </h3>
-                      <span aria-hidden="true" className="text-xl text-black/35 transition-transform group-open:rotate-45">+</span>
+                      <span
+                        aria-hidden="true"
+                        className="text-xl text-black/35 transition-transform group-open:rotate-45"
+                      >
+                        +
+                      </span>
                     </summary>
                     <p className="ml-[42px] mt-4 max-w-3xl pr-8 font-inter text-[15px] leading-7 text-black/58">
                       {faq.answer}
@@ -245,7 +278,10 @@ export default function ServiceLandingPage({ service }: { service: ServicePageDa
                     The rest of the stack.
                   </h2>
                 </div>
-                <Link href="/services" className="font-inter text-sm text-black/55 hover:text-black">
+                <Link
+                  href="/services"
+                  className="font-inter text-sm text-black/55 hover:text-black"
+                >
                   View all services ↗
                 </Link>
               </div>

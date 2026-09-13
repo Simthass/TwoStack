@@ -11,7 +11,7 @@ export const SITE = {
   region: "Western Province",
   country: "Sri Lanka",
   description:
-    "TwoStack is a software development studio in Colombo, Sri Lanka building high-performance web applications, ecommerce systems, mobile apps, POS platforms, custom software and AI automation.",
+    "TwoStack is a software development Agency in Colombo, Sri Lanka building high-performance web applications, ecommerce systems, mobile apps, POS platforms, custom software and AI automation.",
   social: {
     linkedin: "https://www.linkedin.com/company/twostack-lk",
     facebook: "https://www.facebook.com/twostack.lk",
@@ -55,6 +55,7 @@ export const SERVICE_LINKS = [
 export const PRIMARY_NAV = [
   { label: "Home", href: "/" },
   { label: "What we build", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Process", href: "/process" },
   { label: "Contact us", href: "/contact" },
 ] as const;

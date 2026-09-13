@@ -30,7 +30,7 @@ export function createMetadata({
           url: "/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: `${SITE.name} — software development studio in Sri Lanka`,
+          alt: `${SITE.name} - software development Agency in Sri Lanka`,
         },
       ],
     },
@@ -124,9 +124,7 @@ export const organizationGraph = {
   ],
 };
 
-export function breadcrumbSchema(
-  items: Array<{ name: string; path: string }>,
-) {
+export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

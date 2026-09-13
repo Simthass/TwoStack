@@ -73,7 +73,7 @@ export default function HeroNew() {
               ))}
             </div>
             <span className="font-inter text-white/30 text-[10px] sm:text-xs tracking-wide uppercase">
-              Enterprise Software Studio Sri Lanka
+              Enterprise Software Agency Sri Lanka
             </span>
           </motion.div>
 

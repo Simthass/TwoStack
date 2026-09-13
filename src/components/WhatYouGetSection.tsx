@@ -28,7 +28,7 @@ const CARDS = [
     label: "AI Automation",
     title: "Automatic follow-ups",
     description:
-      "Payment reminders, abandoned cart alerts and order updates are sent out on their own — no one on your team has to remember to send them.",
+      "Payment reminders, abandoned cart alerts and order updates are sent out on their own - no one on your team has to remember to send them.",
     tint: "#6B8F4E",
   },
   {
@@ -52,7 +52,7 @@ const CARDS = [
     label: "Reporting",
     title: "Clear performance reports",
     description:
-      "See where customers drop off, how payments are performing, and where the business is losing time — in plain numbers, not jargon.",
+      "See where customers drop off, how payments are performing, and where the business is losing time - in plain numbers, not jargon.",
     tint: "#8B4F94",
   },
   {
@@ -68,7 +68,7 @@ const CARDS = [
     label: "Ongoing Support",
     title: "A real team behind your system",
     description:
-      "You get direct access to the developers who built your system for updates, fixes and changes — not a support ticket queue.",
+      "You get direct access to the developers who built your system for updates, fixes and changes - not a support ticket queue.",
     tint: "#B8862E",
   },
 ] as const;
@@ -368,10 +368,9 @@ export default function WhatYouGetSection() {
             </h3>
             <p className="mt-4 font-inter text-[#0a0a0a]/60 text-[14px] sm:text-[15px] leading-relaxed max-w-xl">
               Your website isn&apos;t just a page that sits there. It&apos;s
-              connected to the rest of your business, so it can send
-              messages to customers in their own language, confirm payments
-              automatically, and keep your records up to date without
-              slowing anything down.
+              connected to the rest of your business, so it can send messages to
+              customers in their own language, confirm payments automatically,
+              and keep your records up to date without slowing anything down.
             </p>
           </div>
           <div className="flex justify-center py-4 lg:py-0">

@@ -9,6 +9,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }> = [
     { path: "", changeFrequency: "weekly", priority: 1.0 },
     { path: "/services", changeFrequency: "monthly", priority: 0.95 },
+    { path: "/portfolio", changeFrequency: "monthly", priority: 0.9 },
+    { path: "/portfolio/faux-fur-boa", changeFrequency: "monthly", priority: 0.75 },
+    { path: "/portfolio/amazonshop-lk", changeFrequency: "monthly", priority: 0.75 },
+    { path: "/portfolio/isports-cricket-store", changeFrequency: "monthly", priority: 0.75 },
     { path: "/services/web-development", changeFrequency: "monthly", priority: 0.9 },
     { path: "/services/ecommerce-development", changeFrequency: "monthly", priority: 0.9 },
     { path: "/services/mobile-development", changeFrequency: "monthly", priority: 0.9 },

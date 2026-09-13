@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 const LINKS = [
   { label: "Home", href: "/" },
   { label: "What we build", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Process", href: "/process" },
   { label: "Contact us", href: "/contact" },
 ] as const;

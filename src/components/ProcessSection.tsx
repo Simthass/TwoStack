@@ -16,7 +16,7 @@ const STEPS = [
     meta: "Step 2: Build it",
     title: "Design and build",
     description:
-      "We build your website, app or system using modern, reliable tools like Next.js — designed around how your team actually works.",
+      "We build your website, app or system using modern, reliable tools like Next.js - designed around how your team actually works.",
   },
   {
     number: "03",
@@ -48,7 +48,7 @@ export default function ProcessSection() {
             How we work, step by step.
           </h2>
           <p className="mt-4 font-inter text-[#0a0a0a]/50 text-base lg:text-lg">
-            A clear process with no surprises — you always know what happens
+            A clear process with no surprises - you always know what happens
             next.
           </p>
         </div>

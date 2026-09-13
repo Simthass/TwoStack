@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { SERVICE_LINKS, SITE } from "@/lib/site";
 
 const COMPANY_LINKS = [
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Process", href: "/process" },
   { label: "Contact", href: "/contact" },
 ] as const;
