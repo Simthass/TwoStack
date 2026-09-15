@@ -124,7 +124,7 @@ export default function Nav() {
   }, [isMobileMenuOpen]);
 
   const whatsappLink =
-    "https://wa.me/94767732288?text=Hi%20TwoStack%2C%20I%27d%20like%20to%20book%20a%20call%20to%20discuss%20my%20project.";
+    "https://wa.me/94767732288?text=Hi%20TwoStack%2C%20I%27d%20like%20to%20chat%20about%20my%20project.";
 
   return (
     <>
@@ -178,10 +178,27 @@ export default function Nav() {
           href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="md:hidden flex items-center gap-1.5 bg-white text-black font-inter text-[10px] sm:text-[11px] font-medium px-2.5 sm:px-3.5 py-1.5 rounded-full flex-shrink-0 justify-self-end whitespace-nowrap"
+          className="md:hidden flex items-center gap-1.5 bg-[#25D366] text-white font-inter text-[11px] sm:text-[12px] font-semibold px-3.5 sm:px-4 py-2.5 rounded-full flex-shrink-0 justify-self-end whitespace-nowrap shadow-sm"
           whileTap={{ scale: 0.95 }}
         >
-          Call
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="flex-shrink-0"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12C2 13.98 2.56 15.83 3.5 17.4L2 22L6.7 20.56C8.23 21.48 10 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z"
+              fill="currentColor"
+            />
+            <path
+              d="M16.95 15.19C16.57 15.57 15.98 15.74 15.35 15.7C14.9 15.66 14.33 15.51 13.48 15.16C12.6 14.79 12.05 14.2 11.65 13.79C11.25 13.38 10.85 12.92 10.55 12.39C10.25 11.86 10.05 11.29 9.98 10.69C9.91 10.09 10 9.49 10.21 8.94C10.42 8.39 10.79 7.94 11.23 7.58C11.67 7.22 12.12 7 12.58 7C12.91 7 13.2 7.15 13.42 7.43C13.64 7.71 13.73 8.04 13.73 8.34C13.73 8.64 13.64 9.04 13.55 9.34L13.28 10.12C13.19 10.42 13.1 10.72 13.09 11.02C13.08 11.32 13.18 11.6 13.36 11.82C13.54 12.04 13.76 12.2 14.02 12.28C14.28 12.36 14.55 12.36 14.81 12.28C15.07 12.2 15.29 12.04 15.47 11.82C15.65 11.6 15.75 11.32 15.76 11.02C15.77 10.72 15.68 10.42 15.59 10.12L15.32 9.34C15.23 9.04 15.14 8.74 15.13 8.44C15.12 8.14 15.2 7.84 15.36 7.59C15.52 7.34 15.73 7.14 16 7C16.27 6.86 16.56 6.77 16.85 6.77C17.24 6.77 17.61 6.91 17.91 7.17C18.21 7.43 18.43 7.78 18.54 8.18C18.65 8.58 18.66 8.99 18.56 9.39C18.46 9.79 18.26 10.14 17.96 10.4C17.66 10.66 17.31 10.84 16.95 10.93L16.95 15.19Z"
+              fill="currentColor"
+            />
+          </svg>
+          WhatsApp
         </motion.a>
 
         <ul
@@ -197,26 +214,28 @@ export default function Nav() {
           href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-2.5 bg-white text-black hover:bg-white/85 hover:text-black font-inter text-[14px] font-medium px-7 py-3 rounded-full transition-all duration-300 flex-shrink-0 shadow-sm hover:shadow-md"
+          className="hidden md:flex items-center gap-2.5 bg-white text-black hover:bg-[#25D366] hover:text-white font-inter text-[14px] font-medium px-7 py-3 rounded-full transition-all duration-300 flex-shrink-0 shadow-sm hover:shadow-md"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          Book a call
           <svg
             width="17"
             height="17"
             viewBox="0 0 24 24"
             fill="none"
-            className="transition-colors duration-300"
+            xmlns="http://www.w3.org/2000/svg"
+            className="flex-shrink-0"
           >
             <path
-              d="M7 17L17 7M17 7H8M17 7V16"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              d="M12 2C6.48 2 2 6.48 2 12C2 13.98 2.56 15.83 3.5 17.4L2 22L6.7 20.56C8.23 21.48 10 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z"
+              fill="currentColor"
+            />
+            <path
+              d="M16.95 15.19C16.57 15.57 15.98 15.74 15.35 15.7C14.9 15.66 14.33 15.51 13.48 15.16C12.6 14.79 12.05 14.2 11.65 13.79C11.25 13.38 10.85 12.92 10.55 12.39C10.25 11.86 10.05 11.29 9.98 10.69C9.91 10.09 10 9.49 10.21 8.94C10.42 8.39 10.79 7.94 11.23 7.58C11.67 7.22 12.12 7 12.58 7C12.91 7 13.2 7.15 13.42 7.43C13.64 7.71 13.73 8.04 13.73 8.34C13.73 8.64 13.64 9.04 13.55 9.34L13.28 10.12C13.19 10.42 13.1 10.72 13.09 11.02C13.08 11.32 13.18 11.6 13.36 11.82C13.54 12.04 13.76 12.2 14.02 12.28C14.28 12.36 14.55 12.36 14.81 12.28C15.07 12.2 15.29 12.04 15.47 11.82C15.65 11.6 15.75 11.32 15.76 11.02C15.77 10.72 15.68 10.42 15.59 10.12L15.32 9.34C15.23 9.04 15.14 8.74 15.13 8.44C15.12 8.14 15.2 7.84 15.36 7.59C15.52 7.34 15.73 7.14 16 7C16.27 6.86 16.56 6.77 16.85 6.77C17.24 6.77 17.61 6.91 17.91 7.17C18.21 7.43 18.43 7.78 18.54 8.18C18.65 8.58 18.66 8.99 18.56 9.39C18.46 9.79 18.26 10.14 17.96 10.4C17.66 10.66 17.31 10.84 16.95 10.93L16.95 15.19Z"
+              fill="currentColor"
             />
           </svg>
+          Chat on WhatsApp
         </motion.a>
       </motion.nav>
 
@@ -273,9 +292,9 @@ export default function Nav() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="mt-14 inline-flex items-center gap-2.5 bg-white text-black font-inter font-medium text-sm px-8 py-3.5 rounded-full hover:bg-white/85 transition-all duration-300"
+              className="mt-14 inline-flex items-center gap-2.5 bg-[#25D366] text-white font-inter font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-[#20bd5a] transition-all duration-300"
             >
-              Message on WhatsApp
+              Chat on WhatsApp
             </motion.a>
 
             <motion.div

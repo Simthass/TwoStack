@@ -35,7 +35,7 @@ export default function CTASection() {
     { id: "web", label: "Web Development & Web Applications" },
     { id: "ecommerce", label: "Ecommerce Development" },
     { id: "mobile", label: "Mobile Application Development" },
-    { id: "pos", label: "POS System Development" },
+    { id: "erp", label: "ERP Systems Development" },
     { id: "ai", label: "AI & Workflow Automation" },
     { id: "custom", label: "Custom Software Development" },
   ];

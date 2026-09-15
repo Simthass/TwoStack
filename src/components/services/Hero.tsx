@@ -8,7 +8,7 @@ import SystemStack from "./SystemStack";
 export default function Hero() {
   // WhatsApp link with pre-filled message
   const whatsappLink =
-    "https://wa.me/94767732288?text=Hi%20TwoStack%2C%20I'd%20like%20to%20book%20a%2030-minute%20call%20to%20discuss%20my%20project.";
+    "https://wa.me/94767732288?text=Hi%20TwoStack%2C%20I'd%20like%20to%20chat%20about%20my%20project.";
 
   return (
     <section className="w-full bg-[#000000] pt-[clamp(100px,15vw,160px)] pb-[clamp(48px,6vw,80px)] border-b border-white/10 px-6 lg:px-[35px]">
@@ -82,9 +82,9 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 rounded-full bg-white text-[#000000] px-7 py-3.5 text-sm font-inter font-medium transition-all duration-300 hover:bg-white/85 hover:text-black hover:shadow-lg"
+                className="inline-flex items-center gap-2 rounded-full bg-white text-[#000000] px-7 py-3.5 text-sm font-inter font-medium transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:shadow-lg"
               >
-                Book a 30-min call <span className="text-base">↗</span>
+                Message on WhatsApp <span className="text-base">↗</span>
               </motion.a>
               <a
                 href="#system"

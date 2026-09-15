@@ -14,7 +14,7 @@ import {
 
 const path = "/process";
 const description =
-  "See how TwoStack plans, designs, builds, launches and supports web, ecommerce, mobile app, POS and AI automation projects in Sri Lanka.";
+  "See how TwoStack plans, designs, builds, launches and supports web, ecommerce, mobile app, ERP and AI automation projects in Sri Lanka.";
 
 export const metadata: Metadata = createMetadata({
   title: "Our Software Development Process",
@@ -27,7 +27,7 @@ const STEPS = [
     number: "01",
     phase: "Discovery",
     title: "We understand your business first.",
-    body: "We talk to you about who uses the system, where the bottlenecks are, what tools you already use, and what a successful outcome actually looks like. The result is a clear, shared understanding of the problem - not just a list of screens to build.",
+    body: "We talk to you about who uses the system, where the bottlenecks are, what tools you already use, and what a successful outcome actually looks like. The result is a clear, shared understanding of the problem — not just a list of screens to build.",
     output:
       "How your work flows today · risks · what needs to connect · what success looks like",
   },
@@ -35,7 +35,7 @@ const STEPS = [
     number: "02",
     phase: "Scope",
     title: "We turn the plan into something clear and buildable.",
-    body: "We decide what's must-have, what can wait, and what's unnecessary. User roles, key screens, data, and delivery milestones are all agreed before we start building - so there's no expensive guesswork halfway through.",
+    body: "We decide what's must-have, what can wait, and what's unnecessary. User roles, key screens, data, and delivery milestones are all agreed before we start building — so there's no expensive guesswork halfway through.",
     output:
       "What's included · how it's structured · milestones · what 'done' means",
   },
@@ -58,7 +58,7 @@ const STEPS = [
     number: "05",
     phase: "Launch & Support",
     title: "Launch is the start, not the finish line.",
-    body: "We check everything works properly in the live environment - including analytics, search engine indexing, and monitoring - and hand it over clearly. After launch, support can cover fixes, security updates and planned improvements.",
+    body: "We check everything works properly in the live environment — including analytics, search engine indexing, and monitoring — and hand it over clearly. After launch, support can cover fixes, security updates and planned improvements.",
     output:
       "A live, working product · monitoring · handover · a list of what to improve next",
   },
@@ -71,7 +71,7 @@ const PRINCIPLES = [
   ],
   [
     "We show, not just tell",
-    "You see working software, test results and real progress - not vague status updates that are hard to verify.",
+    "You see working software, test results and real progress — not vague status updates that are hard to verify.",
   ],
   [
     "Plan before we build",
@@ -173,7 +173,7 @@ export default function ProcessPage() {
                         {step.body}
                       </p>
                       <p className="mt-6 border-l border-black/20 pl-4 font-inter text-[12px] uppercase leading-5 tracking-[0.08em] text-black/38">
-                        Output - {step.output}
+                        Output — {step.output}
                       </p>
                     </div>
                   </article>

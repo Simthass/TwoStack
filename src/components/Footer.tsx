@@ -108,7 +108,7 @@ export default function Footer() {
               TwoStack
             </Link>
             <p className="mt-4 max-w-md font-inter text-sm leading-6 text-white/45">
-              AI-powered web, ecommerce, mobile, POS, automation and custom
+              AI-powered web, ecommerce, mobile, ERP, automation and custom
               software engineering from Colombo, Sri Lanka.
             </p>
             <p className="mt-5 font-inter text-xs uppercase tracking-[0.14em] text-white/25">

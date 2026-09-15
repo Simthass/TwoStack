@@ -40,7 +40,7 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
       {
         title: "AI-powered features",
-        body: "Smart search, chat assistants and automatic document handling - added only where they genuinely save time, not for show.",
+        body: "Smart search, chat assistants and automatic document handling — added only where they genuinely save time, not for show.",
       },
       {
         title: "APIs & backend systems",
@@ -66,7 +66,7 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
       {
         label: "03 / Intelligence",
-        body: "Reports, search and AI features that use your real business data - not guesswork.",
+        body: "Reports, search and AI features that use your real business data — not guesswork.",
       },
     ],
     outcomes: [
@@ -76,7 +76,7 @@ export const SERVICES: Record<string, ServicePageData> = {
       "A website you can keep growing",
     ],
     localNote:
-      "For Sri Lankan businesses, we build around how people actually browse here: mostly on mobile, often through WhatsApp, and paying in LKR - using the payment and business tools your team already relies on.",
+      "For Sri Lankan businesses, we build around how people actually browse here: mostly on mobile, often through WhatsApp, and paying in LKR — using the payment and business tools your team already relies on.",
     faqs: [
       {
         question: "Do you build AI-powered websites in Sri Lanka?",
@@ -87,7 +87,7 @@ export const SERVICES: Record<string, ServicePageData> = {
         question:
           "Can you rebuild my existing website without losing my Google ranking?",
         answer:
-          "Yes. Before rebuilding, we map out your current pages, set up proper redirects, carry over your page titles and descriptions, and check everything is indexed correctly after launch - so you don't lose the ranking you've already earned.",
+          "Yes. Before rebuilding, we map out your current pages, set up proper redirects, carry over your page titles and descriptions, and check everything is indexed correctly after launch — so you don't lose the ranking you've already earned.",
       },
       {
         question: "Do you only build marketing websites?",
@@ -128,11 +128,11 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
       {
         title: "Stock & order management",
-        body: "One place to manage stock levels, order status, cancellations, returns and delivery - no more guessing.",
+        body: "One place to manage stock levels, order status, cancellations, returns and delivery — no more guessing.",
       },
       {
         title: "Automatic customer updates",
-        body: "Emails, WhatsApp messages and order-status alerts sent automatically as things happen - no manual typing.",
+        body: "Emails, WhatsApp messages and order-status alerts sent automatically as things happen — no manual typing.",
       },
       {
         title: "Admin dashboard & reports",
@@ -174,7 +174,7 @@ export const SERVICES: Record<string, ServicePageData> = {
       {
         question: "Can you move my existing store to a new platform?",
         answer:
-          "Yes. We plan the move carefully - products, customers, past orders, URLs and SEO content - so the new store launches without losing what you've already built.",
+          "Yes. We plan the move carefully — products, customers, past orders, URLs and SEO content — so the new store launches without losing what you've already built.",
       },
       {
         question: "Do you build the admin side of the store too?",
@@ -223,7 +223,7 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
       {
         title: "App usage tracking",
-        body: "We track what people actually do in the app - sign-ups, usage, drop-offs - not just download numbers.",
+        body: "We track what people actually do in the app — sign-ups, usage, drop-offs — not just download numbers.",
       },
       {
         title: "Admin & support tools",
@@ -275,56 +275,56 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
     ],
   },
-  "pos-system-development": {
-    slug: "pos-system-development",
-    eyebrow: "Retail operations / Sri Lanka",
+  "erp-systems-development": {
+    slug: "erp-systems-development",
+    eyebrow: "Business operations / Sri Lanka",
     title:
-      "POS System Development in Sri Lanka, built around how your counters actually work.",
-    metadataTitle: "POS System Development in Sri Lanka",
+      "ERP Systems Development in Sri Lanka, built around how your business actually runs.",
+    metadataTitle: "ERP Systems Development in Sri Lanka",
     description:
-      "POS System Development in Sri Lanka by TwoStack. Billing, stock, branches, staff roles, receipts and reports, all connected in one system.",
+      "ERP Systems Development in Sri Lanka by TwoStack. POS, inventory, finance, HR, procurement and reporting, all connected in one system.",
     intro:
-      "We build POS systems for businesses that have outgrown basic billing software. Sales, stock, branches, staff and reports all work off the same, shared information.",
+      "We build ERP systems for businesses that have outgrown disconnected tools and spreadsheets. Point of sale, inventory, finance, HR, procurement and reporting all work off the same, shared information.",
     problems: [
-      "The till and the stock room don't agree on numbers.",
-      "Branch data arrives late, or only in spreadsheets.",
-      "Staff have more access than they should.",
-      "Management can't quickly see stock, margins or problems.",
+      "The till, the stock room and the accounts don't agree on numbers.",
+      "Branch, warehouse and department data arrives late, or only in spreadsheets.",
+      "Staff have more access than their role should allow.",
+      "Management can't quickly see sales, stock, payroll or margins in one place.",
     ],
     capabilities: [
       {
-        title: "Billing & checkout",
+        title: "POS & billing",
         body: "Fast checkout, discounts, taxes, receipts, returns and exceptions handled properly, not with a workaround.",
       },
       {
-        title: "Stock control",
+        title: "Inventory & stock control",
         body: "Products, variants, stock movements, low-stock alerts and a clear record of every change.",
       },
       {
-        title: "Multiple branches",
-        body: "Each branch has its own stock and staff, with transfers and reports managed centrally.",
+        title: "Finance & accounts",
+        body: "Invoicing, expenses, payments and reconciliation connected to real transactions, not a separate spreadsheet.",
       },
       {
-        title: "Purchasing & suppliers",
+        title: "HR & payroll",
+        body: "Staff records, attendance, roles and payroll runs connected to the same data as the rest of the business.",
+      },
+      {
+        title: "Procurement & suppliers",
         body: "Purchase orders, receiving stock, and supplier records connected to real transactions.",
       },
       {
-        title: "Staff roles & activity logs",
-        body: "Staff only see and do what their role allows, with a clear record of important changes.",
-      },
-      {
-        title: "Management dashboards",
-        body: "Sales, stock movement and unusual activity shown clearly so decisions don't need to wait on a report.",
+        title: "Multi-branch & reporting",
+        body: "Each branch or department has its own data, with transfers, activity logs and management dashboards handled centrally.",
       },
     ],
     systems: [
       {
-        label: "01 / Counter",
-        body: "A quick, simple checkout screen built for speed and everyday use.",
+        label: "01 / Counter & operations",
+        body: "A quick, simple point-of-sale and day-to-day operations layer built for speed and everyday use.",
       },
       {
-        label: "02 / Retail core",
-        body: "Products, stock, sales, returns, branches, staff and purchasing, all connected.",
+        label: "02 / ERP core",
+        body: "POS, inventory, finance, HR, procurement, branches and staff, all connected.",
       },
       {
         label: "03 / Management",
@@ -332,29 +332,35 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
     ],
     outcomes: [
-      "More accurate stock numbers",
-      "Faster checkout",
-      "Clear view across branches",
+      "More accurate stock and financial numbers",
+      "Faster checkout and daily operations",
+      "Clear view across branches and departments",
       "A record of every change",
     ],
     localNote:
-      "The system can be built around how Sri Lankan retail actually runs: LKR pricing, multiple branches, barcode scanning, local receipt formats, and whatever hardware your team already uses.",
+      "The system can be built around how Sri Lankan businesses actually run: LKR pricing, multiple branches, barcode scanning, EPF/ETF-ready payroll, local receipt formats, and whatever hardware your team already uses.",
     faqs: [
       {
         question:
-          "Can TwoStack build a custom POS system for my Sri Lankan business?",
+          "Can TwoStack build a custom ERP system for my Sri Lankan business?",
         answer:
-          "Yes. We build custom POS and retail systems when off-the-shelf software doesn't fit how you work, or doesn't connect to the reports and tools you need.",
+          "Yes. We build custom ERP systems, including POS, when off-the-shelf software doesn't fit how you work, or doesn't connect to the reports and tools you need.",
       },
       {
-        question: "Can the POS system work across multiple branches?",
+        question: "Does the ERP system include POS as well as other modules?",
         answer:
-          "Yes. Each branch can have its own staff and stock, with transfers and shared reporting managed from head office.",
+          "Yes. POS sits alongside inventory, finance, HR and procurement as one connected module, rather than a separate disconnected tool.",
       },
       {
-        question: "Can POS stock connect to my online store?",
+        question:
+          "Can the ERP system work across multiple branches or departments?",
         answer:
-          "Yes, if you need one shared stock count across both, we can connect them through a shared backend so stock numbers stay accurate everywhere.",
+          "Yes. Each branch or department can have its own staff, stock and records, with transfers and shared reporting managed from head office.",
+      },
+      {
+        question: "Can ERP stock and sales data connect to my online store?",
+        answer:
+          "Yes, if you need one shared stock and sales count across both, we can connect them through a shared backend so numbers stay accurate everywhere.",
       },
       {
         question: "Do you support barcode scanners and receipt printers?",
@@ -367,12 +373,12 @@ export const SERVICES: Record<string, ServicePageData> = {
     slug: "ai-automation",
     eyebrow: "AI & workflow systems / Sri Lanka",
     title:
-      "AI Automation in Sri Lanka, connected to real work - not just a demo chatbot.",
+      "AI Automation in Sri Lanka, connected to real work — not just a demo chatbot.",
     metadataTitle: "AI Automation in Sri Lanka",
     description:
       "AI Automation services in Sri Lanka by TwoStack. Multilingual assistants, document handling, smart routing, reports and automation connected to your systems.",
     intro:
-      "We use AI where it actually saves time, makes information easier to find, or speeds up a task. The AI model on its own isn't the useful part - it's the permissions, the data, and the way it connects to your systems that make it actually work.",
+      "We use AI where it actually saves time, makes information easier to find, or speeds up a task. The AI model on its own isn't the useful part — it's the permissions, the data, and the way it connects to your systems that make it actually work.",
     problems: [
       "Your team keeps answering the same questions over and over.",
       "Information is scattered across inboxes, documents and different tools.",
@@ -386,7 +392,7 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
       {
         title: "Smart document search",
-        body: "Quick answers pulled from your own approved documents and information - with the source shown, not made up.",
+        body: "Quick answers pulled from your own approved documents and information — with the source shown, not made up.",
       },
       {
         title: "Automated workflows",
@@ -394,7 +400,7 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
       {
         title: "Human approval where it matters",
-        body: "For important decisions, a person can review and approve before anything happens - the AI doesn't get free rein.",
+        body: "For important decisions, a person can review and approve before anything happens — the AI doesn't get free rein.",
       },
       {
         title: "Full activity tracking",
@@ -436,7 +442,7 @@ export const SERVICES: Record<string, ServicePageData> = {
       {
         question: "Can AI automation connect to the software we already use?",
         answer:
-          "Usually, yes - as long as your current software allows safe connections. We check what can be connected safely during the planning stage.",
+          "Usually, yes — as long as your current software allows safe connections. We check what can be connected safely during the planning stage.",
       },
       {
         question: "Do you use AI agents to automate tasks?",
@@ -477,7 +483,7 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
       {
         title: "Business dashboards",
-        body: "Clear reports pulled straight from your live data - not a spreadsheet someone updates by hand.",
+        body: "Clear reports pulled straight from your live data — not a spreadsheet someone updates by hand.",
       },
       {
         title: "Connecting your tools",
@@ -543,7 +549,7 @@ export const SERVICE_ORDER = [
   "web-development",
   "ecommerce-development",
   "mobile-development",
-  "pos-system-development",
+  "erp-systems-development",
   "ai-automation",
   "custom-software-development",
 ] as const;

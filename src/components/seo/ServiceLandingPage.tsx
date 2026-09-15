@@ -117,7 +117,7 @@ export default function ServiceLandingPage({
             <Reveal>
               <div className="grid grid-cols-1 gap-7 border-b border-black/10 pb-10 md:grid-cols-[.72fr_1.28fr] md:gap-14">
                 <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
-                  01 - Capability
+                  01 — Capability
                 </p>
                 <h2 className="font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
                   What TwoStack actually builds.
@@ -158,7 +158,7 @@ export default function ServiceLandingPage({
             <Reveal>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-[.72fr_1.28fr] md:gap-14">
                 <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
-                  02 - System thinking
+                  02 — System thinking
                 </p>
                 <div>
                   <h2 className="font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
@@ -196,7 +196,7 @@ export default function ServiceLandingPage({
           <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <Reveal>
               <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-white/35">
-                03 - Local operating context
+                03 — Local operating context
               </p>
               <h2 className="mt-5 font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em]">
                 Built in Colombo. Designed for the way the business actually
@@ -231,10 +231,10 @@ export default function ServiceLandingPage({
           <div className="mx-auto max-w-[1100px]">
             <Reveal>
               <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
-                04 - Questions
+                04 — Questions
               </p>
               <h2 className="mt-4 max-w-3xl font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
-                Answers before the sales call.
+                Answers before you reach out.
               </h2>
             </Reveal>
 

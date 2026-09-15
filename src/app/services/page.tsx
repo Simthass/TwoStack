@@ -10,11 +10,16 @@ import Process from "@/components/services/Process";
 import CtaFooter from "@/components/services/CtaFooter";
 import { Reveal } from "@/components/services/Reveal";
 import { SERVICE_ORDER, SERVICES } from "@/lib/service-data";
-import { breadcrumbSchema, createMetadata, jsonLd, webPageSchema } from "@/lib/seo";
+import {
+  breadcrumbSchema,
+  createMetadata,
+  jsonLd,
+  webPageSchema,
+} from "@/lib/seo";
 
 const path = "/services";
 const description =
-  "Explore TwoStack software development services in Sri Lanka: web development, ecommerce, mobile apps, POS systems, AI automation and custom business software.";
+  "Explore TwoStack software development services in Sri Lanka: web development, ecommerce, mobile apps, ERP systems, AI automation and custom business software.";
 
 export const metadata: Metadata = createMetadata({
   title: "Software Development Services in Sri Lanka",
@@ -75,7 +80,6 @@ export default function ServicesPage() {
                       <span
                         aria-hidden="true"
                         className="h-2 w-2 rounded-full bg-white"
-                        
                       />
                     </div>
                     <h3 className="mt-7 font-satoshi text-2xl font-semibold leading-7 text-white">

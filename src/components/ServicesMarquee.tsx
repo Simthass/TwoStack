@@ -24,9 +24,9 @@ const SERVICES = [
   },
   {
     id: "04",
-    title: "POS System Development",
+    title: "ERP Systems Development",
     subtitle:
-      "Fast, reliable POS software that connects instantly to your web and mobile platforms, ensuring real-time inventory updates across your entire business.",
+      "POS, inventory, finance, HR and other ERP modules connected in one system, syncing in real time across your entire business.",
   },
   {
     id: "05",

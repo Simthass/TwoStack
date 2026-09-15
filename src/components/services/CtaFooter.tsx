@@ -87,7 +87,7 @@ export default function CtaFooter() {
             variants={fadeUpVariants}
             className="mt-6 font-inter text-white/50 text-base md:text-lg max-w-lg mx-auto leading-relaxed"
           >
-            30-minute call. We look at where your time actually goes -
+            A quick WhatsApp chat. We look at where your time actually goes -
             enquiries, orders, reports - and tell you honestly which layers
             would earn their keep first.
           </motion.p>
@@ -103,7 +103,7 @@ export default function CtaFooter() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              className="group inline-flex items-center gap-2 bg-white text-black font-inter font-medium text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:bg-white/85 hover:shadow-lg"
+              className="group inline-flex items-center gap-2 bg-white text-black font-inter font-medium text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:bg-[#25D366] hover:text-white hover:shadow-lg"
             >
               <svg
                 width="18"

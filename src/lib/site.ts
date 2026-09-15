@@ -11,7 +11,7 @@ export const SITE = {
   region: "Western Province",
   country: "Sri Lanka",
   description:
-    "TwoStack is a software development Agency in Colombo, Sri Lanka building high-performance web applications, ecommerce systems, mobile apps, POS platforms, custom software and AI automation.",
+    "TwoStack is a software development studio in Colombo, Sri Lanka building high-performance web applications, ecommerce systems, mobile apps, ERP platforms, custom software and AI automation.",
   social: {
     linkedin: "https://www.linkedin.com/company/twostack-lk",
     facebook: "https://www.facebook.com/twostack.lk",
@@ -36,9 +36,10 @@ export const SERVICE_LINKS = [
     short: "iOS and Android applications connected to real business systems.",
   },
   {
-    label: "POS System Development",
-    href: "/services/pos-system-development",
-    short: "Retail POS, stock, billing and branch operations.",
+    label: "ERP Systems Development",
+    href: "/services/erp-systems-development",
+    short:
+      "POS, inventory, finance, HR and other ERP modules, connected in one system.",
   },
   {
     label: "AI Automation",

@@ -15,10 +15,10 @@ import {
 
 const path = "/contact";
 const description =
-  "Contact TwoStack in Colombo, Sri Lanka for web development, ecommerce, mobile apps, POS systems, AI automation and custom software projects.";
+  "Contact TwoStack in Colombo, Sri Lanka for web development, ecommerce, mobile apps, ERP systems, AI automation and custom software projects.";
 
 export const metadata: Metadata = createMetadata({
-  title: "Contact TwoStack - Software Development Sri Lanka",
+  title: "Contact TwoStack — Software Development Sri Lanka",
   description,
   path,
 });
@@ -70,7 +70,7 @@ export default function ContactPage() {
               <p className="mt-7 max-w-2xl font-inter text-base leading-7 text-white/56 sm:text-lg sm:leading-8">
                 Tell us where the business is losing time, visibility or
                 customers. We will use that context to decide whether the answer
-                is a website, application, automation layer, POS platform or
+                is a website, application, automation layer, ERP platform or
                 something smaller.
               </p>
             </Reveal>

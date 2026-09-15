@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 import ServiceLandingPage from "@/components/seo/ServiceLandingPage";
 import { SERVICES } from "@/lib/service-data";
-import { breadcrumbSchema, createMetadata, faqSchema, jsonLd, serviceSchema } from "@/lib/seo";
+import {
+  breadcrumbSchema,
+  createMetadata,
+  faqSchema,
+  jsonLd,
+  serviceSchema,
+} from "@/lib/seo";
 
-const service = SERVICES["pos-system-development"];
+const service = SERVICES["erp-systems-development"];
 const path = `/services/${service.slug}`;
 
 export const metadata: Metadata = createMetadata({
