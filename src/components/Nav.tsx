@@ -14,6 +14,21 @@ const LINKS = [
   { label: "Contact us", href: "/contact" },
 ] as const;
 
+function WhatsAppIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 448 512"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      className="flex-shrink-0"
+    >
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+    </svg>
+  );
+}
+
 function NavLink({
   label,
   href,
@@ -129,13 +144,13 @@ export default function Nav() {
   return (
     <>
       <motion.nav
-        initial={{ opacity: 0, y: -10 }}
+        initial={{ opacity: 0, y: -24 }}
         animate={{
           opacity: 1,
           y: isVisible ? 0 : -80,
         }}
         transition={{
-          duration: 0.4,
+          duration: 0.6,
           ease: "easeOut" as const,
         }}
         className="fixed top-0 left-0 right-0 w-full px-4 sm:px-6 md:px-10 py-4 grid grid-cols-3 items-center md:flex md:justify-between z-50 bg-black/50 backdrop-blur-md border-b border-white/5"
@@ -178,27 +193,11 @@ export default function Nav() {
           href={whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="md:hidden flex items-center gap-1.5 bg-[#25D366] text-white font-inter text-[11px] sm:text-[12px] font-semibold px-3.5 sm:px-4 py-2.5 rounded-full flex-shrink-0 justify-self-end whitespace-nowrap shadow-sm"
+          aria-label="Chat on WhatsApp"
+          className="md:hidden flex items-center justify-center bg-[#25D366] text-white p-3 rounded-full flex-shrink-0 justify-self-end shadow-sm"
           whileTap={{ scale: 0.95 }}
         >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="flex-shrink-0"
-          >
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12C2 13.98 2.56 15.83 3.5 17.4L2 22L6.7 20.56C8.23 21.48 10 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z"
-              fill="currentColor"
-            />
-            <path
-              d="M16.95 15.19C16.57 15.57 15.98 15.74 15.35 15.7C14.9 15.66 14.33 15.51 13.48 15.16C12.6 14.79 12.05 14.2 11.65 13.79C11.25 13.38 10.85 12.92 10.55 12.39C10.25 11.86 10.05 11.29 9.98 10.69C9.91 10.09 10 9.49 10.21 8.94C10.42 8.39 10.79 7.94 11.23 7.58C11.67 7.22 12.12 7 12.58 7C12.91 7 13.2 7.15 13.42 7.43C13.64 7.71 13.73 8.04 13.73 8.34C13.73 8.64 13.64 9.04 13.55 9.34L13.28 10.12C13.19 10.42 13.1 10.72 13.09 11.02C13.08 11.32 13.18 11.6 13.36 11.82C13.54 12.04 13.76 12.2 14.02 12.28C14.28 12.36 14.55 12.36 14.81 12.28C15.07 12.2 15.29 12.04 15.47 11.82C15.65 11.6 15.75 11.32 15.76 11.02C15.77 10.72 15.68 10.42 15.59 10.12L15.32 9.34C15.23 9.04 15.14 8.74 15.13 8.44C15.12 8.14 15.2 7.84 15.36 7.59C15.52 7.34 15.73 7.14 16 7C16.27 6.86 16.56 6.77 16.85 6.77C17.24 6.77 17.61 6.91 17.91 7.17C18.21 7.43 18.43 7.78 18.54 8.18C18.65 8.58 18.66 8.99 18.56 9.39C18.46 9.79 18.26 10.14 17.96 10.4C17.66 10.66 17.31 10.84 16.95 10.93L16.95 15.19Z"
-              fill="currentColor"
-            />
-          </svg>
-          WhatsApp
+          <WhatsAppIcon size={20} />
         </motion.a>
 
         <ul
@@ -218,23 +217,7 @@ export default function Nav() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          <svg
-            width="17"
-            height="17"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="flex-shrink-0"
-          >
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12C2 13.98 2.56 15.83 3.5 17.4L2 22L6.7 20.56C8.23 21.48 10 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z"
-              fill="currentColor"
-            />
-            <path
-              d="M16.95 15.19C16.57 15.57 15.98 15.74 15.35 15.7C14.9 15.66 14.33 15.51 13.48 15.16C12.6 14.79 12.05 14.2 11.65 13.79C11.25 13.38 10.85 12.92 10.55 12.39C10.25 11.86 10.05 11.29 9.98 10.69C9.91 10.09 10 9.49 10.21 8.94C10.42 8.39 10.79 7.94 11.23 7.58C11.67 7.22 12.12 7 12.58 7C12.91 7 13.2 7.15 13.42 7.43C13.64 7.71 13.73 8.04 13.73 8.34C13.73 8.64 13.64 9.04 13.55 9.34L13.28 10.12C13.19 10.42 13.1 10.72 13.09 11.02C13.08 11.32 13.18 11.6 13.36 11.82C13.54 12.04 13.76 12.2 14.02 12.28C14.28 12.36 14.55 12.36 14.81 12.28C15.07 12.2 15.29 12.04 15.47 11.82C15.65 11.6 15.75 11.32 15.76 11.02C15.77 10.72 15.68 10.42 15.59 10.12L15.32 9.34C15.23 9.04 15.14 8.74 15.13 8.44C15.12 8.14 15.2 7.84 15.36 7.59C15.52 7.34 15.73 7.14 16 7C16.27 6.86 16.56 6.77 16.85 6.77C17.24 6.77 17.61 6.91 17.91 7.17C18.21 7.43 18.43 7.78 18.54 8.18C18.65 8.58 18.66 8.99 18.56 9.39C18.46 9.79 18.26 10.14 17.96 10.4C17.66 10.66 17.31 10.84 16.95 10.93L16.95 15.19Z"
-              fill="currentColor"
-            />
-          </svg>
+          <WhatsAppIcon size={17} />
           Chat on WhatsApp
         </motion.a>
       </motion.nav>
@@ -294,6 +277,7 @@ export default function Nav() {
               transition={{ delay: 0.4 }}
               className="mt-14 inline-flex items-center gap-2.5 bg-[#25D366] text-white font-inter font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-[#20bd5a] transition-all duration-300"
             >
+              <WhatsAppIcon size={16} />
               Chat on WhatsApp
             </motion.a>
 

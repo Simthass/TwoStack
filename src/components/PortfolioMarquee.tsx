@@ -7,27 +7,27 @@ import { useState, useEffect } from "react";
 const CARDS = [
   {
     id: 1,
-    src: "/fauxfurboa.webp",
+    src: "/portfolio/Faux Fur Boa/FFb 5.png",
     alt: "Faux Fur Boa online store built by TwoStack",
   },
   {
     id: 2,
-    src: "/project-2.webp",
-    alt: "Ecommerce website project built by TwoStack",
+    src: "/portfolio/AmazonShopLK/ASLK 5.png",
+    alt: "AmazonShopLK Ecommerce website project built by TwoStack",
   },
   {
     id: 3,
-    src: "/project-3.webp",
-    alt: "Web application project built by TwoStack",
+    src: "/portfolio/iSports/iSports 5.png",
+    alt: "iSports Web application project built by TwoStack",
   },
   {
     id: 4,
-    src: "/project-4.webp",
+    src: "/portfolio/Shakeel Stores/SS 1.png",
     alt: "Mobile app project built by TwoStack",
   },
   {
     id: 5,
-    src: "/project-5.webp",
+    src: "/portfolio/Nexus Tech/NT 1.png",
     alt: "Business dashboard project built by TwoStack",
   },
 ] as const;
@@ -44,10 +44,12 @@ function Card({
   src,
   alt,
   cardWidth,
+  isMobile,
 }: {
   src: string;
   alt: string;
   cardWidth: string;
+  isMobile: boolean;
 }) {
   return (
     <motion.div
@@ -75,8 +77,9 @@ function Card({
         src={src}
         alt={alt}
         fill
+        unoptimized
         className="object-cover"
-        sizes="33vw"
+        sizes={isMobile ? "92vw" : "33vw"}
         draggable={false}
       />
     </motion.div>
@@ -139,6 +142,7 @@ export default function PortfolioMarquee() {
               src={card.src}
               alt={card.alt}
               cardWidth={cardWidth}
+              isMobile={isMobile}
             />
           ))}
         </div>

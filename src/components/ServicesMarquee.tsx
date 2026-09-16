@@ -30,7 +30,7 @@ const SERVICES = [
   },
   {
     id: "05",
-    title: "Cusotm Software Development",
+    title: "Custom Software Development",
     subtitle:
       "We turn your ideas into easy-to-use digital tools, built from the ground up exactly the way you need them.",
   },

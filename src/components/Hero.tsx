@@ -9,9 +9,12 @@ import PortfolioMarquee from "./PortfolioMarquee";
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.65, ease: EASE, delay },
+  hidden: { opacity: 0, y: 32 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: EASE, delay },
+  },
 });
 
 const staggerContainer = {
@@ -47,7 +50,7 @@ export default function HeroNew() {
           className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto"
         >
           <motion.div
-            variants={fadeUp(0.2)}
+            variants={fadeUp(0.15)}
             className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6"
           >
             <div className="flex -space-x-2">
@@ -79,7 +82,7 @@ export default function HeroNew() {
 
           {/* Optimized, Concise SEO H1 */}
           <motion.h1
-            variants={fadeUp(0.35)}
+            variants={fadeUp(0.4)}
             className="mt-0 w-full font-satoshi font-semibold text-white leading-[1.1] text-[36px] sm:text-[48px] md:text-[60px] lg:text-[72px]"
           >
             AI-Powered Web, Mobile & Ecommerce Development in Sri Lanka.
@@ -87,7 +90,7 @@ export default function HeroNew() {
 
           {/* Shortened, authoritative SEO paragraph */}
           <motion.p
-            variants={fadeUp(0.5)}
+            variants={fadeUp(0.65)}
             className="mt-6 font-inter text-white/50 leading-relaxed max-w-4xl text-sm sm:text-base md:text-lg"
           >
             TwoStack builds custom mobile apps, fast websites, and smart online
@@ -97,7 +100,7 @@ export default function HeroNew() {
           </motion.p>
 
           <motion.div
-            variants={fadeUp(0.7)}
+            variants={fadeUp(0.9)}
             className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8"
           >
             <motion.a
@@ -127,7 +130,7 @@ export default function HeroNew() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.7, ease: EASE, delay: 0.8 }}
+        transition={{ duration: 0.8, ease: EASE, delay: 1.15 }}
         className="relative z-10 pb-8 sm:pb-10 md:pb-12"
       >
         <PortfolioMarquee />
