@@ -25,12 +25,6 @@ export default function CtaFooter() {
     },
   };
 
-  // Team member images - replace with your actual image paths
-  const teamMembers = [
-    { id: 1, name: "Simthass", image: "/images/team-1.jpg" },
-    { id: 2, name: "Muaz", image: "/images/team-2.jpg" },
-  ];
-
   // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

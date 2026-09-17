@@ -8,21 +8,20 @@ const BRANDS = [
   {
     id: 1,
     name: "Faux Fur Boa",
-    logo: "/images/brand1.png",
+    logo: "/images/FFB.png",
   },
   {
     id: 2,
-    name: "ISports Cricket",
-    logo: "/images/brand2.png",
+    name: "AmazonShopLK",
+    logo: "/images/ASLK.png",
   },
-  { id: 3, name: "The Great Outdoors", logo: "/images/brand3.png" },
+  { id: 3, name: "The Great Outdoors", logo: "/images/TGO-Logo.png" },
   {
     id: 4,
-    name: "AmazonShopLK",
-    logo: "/images/brand4.png",
+    name: "ISports Cricket Store",
+    logo: "/images/ISportsCricket-Logo.png",
   },
-  { id: 5, name: "TwoStack client", logo: "/images/brand5.png" },
-  { id: 6, name: "TwoStack client", logo: "/images/brand6.png" },
+  { id: 5, name: "TypeTrace", logo: "/images/TT.png" },
 ];
 
 const getInitialBrands = () => BRANDS.slice(0, 4);
@@ -117,7 +116,7 @@ export default function BrandStrip() {
                           src={brand.logo}
                           alt={`${brand.name} logo`}
                           fill
-                          className="object-contain brightness-0 grayscale"
+                          className="object-contain"
                           sizes="(max-width: 768px) 80px, 112px"
                         />
                       </div>

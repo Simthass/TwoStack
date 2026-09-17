@@ -22,12 +22,12 @@ const CARDS = [
   },
   {
     id: 4,
-    src: "/portfolio/Shakeel Stores/SS 1.png",
+    src: "/portfolio/TypeTrace/TT 1.png",
     alt: "Mobile app project built by TwoStack",
   },
   {
     id: 5,
-    src: "/portfolio/Nexus Tech/NT 1.png",
+    src: "/portfolio/TGO/TGO 1.png",
     alt: "Business dashboard project built by TwoStack",
   },
 ] as const;
