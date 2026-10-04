@@ -41,17 +41,11 @@ export default function BrandStrip() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [brands, setBrands] = useState(getInitialBrands);
-  const [isMounted, setIsMounted] = useState(false);
   const [, setIsTransitioning] = useState(false);
   const isTransitioningRef = useRef(false);
 
   useEffect(() => {
-    setIsMounted(true);
-    setBrands(BRANDS.slice(0, 4));
-  }, []);
-
-  useEffect(() => {
-    if (!isInView || !isMounted) return;
+    if (!isInView) return;
 
     const interval = setInterval(() => {
       if (isTransitioningRef.current) return;
@@ -69,7 +63,7 @@ export default function BrandStrip() {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [isInView, isMounted]);
+  }, [isInView]);
 
   return (
     <section

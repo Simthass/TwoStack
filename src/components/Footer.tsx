@@ -1,12 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { SERVICE_LINKS, SITE } from "@/lib/site";
 
 const COMPANY_LINKS = [
   { label: "Portfolio", href: "/portfolio" },
+  { label: "About", href: "/about" },
+  { label: "Insights", href: "/blog" },
   { label: "Process", href: "/process" },
   { label: "Contact", href: "/contact" },
 ] as const;
@@ -100,12 +103,14 @@ export default function Footer() {
       >
         <div className="grid grid-cols-1 gap-10 border-b border-white/10 pb-12 md:grid-cols-12 md:gap-8">
           <div className="md:col-span-5">
-            <Link
-              href="/"
-              className="font-satoshi text-sm font-bold uppercase tracking-[0.14em]"
-              aria-label="TwoStack home"
-            >
-              TwoStack
+            <Link href="/" className="inline-block" aria-label="TwoStack home">
+              <Image
+                src="/images/logo.png"
+                alt="TwoStack logo"
+                width={64}
+                height={64}
+                className="h-16 w-16 object-contain"
+              />
             </Link>
             <p className="mt-4 max-w-md font-inter text-sm leading-6 text-white/45">
               AI-powered web, ecommerce, mobile, ERP, automation and custom

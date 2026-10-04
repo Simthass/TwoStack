@@ -1,7 +1,12 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
+import { getPublishedArticles } from "@/lib/sanity";
+import { CASE_STUDY_ORDER } from "@/lib/portfolio-data";
+import { SERVICE_ORDER } from "@/lib/service-data";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 60;
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const publishedArticles = await getPublishedArticles();
   const routes: Array<{
     path: string;
     changeFrequency: "weekly" | "monthly" | "yearly";
@@ -10,58 +15,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "", changeFrequency: "weekly", priority: 1.0 },
     { path: "/services", changeFrequency: "monthly", priority: 0.95 },
     { path: "/portfolio", changeFrequency: "monthly", priority: 0.9 },
-    {
-      path: "/portfolio/faux-fur-boa",
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      path: "/portfolio/amazonshop-lk",
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      path: "/portfolio/isports-cricket-store",
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      path: "/services/web-development",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      path: "/services/ecommerce-development",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      path: "/services/mobile-development",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      path: "/services/erp-systems-development",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      path: "/services/ai-automation",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      path: "/services/custom-software-development",
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
+    ...CASE_STUDY_ORDER.map((slug) => ({ path: `/portfolio/${slug}`, changeFrequency: "monthly" as const, priority: 0.75 })),
+    ...SERVICE_ORDER.map((slug) => ({ path: `/services/${slug}`, changeFrequency: "monthly" as const, priority: 0.9 })),
     { path: "/process", changeFrequency: "monthly", priority: 0.8 },
     { path: "/contact", changeFrequency: "yearly", priority: 0.85 },
+    { path: "/about", changeFrequency: "yearly", priority: 0.8 },
+    { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
   ];
 
-  return routes.map((route) => ({
-    url: `${SITE.url}${route.path}`,
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-  }));
+  return [
+    ...routes.map((route) => ({ url: `${SITE.url}${route.path}` })),
+    ...publishedArticles.map((article) => ({
+      url: `${SITE.url}/blog/${article.slug}`,
+      lastModified: article.updatedAt ?? article.publishedAt,
+    })),
+  ];
 }

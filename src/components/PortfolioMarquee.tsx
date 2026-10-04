@@ -2,33 +2,39 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const CARDS = [
   {
     id: 1,
-    src: "/portfolio/Faux Fur Boa/FFb 5.png",
+    src: "/portfolio/Faux Fur Boa/FFb 5.webp",
     alt: "Faux Fur Boa online store built by TwoStack",
+    href: "/portfolio/faux-fur-boa",
   },
   {
     id: 2,
-    src: "/portfolio/AmazonShopLK/ASLK 5.png",
+    src: "/portfolio/AmazonShopLK/ASLK 5.webp",
     alt: "AmazonShopLK Ecommerce website project built by TwoStack",
+    href: "/portfolio/amazonshop-lk",
   },
   {
     id: 3,
-    src: "/portfolio/iSports/iSports 5.png",
+    src: "/portfolio/iSports/iSports 5.webp",
     alt: "iSports Web application project built by TwoStack",
+    href: "/portfolio/isports-cricket-store",
   },
   {
     id: 4,
-    src: "/portfolio/TypeTrace/TT 1.png",
+    src: "/portfolio/TypeTrace/TT 1.webp",
     alt: "Mobile app project built by TwoStack",
+    href: "/portfolio",
   },
   {
     id: 5,
-    src: "/portfolio/TGO/TGO 1.png",
+    src: "/portfolio/TGO/TGO 1.webp",
     alt: "Business dashboard project built by TwoStack",
+    href: "/portfolio",
   },
 ] as const;
 
@@ -43,11 +49,15 @@ const MOBILE_CARD_WIDTH = "calc(100vw - 48px)";
 function Card({
   src,
   alt,
+  href,
+  duplicate,
   cardWidth,
   isMobile,
 }: {
   src: string;
   alt: string;
+  href: string;
+  duplicate: boolean;
   cardWidth: string;
   isMobile: boolean;
 }) {
@@ -77,11 +87,11 @@ function Card({
         src={src}
         alt={alt}
         fill
-        unoptimized
         className="object-cover"
         sizes={isMobile ? "92vw" : "33vw"}
         draggable={false}
       />
+      <Link href={href} aria-label={`View ${alt}`} tabIndex={duplicate ? -1 : 0} className="absolute inset-0 z-10" />
     </motion.div>
   );
 }
@@ -121,6 +131,8 @@ export default function PortfolioMarquee() {
         .marquee-wrapper:hover .marquee-track {
           animation-play-state: paused;
         }
+        .marquee-wrapper:focus-within .marquee-track { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
       `}</style>
 
       <div
@@ -141,6 +153,8 @@ export default function PortfolioMarquee() {
               key={`${card.id}-${i}`}
               src={card.src}
               alt={card.alt}
+              href={card.href}
+              duplicate={i >= CARDS.length}
               cardWidth={cardWidth}
               isMobile={isMobile}
             />

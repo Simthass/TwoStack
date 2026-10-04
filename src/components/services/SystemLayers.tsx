@@ -135,7 +135,7 @@ export default function SystemLayers() {
           animate={isInView ? "visible" : "hidden"}
           className="flex flex-col gap-14"
         >
-          {layers.map((layer, i) => (
+          {layers.map((layer) => (
             <motion.div
               key={layer.code}
               variants={fadeUpVariants}

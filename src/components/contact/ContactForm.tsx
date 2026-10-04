@@ -1,7 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { SERVICE_LINKS, SITE } from "@/lib/site";
+import { SERVICE_LINKS } from "@/lib/site";
+import { track } from "@/lib/analytics";
 
 type FormState = {
   name: string;
@@ -55,6 +56,9 @@ function ContactInput({
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
+  const [website, setWebsite] = useState("");
+  const [status, setStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const selectedLabels = useMemo(
     () =>
@@ -73,31 +77,24 @@ export default function ContactForm() {
     }));
   };
 
-  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+  const submit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    const lines = [
-      `Hi ${SITE.name}, I'd like to discuss a project.`,
-      "",
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      `Phone: ${form.phone || "Not provided"}`,
-      `Company: ${form.company || "Not provided"}`,
-      `Services: ${selectedLabels.length ? selectedLabels.join(", ") : "Not specified"}`,
-      "",
-      "Project:",
-      form.message,
-    ];
-
-    window.open(
-      `${SITE.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
+    setStatus("");
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...form, services: selectedLabels, website, source: window.location.href }) });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Please try again or contact us directly.");
+      setStatus("Thanks. Your project details have been sent. We'll reply by email.");
+      track("contact_submit_success", { source: "contact" });
+      setForm(initialState);
+    } catch (error) { setStatus(error instanceof Error ? error.message : "Please contact us directly."); }
+    finally { setIsSubmitting(false); }
   };
 
   return (
     <form onSubmit={submit} className="border-t border-black/12">
+      <label className="absolute -left-[10000px]" aria-hidden="true">Website<input tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} /></label>
       <div className="grid grid-cols-1 md:grid-cols-2">
         <ContactInput
           label="Name"
@@ -173,15 +170,17 @@ export default function ContactForm() {
 
       <div className="flex flex-col gap-4 pt-7 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-md font-inter text-xs leading-5 text-black/40">
-          This opens WhatsApp with the project details pre-filled. Nothing is submitted to a hidden form endpoint.
+          Your details are sent to TwoStack so we can reply. Prefer chat? Use the WhatsApp link above.
         </p>
         <button
           type="submit"
+          disabled={isSubmitting}
           className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3 font-inter text-sm font-medium text-white transition-transform hover:-translate-y-0.5"
         >
-          Send project brief ↗
+          {isSubmitting ? "Sending…" : "Send project brief ↗"}
         </button>
       </div>
+      <p role="status" aria-live="polite" className="mt-4 font-inter text-sm text-black/70">{status}</p>
     </form>
   );
 }

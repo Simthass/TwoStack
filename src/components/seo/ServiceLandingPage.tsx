@@ -6,8 +6,9 @@ import CtaFooter from "@/components/services/CtaFooter";
 import { Reveal } from "@/components/services/Reveal";
 import type { ServicePageData } from "@/lib/service-data";
 import { SERVICE_ORDER, SERVICES } from "@/lib/service-data";
+import { getPublishedArticles } from "@/lib/sanity";
 
-export default function ServiceLandingPage({
+export default async function ServiceLandingPage({
   service,
 }: {
   service: ServicePageData;
@@ -15,6 +16,9 @@ export default function ServiceLandingPage({
   const related = SERVICE_ORDER.filter((slug) => slug !== service.slug)
     .slice(0, 3)
     .map((slug) => SERVICES[slug]);
+  const guides = (await getPublishedArticles()).filter(
+    (article) => article.relatedService.href === `/services/${service.slug}`,
+  );
 
   return (
     <>
@@ -23,31 +27,6 @@ export default function ServiceLandingPage({
       <main className="min-h-screen bg-[#ffffff]">
         <section className="relative overflow-hidden bg-[#000000] px-5 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 md:pt-40 lg:px-[35px]">
           <div className="mx-auto max-w-[1300px]">
-            <Reveal>
-              <nav
-                aria-label="Breadcrumb"
-                className="mb-8 font-inter text-[12px] text-white/40"
-              >
-                <Link
-                  href="/"
-                  className="transition-colors hover:text-white/70"
-                >
-                  Home
-                </Link>
-                <span className="mx-2">/</span>
-                <Link
-                  href="/services"
-                  className="transition-colors hover:text-white/70"
-                >
-                  Services
-                </Link>
-                <span className="mx-2">/</span>
-                <span aria-current="page" className="text-white/60">
-                  {service.metadataTitle}
-                </span>
-              </nav>
-            </Reveal>
-
             <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,.8fr)] lg:gap-16">
               <div>
                 <Reveal>
@@ -166,8 +145,8 @@ export default function ServiceLandingPage({
                   </h2>
                   <p className="mt-5 max-w-2xl font-inter text-base leading-7 text-black/55">
                     The screens, the backend, the data and the integrations are
-                    all planned together. That's what makes it reliable long
-                    after launch.
+                    all planned together. That&apos;s what makes it reliable
+                    long after launch.
                   </p>
                 </div>
               </div>
@@ -265,6 +244,38 @@ export default function ServiceLandingPage({
             </div>
           </div>
         </section>
+
+        {guides.length > 0 && (
+          <section className="bg-[#f8f8f8] px-5 py-16 sm:px-6 lg:px-[35px]">
+            <div className="mx-auto max-w-[1300px]">
+              <p className="font-inter text-xs uppercase tracking-[0.16em] text-black/45">
+                Guides
+              </p>
+              <h2 className="mt-4 font-satoshi text-3xl font-semibold">
+                Plan the next step with confidence.
+              </h2>
+              <div className="mt-7 grid gap-4 md:grid-cols-2">
+                {guides.map((article) => (
+                  <Link
+                    key={article.slug}
+                    href={`/blog/${article.slug}`}
+                    className="border border-black/10 bg-white p-6 hover:bg-black/5"
+                  >
+                    <span className="font-inter text-xs uppercase text-black/45">
+                      {article.category}
+                    </span>
+                    <h3 className="mt-4 font-satoshi text-xl font-semibold">
+                      {article.title}
+                    </h3>
+                    <span className="mt-5 block font-inter text-sm text-black/55">
+                      Read guide ↗
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="bg-[#ffffff] px-5 py-16 sm:px-6 md:py-20 lg:px-[35px]">
           <div className="mx-auto max-w-[1300px]">

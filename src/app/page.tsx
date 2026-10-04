@@ -11,6 +11,8 @@ import ProcessSection from "@/components/ProcessSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { FAQS } from "@/lib/faq-data";
+import { getPublishedArticles } from "@/lib/sanity";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   alternates: {
@@ -34,7 +36,10 @@ const faqSchema = {
   })),
 };
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const publishedArticles = await getPublishedArticles();
   return (
     <>
       <Grain />
@@ -51,6 +56,16 @@ export default function Home() {
         </section>
 
         <FAQSection />
+
+        <section className="border-t border-black/10 bg-white px-6 py-20 text-black lg:px-[35px]" aria-labelledby="insights-heading">
+          <div className="mx-auto max-w-[1300px]">
+            <div className="flex flex-col justify-between gap-5 border-b border-black/10 pb-7 md:flex-row md:items-end">
+              <div><p className="font-inter text-xs uppercase tracking-[0.16em] text-black/45">From the studio</p><h2 id="insights-heading" className="mt-4 font-satoshi text-3xl font-semibold md:text-5xl">Useful thinking before the build.</h2></div>
+              <Link href="/blog" className="font-inter text-sm underline underline-offset-4">All insights ↗</Link>
+            </div>
+            <div className="grid gap-5 pt-7 md:grid-cols-3">{publishedArticles.slice(0, 3).map((article) => <Link key={article.slug} href={`/blog/${article.slug}`} className="group flex min-h-60 flex-col border border-black/10 p-6 transition-colors hover:bg-black/5"><span className="font-inter text-xs uppercase tracking-wider text-black/45">{article.category}</span><h3 className="mt-7 font-satoshi text-2xl font-semibold leading-tight">{article.title}</h3><span className="mt-auto pt-6 font-inter text-sm text-black/55 group-hover:text-black">Read article ↗</span></Link>)}</div>
+          </div>
+        </section>
 
         {/* Process Section */}
         <section id="process">

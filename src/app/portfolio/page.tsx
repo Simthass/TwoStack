@@ -7,12 +7,7 @@ import Grain from "@/components/Grain";
 import CtaFooter from "@/components/services/CtaFooter";
 import { Reveal } from "@/components/services/Reveal";
 import { CASE_STUDY_ORDER, CASE_STUDIES } from "@/lib/portfolio-data";
-import {
-  breadcrumbSchema,
-  createMetadata,
-  jsonLd,
-  webPageSchema,
-} from "@/lib/seo";
+import { createMetadata, jsonLd, webPageSchema } from "@/lib/seo";
 
 const path = "/portfolio";
 const description =
@@ -26,10 +21,6 @@ export const metadata: Metadata = createMetadata({
 
 export default function PortfolioPage() {
   const schema = [
-    breadcrumbSchema([
-      { name: "Home", path: "/" },
-      { name: "Portfolio", path },
-    ]),
     webPageSchema({
       name: "TwoStack Portfolio",
       description,
@@ -87,7 +78,6 @@ export default function PortfolioPage() {
                           src={study.heroImage}
                           alt={study.heroImageAlt}
                           fill
-                          unoptimized
                           className="object-cover"
                         />
                       </div>

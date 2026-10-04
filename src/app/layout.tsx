@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { jsonLd, organizationGraph } from "@/lib/seo";
 import { SITE } from "@/lib/site";
+import Analytics from "@/components/Analytics";
+import ContactClickTracking from "@/components/ContactClickTracking";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -88,6 +90,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: jsonLd(organizationGraph) }}
         />
         {children}
+        <Analytics />
+        <ContactClickTracking />
       </body>
     </html>
   );

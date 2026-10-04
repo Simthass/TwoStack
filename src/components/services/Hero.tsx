@@ -62,7 +62,7 @@ export default function Hero() {
               className="mt-4 font-inter text-white/60 text-[15px] md:text-base leading-relaxed max-w-[54ch]"
             >
               We work with businesses that are done running on spreadsheets,
-              missed WhatsApp messages and a website nobody's touched since
+              missed WhatsApp messages and a website nobody&apos;s touched since
               launch.
             </motion.p>
 

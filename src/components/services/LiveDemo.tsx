@@ -80,7 +80,7 @@ export default function LiveDemo() {
             See the automation layer answer a real enquiry.
           </h2>
           <p className="mt-4 font-inter text-[#000000]/60 text-[15px] leading-relaxed max-w-[54ch] mx-auto">
-            This runs on loop below. In your build, it's trained on your own
+            This runs on loop below. In your build, it&apos;s trained on your own
             tone, stock or services, and calendar - with a person approving
             every reply for the first two weeks of any launch.
           </p>

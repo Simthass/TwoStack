@@ -22,31 +22,6 @@ export default function PortfolioCaseStudy({ study }: { study: CaseStudy }) {
         <section className="relative overflow-hidden bg-[#000000] px-5 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 md:pt-40 lg:px-[35px]">
           <div className="mx-auto max-w-[1300px]">
             <Reveal>
-              <nav
-                aria-label="Breadcrumb"
-                className="mb-8 font-inter text-[12px] text-white/40"
-              >
-                <Link
-                  href="/"
-                  className="transition-colors hover:text-white/70"
-                >
-                  Home
-                </Link>
-                <span className="mx-2">/</span>
-                <Link
-                  href="/portfolio"
-                  className="transition-colors hover:text-white/70"
-                >
-                  Portfolio
-                </Link>
-                <span className="mx-2">/</span>
-                <span aria-current="page" className="text-white/60">
-                  {study.name}
-                </span>
-              </nav>
-            </Reveal>
-
-            <Reveal>
               <div className="mb-5 flex items-center gap-3">
                 <span
                   aria-hidden="true"
@@ -112,7 +87,6 @@ export default function PortfolioCaseStudy({ study }: { study: CaseStudy }) {
                   alt={study.heroImageAlt}
                   width={1919}
                   height={1079}
-                  unoptimized
                   className="h-auto w-full object-cover"
                   priority
                 />
@@ -134,7 +108,6 @@ export default function PortfolioCaseStudy({ study }: { study: CaseStudy }) {
                       src={image.src}
                       alt={image.alt}
                       fill
-                      unoptimized
                       className="object-cover"
                     />
                   </div>
@@ -277,7 +250,7 @@ export default function PortfolioCaseStudy({ study }: { study: CaseStudy }) {
                     More work
                   </p>
                   <h2 className="mt-3 font-satoshi text-3xl font-semibold tracking-[-0.03em] text-[#000000]">
-                    Other projects we've built.
+                    Other projects we&apos;ve built.
                   </h2>
                 </div>
                 <Link

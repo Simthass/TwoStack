@@ -2,7 +2,6 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
 
 export default function CtaFooter() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -23,11 +22,6 @@ export default function CtaFooter() {
       opacity: 1,
       transition: { staggerChildren: 0.1, delayChildren: 0.05 },
     },
-  };
-
-  // Scroll to top function
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -64,7 +58,7 @@ export default function CtaFooter() {
             variants={fadeUpVariants}
             className="inline-block font-inter text-[13px] tracking-wider text-white/40"
           >
-            Let's work together
+            Let&apos;s work together
           </motion.span>
 
           <motion.h2
@@ -72,7 +66,7 @@ export default function CtaFooter() {
             className="mt-5 font-satoshi font-bold text-white leading-[1.05]"
             style={{ fontSize: "clamp(2.25rem, 6vw, 5rem)" }}
           >
-            Let's see what your business
+            Let&apos;s see what your business
             <br />
             <span className="text-[#ffffff]">could actually run on.</span>
           </motion.h2>

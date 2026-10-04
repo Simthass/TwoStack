@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { track } from "@/lib/analytics";
 
 export default function CTASection() {
   const sectionRef = useRef(null);
@@ -10,9 +11,12 @@ export default function CTASection() {
     name: "",
     email: "",
     phone: "",
+    message: "",
+    website: "",
     services: [] as string[],
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState("");
 
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 24 },
@@ -49,36 +53,19 @@ export default function CTASection() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    let serviceList = "";
-    if (formData.services.length > 0) {
-      serviceList = formData.services
-        .map((id, index) => {
-          const option = serviceOptions.find((s) => s.id === id);
-          return option ? `${index + 1}. ${option.label}` : "";
-        })
-        .filter(Boolean)
-        .join("%0A");
-    } else {
-      serviceList = "Not specified";
-    }
-
-    const message =
-      `Hi%20TwoStack!%0A%0A` +
-      `📋%20*New%20Project%20Enquiry*%0A%0A` +
-      `👤%20*Name:*%20${encodeURIComponent(formData.name)}%0A` +
-      `📧%20*Email:*%20${encodeURIComponent(formData.email)}%0A` +
-      `📱%20*Phone:*%20${encodeURIComponent(formData.phone || "Not provided")}%0A%0A` +
-      `🔧%20*Services:*%0A${serviceList}`;
-
-    const whatsappLink = `https://wa.me/94767732288?text=${message}`;
-    window.open(whatsappLink, "_blank");
-
-    setFormData({ name: "", email: "", phone: "", services: [] });
-    setIsSubmitting(false);
+    setFormStatus("");
+    try {
+      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...formData, services: formData.services.map((id) => serviceOptions.find((option) => option.id === id)?.label).filter(Boolean), source: window.location.href }) });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Please try again or contact us directly.");
+      setFormStatus("Thanks. We received your project details and will reply by email.");
+      track("contact_submit_success", { source: "home" });
+      setFormData({ name: "", email: "", phone: "", message: "", website: "", services: [] });
+    } catch (error) { setFormStatus(error instanceof Error ? error.message : "Please contact us directly."); }
+    finally { setIsSubmitting(false); }
   };
 
   const SOCIAL_LINKS = [
@@ -204,6 +191,7 @@ export default function CTASection() {
             <div className="lg:col-span-3">
               <div className="bg-[#ffffff] rounded-2xl p-6 md:p-8 border border-black/10 shadow-sm h-full">
                 <form onSubmit={handleSubmit}>
+                  <label className="absolute -left-[10000px]" aria-hidden="true">Website<input tabIndex={-1} autoComplete="off" value={formData.website} onChange={(e) => setFormData({ ...formData, website: e.target.value })} /></label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label
@@ -286,13 +274,16 @@ export default function CTASection() {
                     </div>
                   </div>
 
+                  <div className="mt-4"><label htmlFor="home-project-message" className="font-inter text-black/60 text-xs uppercase tracking-wider block mb-1.5">Your project *</label><textarea id="home-project-message" required minLength={10} rows={3} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="What are you building or trying to improve?" className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 font-inter text-sm text-black outline-none focus:border-black/30" /></div>
+
                   <button
                     type="submit"
                     disabled={isSubmitting}
                     className="mt-6 w-full bg-black text-white font-inter font-medium text-sm px-6 py-3 rounded-xl hover:bg-black/85 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
                   >
-                    {isSubmitting ? "Sending..." : "Send via WhatsApp"}
+                    {isSubmitting ? "Sending..." : "Send project enquiry"}
                   </button>
+                  <p role="status" aria-live="polite" className="mt-3 font-inter text-sm text-black/65">{formStatus}</p>
                 </form>
               </div>
             </div>

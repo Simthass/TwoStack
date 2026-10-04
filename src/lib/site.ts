@@ -57,6 +57,8 @@ export const PRIMARY_NAV = [
   { label: "Home", href: "/" },
   { label: "What we build", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "About", href: "/about" },
+  { label: "Insights", href: "/blog" },
   { label: "Process", href: "/process" },
   { label: "Contact us", href: "/contact" },
 ] as const;

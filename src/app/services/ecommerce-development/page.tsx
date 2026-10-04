@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ServiceLandingPage from "@/components/seo/ServiceLandingPage";
 import { SERVICES } from "@/lib/service-data";
-import { breadcrumbSchema, createMetadata, faqSchema, jsonLd, serviceSchema } from "@/lib/seo";
+import { createMetadata, faqSchema, jsonLd, serviceSchema } from "@/lib/seo";
 
 const service = SERVICES["ecommerce-development"];
 const path = `/services/${service.slug}`;
@@ -14,11 +14,6 @@ export const metadata: Metadata = createMetadata({
 
 export default function Page() {
   const schema = [
-    breadcrumbSchema([
-      { name: "Home", path: "/" },
-      { name: "Services", path: "/services" },
-      { name: service.metadataTitle, path },
-    ]),
     serviceSchema({
       name: service.metadataTitle,
       description: service.description,

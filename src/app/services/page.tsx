@@ -10,12 +10,7 @@ import Process from "@/components/services/Process";
 import CtaFooter from "@/components/services/CtaFooter";
 import { Reveal } from "@/components/services/Reveal";
 import { SERVICE_ORDER, SERVICES } from "@/lib/service-data";
-import {
-  breadcrumbSchema,
-  createMetadata,
-  jsonLd,
-  webPageSchema,
-} from "@/lib/seo";
+import { createMetadata, jsonLd, webPageSchema } from "@/lib/seo";
 
 const path = "/services";
 const description =
@@ -29,10 +24,6 @@ export const metadata: Metadata = createMetadata({
 
 export default function ServicesPage() {
   const schema = [
-    breadcrumbSchema([
-      { name: "Home", path: "/" },
-      { name: "Services", path },
-    ]),
     webPageSchema({
       name: "TwoStack Software Development Services",
       description,

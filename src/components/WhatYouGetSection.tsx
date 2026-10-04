@@ -104,7 +104,8 @@ function AssistantVisual() {
         elapsed += 750;
       }
     });
-    return () => timeouts.current.forEach(clearTimeout);
+    const pending = timeouts.current;
+    return () => pending.forEach(clearTimeout);
   }, []);
 
   useEffect(() => {
@@ -379,7 +380,7 @@ export default function WhatYouGetSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-7">
-          {CARDS.map((card, index) => (
+          {CARDS.map((card) => (
             <div
               key={card.id}
               className="rounded-2xl overflow-hidden border border-black/10"

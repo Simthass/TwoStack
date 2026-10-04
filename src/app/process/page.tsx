@@ -5,12 +5,7 @@ import Footer from "@/components/Footer";
 import Grain from "@/components/Grain";
 import CtaFooter from "@/components/services/CtaFooter";
 import { Reveal } from "@/components/services/Reveal";
-import {
-  breadcrumbSchema,
-  createMetadata,
-  jsonLd,
-  webPageSchema,
-} from "@/lib/seo";
+import { createMetadata, jsonLd, webPageSchema } from "@/lib/seo";
 
 const path = "/process";
 const description =
@@ -85,10 +80,6 @@ const PRINCIPLES = [
 
 export default function ProcessPage() {
   const schema = [
-    breadcrumbSchema([
-      { name: "Home", path: "/" },
-      { name: "Process", path },
-    ]),
     webPageSchema({
       name: "TwoStack Software Development Process",
       description,
@@ -108,29 +99,18 @@ export default function ProcessPage() {
         <section className="bg-[#000000] px-5 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 md:pt-40 lg:px-[35px]">
           <div className="mx-auto max-w-[1300px]">
             <Reveal>
-              <nav
-                aria-label="Breadcrumb"
-                className="font-inter text-[12px] text-white/40"
-              >
-                <Link href="/" className="hover:text-white/70">
-                  Home
-                </Link>
-                <span className="mx-2">/</span>
-                <span aria-current="page" className="text-white/60">
-                  Process
-                </span>
-              </nav>
-              <p className="mt-10 font-inter text-[12px] uppercase tracking-[0.16em] text-white/35">
+              <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-white/35">
                 How TwoStack works
               </p>
               <h1 className="mt-5 max-w-5xl font-satoshi text-[clamp(2.7rem,8vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.04em] text-white">
-                A clear process, so you always know what's happening.
+                A clear process, so you always know what&apos;s happening.
               </h1>
               <div className="mt-8 grid grid-cols-1 gap-7 border-t border-white/12 pt-7 md:grid-cols-[1fr_.7fr] md:gap-16">
                 <p className="max-w-2xl font-inter text-base leading-7 text-white/58 sm:text-lg sm:leading-8">
                   We go from understanding your business to a working product,
-                  step by step. No mystery "build phase" and no vague "almost
-                  done" updates you can't actually see for yourself.
+                  step by step. No mystery &ldquo;build phase&rdquo; and no
+                  vague &ldquo;almost done&rdquo; updates you can&apos;t
+                  actually see for yourself.
                 </p>
                 <div className="flex flex-wrap items-start gap-3 md:justify-end">
                   <Link

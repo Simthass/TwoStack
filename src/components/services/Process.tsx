@@ -94,7 +94,7 @@ export default function Process() {
           />
 
           <div className="flex flex-col gap-10">
-            {steps.map((step, i) => (
+            {steps.map((step) => (
               <motion.div
                 key={step.n}
                 variants={fadeUpVariants}
