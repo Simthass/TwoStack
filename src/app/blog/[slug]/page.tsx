@@ -11,7 +11,7 @@ import { createMetadata, jsonLd } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 
 export function generateStaticParams() {
-  return process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+  return process.env.NEXT_SANITY_PROJECT_ID
     ? []
     : publishedArticles.map(({ slug }) => ({ slug }));
 }
