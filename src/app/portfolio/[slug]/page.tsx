@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PortfolioCaseStudy from "@/components/portfolio/PortfolioCaseStudy";
 import { CASE_STUDY_ORDER, CASE_STUDIES } from "@/lib/portfolio-data";
-import { breadcrumbSchema, createMetadata, jsonLd, webPageSchema } from "@/lib/seo";
+import { createMetadata, jsonLd, webPageSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
   return CASE_STUDY_ORDER.map((slug) => ({ slug }));
@@ -35,11 +35,6 @@ export default async function Page({
 
   const path = `/portfolio/${study.slug}`;
   const schema = [
-    breadcrumbSchema([
-      { name: "Home", path: "/" },
-      { name: "Portfolio", path: "/portfolio" },
-      { name: study.name, path },
-    ]),
     webPageSchema({
       name: study.metadataTitle,
       description: study.description,
