@@ -95,15 +95,6 @@ export default async function ArticlePage({
       <main className="bg-white text-black">
         <header className="bg-black px-6 pb-16 pt-36 text-white lg:px-[35px] lg:pb-24">
           <div className="mx-auto max-w-[1000px]">
-            <nav
-              aria-label="Breadcrumb"
-              className="font-inter text-xs text-white/55"
-            >
-              <Link href="/">Home</Link>
-              <span aria-hidden="true"> / </span>
-              <Link href="/blog">Insights</Link>
-              <span aria-hidden="true"> / {article.category}</span>
-            </nav>
             <p className="mt-12 font-inter text-xs uppercase tracking-[0.18em] text-white/55">
               {article.category}
             </p>
