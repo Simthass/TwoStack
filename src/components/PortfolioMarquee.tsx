@@ -36,6 +36,36 @@ const CARDS = [
     alt: "Business dashboard project built by TwoStack",
     href: "/portfolio",
   },
+  {
+    id: 6,
+    src: "/portfolio/Demo Projects/Blue Desert Interiors 1.webp",
+    alt: "Business Website project built by TwoStack",
+    href: "/portfolio",
+  },
+  {
+    id: 7,
+    src: "/portfolio/Demo Projects/Dog-Eared Pages 1.webp",
+    alt: "Business Website project built by TwoStack",
+    href: "/portfolio",
+  },
+  {
+    id: 8,
+    src: "/portfolio/Demo Projects/Estate Sales by AMY 1.webp",
+    alt: "Business Website project built by TwoStack",
+    href: "/portfolio",
+  },
+  {
+    id: 9,
+    src: "/portfolio/Demo Projects/Hang Ups 1.webp",
+    alt: "Business Website project built by TwoStack",
+    href: "/portfolio",
+  },
+  {
+    id: 10,
+    src: "/portfolio/Demo Projects/Kidstop Toys & Books 1.webp",
+    alt: "Business Website project built by TwoStack",
+    href: "/portfolio",
+  },
 ] as const;
 
 // Duplicate for seamless loop
@@ -91,7 +121,12 @@ function Card({
         sizes={isMobile ? "92vw" : "33vw"}
         draggable={false}
       />
-      <Link href={href} aria-label={`View ${alt}`} tabIndex={duplicate ? -1 : 0} className="absolute inset-0 z-10" />
+      <Link
+        href={href}
+        aria-label={`View ${alt}`}
+        tabIndex={duplicate ? -1 : 0}
+        className="absolute inset-0 z-10"
+      />
     </motion.div>
   );
 }
