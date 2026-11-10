@@ -1,16 +1,14 @@
-import Agency from "./Agency";
+import Studio from "./Studio";
 
-export { metadata, viewport } from "next-sanity/agency";
+export { metadata, viewport } from "next-sanity/studio";
 
-export default function AgencyPage() {
+export default function StudioPage() {
   const projectId = process.env.NEXT_SANITY_PROJECT_ID;
-  const dataset = process.env.NEXT_SANITY_DATASET;
+  const dataset = process.env.NEXT_SANITY_DATASET ?? "production";
 
-  if (!projectId || !dataset) {
-    throw new Error(
-      "Missing NEXT_SANITY_PROJECT_ID or NEXT_SANITY_DATASET in this deployment",
-    );
+  if (!projectId) {
+    return <p>Missing NEXT_SANITY_PROJECT_ID.</p>;
   }
 
-  return <Agency projectId={projectId} dataset={dataset} />;
+  return <Studio projectId={projectId} dataset={dataset} />;
 }

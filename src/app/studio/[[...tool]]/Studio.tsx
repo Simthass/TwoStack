@@ -1,6 +1,6 @@
 "use client";
 
-import { NextAgency } from "next-sanity/agency";
+import { NextStudio } from "next-sanity/studio";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { post } from "@/sanity/schemaTypes/post";
@@ -10,16 +10,16 @@ type Props = {
   dataset: string;
 };
 
-export default function Agency({ projectId, dataset }: Props) {
+export default function Studio({ projectId, dataset }: Props) {
   const config = defineConfig({
     name: "twostack",
     title: "TwoStack Editorial",
-    basePath: "/agency",
+    basePath: "/studio",
     projectId,
     dataset,
     plugins: [structureTool()],
     schema: { types: [post] },
   });
 
-  return <NextAgency config={config} />;
+  return <NextStudio config={config} />;
 }
