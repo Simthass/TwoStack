@@ -178,7 +178,7 @@ export default function Nav() {
           aria-label="TwoStack"
         >
           <Image
-            src="/images/logo.png"
+            src="/images/Logo.png"
             alt="TwoStack logo"
             width={20}
             height={20}

@@ -105,7 +105,7 @@ export default function Footer() {
           <div className="md:col-span-5">
             <Link href="/" className="inline-block" aria-label="TwoStack home">
               <Image
-                src="/images/logo.png"
+                src="/images/Logo.png"
                 alt="TwoStack logo"
                 width={64}
                 height={64}

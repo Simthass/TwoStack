@@ -41,7 +41,7 @@ When Sanity is not configured, the four existing code-authored articles in `src/
 
 ## Site operations
 
-- The organization logo used in schema and navigation is `/images/logo.png` (lowercase). The source ZIP's `/images/Logo.png` was a blank white image; the new mark is derived from the original TwoStack social artwork.
+- The organization logo used in schema and navigation is `/images/Logo.png` (lowercase). The source ZIP's `/images/Logo.png` was a blank white image; the new mark is derived from the original TwoStack social artwork.
 - The generic Open Graph image is a real 1200 × 630 JPEG. Add contextual per-article/case-study images when you have approved assets.
 - `src/app/sitemap.ts` derives service and case study paths from their corresponding data modules and blog URLs from published articles. Only article entries include a verified editorial date.
 - The contact endpoint validates input, uses a hidden honeypot field and sends mail server-side. For sustained spam or high traffic, add provider-backed rate limiting and CAPTCHA/challenge appropriate to observed abuse. Monitor delivery errors and keep a separate WhatsApp path.
