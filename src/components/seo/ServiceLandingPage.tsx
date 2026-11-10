@@ -7,21 +7,37 @@ import { Reveal } from "@/components/services/Reveal";
 import type { ServicePageData } from "@/lib/service-data";
 import { SERVICE_ORDER, SERVICES } from "@/lib/service-data";
 import { getPublishedArticles } from "@/lib/sanity";
+import { breadcrumbSchema, jsonLd } from "@/lib/seo";
+import ChatDemo from "@/components/seo/ChatDemo";
 
 export default async function ServiceLandingPage({
   service,
 }: {
   service: ServicePageData;
 }) {
-  const related = SERVICE_ORDER.filter((slug) => slug !== service.slug)
-    .slice(0, 3)
+  const related = (
+    service.related ??
+    SERVICE_ORDER.filter((slug) => slug !== service.slug).slice(0, 3)
+  )
+    .filter((slug) => slug !== service.slug && SERVICES[slug])
     .map((slug) => SERVICES[slug]);
+  let sectionNumber = 0;
+  const num = () => String(++sectionNumber).padStart(2, "0");
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", path: "" },
+    { name: "Services", path: "/services" },
+    { name: service.metadataTitle, path: `/services/${service.slug}` },
+  ]);
   const guides = (await getPublishedArticles()).filter(
     (article) => article.relatedService.href === `/services/${service.slug}`,
   );
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbs) }}
+      />
       <Grain />
       <Nav />
       <main className="min-h-screen bg-[#ffffff]">
@@ -45,6 +61,17 @@ export default async function ServiceLandingPage({
                   <p className="mt-7 max-w-3xl font-inter text-base leading-7 text-white/58 sm:text-lg sm:leading-8">
                     {service.intro}
                   </p>
+                  {service.crossLink && (
+                    <p className="mt-5 font-inter text-sm leading-6 text-white/45">
+                      {service.crossLink.text}{" "}
+                      <Link
+                        href={service.crossLink.href}
+                        className="text-white underline underline-offset-4 hover:text-white/80"
+                      >
+                        {service.crossLink.label}
+                      </Link>
+                    </p>
+                  )}
                   <div className="mt-9 flex flex-wrap gap-3">
                     <Link
                       href="/contact"
@@ -91,12 +118,40 @@ export default async function ServiceLandingPage({
           </div>
         </section>
 
+        {service.demo && (
+          <section className="border-b border-black/10 bg-[#ffffff] px-5 py-16 sm:px-6 md:py-24 lg:px-[35px]">
+            <div className="mx-auto max-w-[1300px]">
+              <Reveal>
+                <div className="grid grid-cols-1 gap-7 pb-10 md:grid-cols-[.72fr_1.28fr] md:gap-14">
+                  <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
+                    {num()} — In action
+                  </p>
+                  <div>
+                    <h2 className="font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
+                      {service.demo.heading}
+                    </h2>
+                    <p className="mt-5 max-w-2xl font-inter text-base leading-7 text-black/55">
+                      {service.demo.intro}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+              <Reveal delay={0.06}>
+                <ChatDemo chats={service.demo.chats} />
+                <p className="mt-5 font-inter text-xs leading-5 text-black/40">
+                  {service.demo.note}
+                </p>
+              </Reveal>
+            </div>
+          </section>
+        )}
+
         <section className="border-b border-black/10 bg-[#ffffff] px-5 py-16 sm:px-6 md:py-24 lg:px-[35px]">
           <div className="mx-auto max-w-[1300px]">
             <Reveal>
               <div className="grid grid-cols-1 gap-7 border-b border-black/10 pb-10 md:grid-cols-[.72fr_1.28fr] md:gap-14">
                 <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
-                  01 — Capability
+                  {num()} — Capability
                 </p>
                 <h2 className="font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
                   What TwoStack actually builds.
@@ -132,12 +187,63 @@ export default async function ServiceLandingPage({
           </div>
         </section>
 
+        {service.languages && (
+          <section className="border-b border-black/10 bg-[#f8f8f8] px-5 py-16 sm:px-6 md:py-24 lg:px-[35px]">
+            <div className="mx-auto max-w-[1300px]">
+              <Reveal>
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-[.72fr_1.28fr] md:gap-14">
+                  <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
+                    {num()} — Languages
+                  </p>
+                  <div>
+                    <h2 className="font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
+                      {service.languages.heading}
+                    </h2>
+                    <p className="mt-5 max-w-2xl font-inter text-base leading-7 text-black/55">
+                      {service.languages.intro}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+              <div className="mt-12 border-t border-black/10">
+                {service.languages.items.map((item, index) => (
+                  <Reveal key={item.name} delay={Math.min(index * 0.04, 0.16)}>
+                    <div className="grid grid-cols-1 gap-3 border-b border-black/10 py-6 md:grid-cols-[.72fr_1fr_1fr] md:gap-8">
+                      <div>
+                        <h3 className="font-satoshi text-2xl font-semibold tracking-[-0.02em] text-[#000000]">
+                          {item.name}
+                        </h3>
+                        <p className="mt-1 font-inter text-[13px] text-black/45">
+                          {item.how}
+                        </p>
+                      </div>
+                      <p className="font-inter text-[17px] leading-7 text-black/80">
+                        {item.example}
+                      </p>
+                      {item.meaning ? (
+                        <p className="font-inter text-[14px] leading-6 text-black/50">
+                          <span className="font-medium text-black/65">
+                            Means:
+                          </span>{" "}
+                          {item.meaning}
+                        </p>
+                      ) : (
+                        <span aria-hidden="true" />
+                      )}
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="bg-[#ffffff] px-5 py-16 sm:px-6 md:py-24 lg:px-[35px]">
           <div className="mx-auto max-w-[1300px]">
             <Reveal>
               <div className="grid grid-cols-1 gap-8 md:grid-cols-[.72fr_1.28fr] md:gap-14">
                 <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
-                  02 — System thinking
+                  {num()} — System thinking
                 </p>
                 <div>
                   <h2 className="font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
@@ -171,11 +277,44 @@ export default async function ServiceLandingPage({
           </div>
         </section>
 
+        {service.audiences && (
+          <section className="border-t border-black/10 bg-[#ffffff] px-5 py-16 sm:px-6 md:py-24 lg:px-[35px]">
+            <div className="mx-auto max-w-[1300px]">
+              <Reveal>
+                <div className="grid grid-cols-1 gap-7 border-b border-black/10 pb-10 md:grid-cols-[.72fr_1.28fr] md:gap-14">
+                  <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
+                    {num()} — Who it&apos;s for
+                  </p>
+                  <h2 className="font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
+                    {service.audiences.heading}
+                  </h2>
+                </div>
+              </Reveal>
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                {service.audiences.items.map((item, index) => (
+                  <Reveal
+                    key={item.title}
+                    delay={Math.min(index * 0.04, 0.12)}
+                    className="border-b border-black/10 py-8 md:px-7 md:odd:border-r md:odd:pl-0"
+                  >
+                    <h3 className="font-satoshi text-2xl font-semibold tracking-[-0.02em] text-[#000000]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 max-w-md font-inter text-[15px] leading-7 text-black/58">
+                      {item.body}
+                    </p>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="bg-[#000000] px-5 py-16 text-white sm:px-6 md:py-24 lg:px-[35px]">
           <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <Reveal>
               <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-white/35">
-                03 — Local operating context
+                {num()} — Local operating context
               </p>
               <h2 className="mt-5 font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em]">
                 Built in Colombo. Designed for the way the business actually
@@ -210,7 +349,7 @@ export default async function ServiceLandingPage({
           <div className="mx-auto max-w-[1100px]">
             <Reveal>
               <p className="font-inter text-[12px] uppercase tracking-[0.16em] text-black/40">
-                04 — Questions
+                {num()} — Questions
               </p>
               <h2 className="mt-4 max-w-3xl font-satoshi text-[clamp(2rem,5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-[#000000]">
                 Answers before you reach out.

@@ -17,7 +17,7 @@ export const post = defineType({
     ], validation: (Rule) => Rule.required().min(1) }),
     defineField({ name: "relatedService", title: "Related service", type: "object", group: "content", fields: [
       { name: "label", title: "Link label", type: "string", validation: (Rule) => Rule.required() },
-      { name: "href", title: "Service page", type: "string", options: { list: ["/services/web-development", "/services/ecommerce-development", "/services/mobile-development", "/services/erp-systems-development", "/services/ai-automation", "/services/custom-software-development"] }, validation: (Rule) => Rule.required() },
+      { name: "href", title: "Service page", type: "string", options: { list: ["/services/web-development", "/services/ecommerce-development", "/services/mobile-development", "/services/erp-systems-development", "/services/ai-automation", "/services/whatsapp-ai-chatbot", "/services/custom-software-development"] }, validation: (Rule) => Rule.required() },
     ], validation: (Rule) => Rule.required() }),
     defineField({ name: "relatedCaseStudy", title: "Related case study (optional)", type: "object", group: "content", fields: [
       { name: "label", title: "Link label", type: "string" },

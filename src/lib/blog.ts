@@ -97,6 +97,26 @@ const articles: readonly Article[] = [
       { heading: "A brief your build team can use", paragraphs: ["Share the user journey, current workaround, data sources, mandatory security or compliance needs, device requirements, and what you can defer. Ask for a phased plan that names assumptions and dependencies. This lets you change direction after seeing actual usage rather than paying for every imagined edge case up front."], bullets: ["Primary user and task", "Essential data and integrations", "Who operates the admin side", "Success measure and pilot group"] },
     ],
   },
+  {
+    slug: "whatsapp-ai-chatbot-sri-lanka-guide",
+    title: "WhatsApp AI chatbot for Sri Lankan businesses: what it does and how to start",
+    seoTitle: "WhatsApp AI Chatbot Sri Lanka: A Simple Guide for Businesses",
+    description: "A plain-English guide to WhatsApp AI chatbots in Sri Lanka: Sinhala, Tamil, Singlish and Thanglish support, voice notes, product photo matching and how to plan one.",
+    summary: "A WhatsApp AI chatbot can answer customer questions day and night. Here is what it can do, what to check first, and how to plan one for your business.",
+    category: "WhatsApp AI",
+    author: "TwoStack team",
+    publishedAt: "2026-11-05",
+    status: "published",
+    readingMinutes: 5,
+    relatedService: { label: "WhatsApp AI chatbot", href: "/services/whatsapp-ai-chatbot" },
+    sections: [
+      { heading: "What is a WhatsApp AI chatbot?", paragraphs: ["A WhatsApp AI chatbot is a program connected to your business WhatsApp number. When a customer sends a message, it reads the message, understands what the customer wants and replies automatically. Older bots only worked with menus such as press 1 for prices. An AI chatbot understands normal sentences, so customers can write the way they always do.", "A useful chatbot is connected to your real information: products, prices, stock, delivery details and orders. That is what lets it answer questions such as is this in stock, or where is my order, instead of giving a generic reply."] },
+      { heading: "Why language matters in Sri Lanka", paragraphs: ["Customers here write to businesses in many styles. Some use English, some use Sinhala or Tamil letters, and many type Sinhala or Tamil with English letters. These are often called Singlish and Thanglish. A chatbot that only understands formal English will miss a lot of real messages.", "When you plan a chatbot, collect real customer messages from your current chats and test the chatbot on them. That is the best way to check that it understands your customers, not just a demo."] },
+      { heading: "Voice notes and product photos", paragraphs: ["Many customers prefer to send a voice note instead of typing. A chatbot can turn the voice note into text, understand the question and reply. Accuracy depends on the audio quality, accent and language, so test it with real recordings.", "Customers also send a photo and ask if you have it. A chatbot can compare the photo with the images and details in your product database and reply with the price and stock when it finds a close match. If it is not sure, it should show similar items or ask your team to check. This works best when your catalogue has clear, well-labelled product photos."] },
+      { heading: "What to check before you start", paragraphs: ["Make sure your product list is organised, with names, prices, stock levels and photos in one place. Decide which questions the chatbot can answer alone and which should go to a person, such as complaints, refunds or special requests. Plan a simple way for your team to take over a chat at any time.", "You will also need the official WhatsApp Business Platform from Meta. Meta charges its own fees for some message types, so ask your developer to explain these costs clearly before you commit."] },
+      { heading: "A simple brief for your developer", paragraphs: ["Share how many products you have, the languages your customers use, a few examples of voice notes and photos they send, the systems that hold your stock and orders, and the questions your team answers most often. With that, a developer can scope the project, give a clear quote and agree a realistic timeline."] },
+    ],
+  },
 ];
 
 export const publishedArticles = articles.filter((article) => article.status === "published")

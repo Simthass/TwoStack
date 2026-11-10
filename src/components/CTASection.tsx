@@ -40,7 +40,8 @@ export default function CTASection() {
     { id: "ecommerce", label: "Ecommerce Development" },
     { id: "mobile", label: "Mobile Application Development" },
     { id: "erp", label: "ERP Systems Development" },
-    { id: "ai", label: "AI & Workflow Automation" },
+    { id: "ai", label: "AI Software Automation" },
+    { id: "whatsapp", label: "WhatsApp AI Chatbot" },
     { id: "custom", label: "Custom Software Development" },
   ];
 

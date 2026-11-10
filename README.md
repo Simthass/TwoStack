@@ -21,12 +21,12 @@ The development server runs on `http://localhost:4000`. Run `npm run lint` and `
 
 ## Daily publishing with the admin panel
 
-The project includes Sanity Studio at `/studio`. Sanity manages editor accounts, drafts, publication, scheduling (when available in the project plan), image uploads and revision history. The page is excluded from the sitemap and marked `noindex`. The Studio shell is public, but content editing requires a Sanity project member login.
+The project includes Sanity Agency at `/agency`. Sanity manages editor accounts, drafts, publication, scheduling (when available in the project plan), image uploads and revision history. The page is excluded from the sitemap and marked `noindex`. The Agency shell is public, but content editing requires a Sanity project member login.
 
-1. Create a Sanity project with a **public dataset** named `production` (or update the dataset variable). Add the project ID and dataset as `NEXT_SANITY_PROJECT_ID` and `NEXT_SANITY_DATASET` in Vercel. These are public identifiers, not secrets. Add `https://twostack.lk`, your preview domain if used, and `http://localhost:4000` as allowed Studio CORS origins with credentials in the Sanity project settings.
+1. Create a Sanity project with a **public dataset** named `production` (or update the dataset variable). Add the project ID and dataset as `NEXT_SANITY_PROJECT_ID` and `NEXT_SANITY_DATASET` in Vercel. These are public identifiers, not secrets. Add `https://twostack.lk`, your preview domain if used, and `http://localhost:4000` as allowed Agency CORS origins with credentials in the Sanity project settings.
 2. Create a temporary Sanity token with permission to create documents. Put it in your local `.env.local` as `SANITY_WRITE_TOKEN` alongside the project ID and dataset, then run `npm run import:articles`. The command uses stable IDs and can be rerun safely. Remove the write token after import. **Never add a write token to the public environment or source control.**
-3. Deploy this updated project. Open `https://twostack.lk/studio`, sign in as a project member, create an Article, add a cover and inline images with descriptive alt text, write the body, check SEO fields and publish. The public blog, service-page links, homepage and sitemap update from published content, with a cache of up to roughly 60 seconds. Drafts and future-dated posts do not appear publicly. Sanity's scheduling action can publish a draft at a later date if enabled for your project.
-4. Keep actual publication dates, author names and claims accurate. Preview in Studio and check the live article before sharing it. Give only trusted editors access to the Sanity project.
+3. Deploy this updated project. Open `https://twostack.lk/agency`, sign in as a project member, create an Article, add a cover and inline images with descriptive alt text, write the body, check SEO fields and publish. The public blog, service-page links, homepage and sitemap update from published content, with a cache of up to roughly 60 seconds. Drafts and future-dated posts do not appear publicly. Sanity's scheduling action can publish a draft at a later date if enabled for your project.
+4. Keep actual publication dates, author names and claims accurate. Preview in Agency and check the live article before sharing it. Give only trusted editors access to the Sanity project.
 
 When Sanity is not configured, the four existing code-authored articles in `src/lib/blog.ts` remain visible. Once configured, Sanity becomes the source for all articles. Import those four before deploying the environment variables, or the blog will be empty until the first article is published.
 
@@ -34,10 +34,10 @@ When Sanity is not configured, the four existing code-authored articles in `src/
 
 ## Admin setup reference
 
-- Embedded Studio: `sanity.config.ts`, `src/sanity/schemaTypes/post.ts`, and `src/app/studio/[[...tool]]/`.
+- Embedded Agency: `sanity.config.ts`, `src/sanity/schemaTypes/post.ts`, and `src/app/agency/[[...tool]]/`.
 - Public fetch: `src/lib/sanity.ts`. The published dataset is read-only from the public site. Content refreshes within about one minute; no write token is used for rendering.
 - The schema supports title, slug, category, summary, author, publication date, cover with alt text, headings, lists, links, inline images and SEO title/description. It requires the key fields before publishing.
-- A small team can use `/studio` without building its own auth, database or file storage. Verify the Sanity account plan and usage limits before a high-volume publishing workflow.
+- A small team can use `/agency` without building its own auth, database or file storage. Verify the Sanity account plan and usage limits before a high-volume publishing workflow.
 
 ## Site operations
 

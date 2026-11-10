@@ -10,11 +10,12 @@ import Process from "@/components/services/Process";
 import CtaFooter from "@/components/services/CtaFooter";
 import { Reveal } from "@/components/services/Reveal";
 import { SERVICE_ORDER, SERVICES } from "@/lib/service-data";
+import { SITE } from "@/lib/site";
 import { createMetadata, jsonLd, webPageSchema } from "@/lib/seo";
 
 const path = "/services";
 const description =
-  "Explore TwoStack software development services in Sri Lanka: web development, ecommerce, mobile apps, ERP systems, AI automation and custom business software.";
+  "Explore TwoStack software development services in Sri Lanka: web development, ecommerce, mobile apps, ERP systems, AI software automation, WhatsApp AI chatbots and custom business software.";
 
 export const metadata: Metadata = createMetadata({
   title: "Software Development Services in Sri Lanka",
@@ -29,6 +30,17 @@ export default function ServicesPage() {
       description,
       path,
     }),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "TwoStack services",
+      itemListElement: SERVICE_ORDER.map((slug, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: SERVICES[slug].metadataTitle,
+        url: `${SITE.url}/services/${slug}`,
+      })),
+    },
   ];
 
   return (
@@ -50,7 +62,7 @@ export default function ServicesPage() {
                   Service index
                 </p>
                 <h2 className="font-satoshi text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
-                  Six capabilities. One engineering system.
+                  Seven capabilities. One engineering system.
                 </h2>
               </div>
             </Reveal>

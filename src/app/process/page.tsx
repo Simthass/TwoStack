@@ -9,7 +9,7 @@ import { createMetadata, jsonLd, webPageSchema } from "@/lib/seo";
 
 const path = "/process";
 const description =
-  "See how TwoStack plans, designs, builds, launches and supports web, ecommerce, mobile app, ERP and AI automation projects in Sri Lanka.";
+  "See how TwoStack plans, designs, builds, launches and supports web, ecommerce, mobile app, ERP, AI automation and WhatsApp AI chatbot projects in Sri Lanka.";
 
 export const metadata: Metadata = createMetadata({
   title: "Our Software Development Process",

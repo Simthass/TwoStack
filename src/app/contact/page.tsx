@@ -10,7 +10,7 @@ import { createMetadata, jsonLd, webPageSchema } from "@/lib/seo";
 
 const path = "/contact";
 const description =
-  "Contact TwoStack in Colombo, Sri Lanka for web development, ecommerce, mobile apps, ERP systems, AI automation and custom software projects.";
+  "Contact TwoStack in Colombo, Sri Lanka for web development, ecommerce, mobile apps, ERP systems, AI automation, WhatsApp AI chatbots and custom software projects.";
 
 export const metadata: Metadata = createMetadata({
   title: "Contact TwoStack — Software Development Sri Lanka",

@@ -26,9 +26,10 @@ export const FAQS: FAQ[] = [
   },
   {
     id: 4,
-    question: "Will the AI understand Sinhala or Tamil or English?",
+    question:
+      "Can your WhatsApp AI chatbot understand Sinhala, Tamil, English, Singlish and Thanglish?",
     answer:
-      "Yes. Our AI systems can be trained to understand and respond in Sinhala, Tamil, and English. Whether your customers message in Sinhala on WhatsApp or email in Tamil, the AI will reply in the same language with a natural, human-like tone.",
+      "Yes. Our WhatsApp AI chatbots understand Sinhala, Tamil, English, Singlish (Sinhala typed in English letters) and Thanglish (Tamil typed in English letters), and reply in the same language and style the customer used. They can also understand voice notes and match a product photo to your product database. See the WhatsApp AI chatbot page at twostack.lk/services/whatsapp-ai-chatbot for details.",
   },
   {
     id: 5,

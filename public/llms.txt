@@ -1,46 +1,48 @@
 # TwoStack
 
-> AI-native web, mobile, and automation development Agency based in Colombo, Sri Lanka. We build the website, the automation layer, and the intelligence layer - as one connected system.
+> AI-native web, mobile, ERP, automation and WhatsApp chatbot development agency based in Colombo, Sri Lanka. We build the website, the automation layer, and the intelligence layer as one connected system.
 
-## About
+TwoStack is a software development agency that builds complete digital systems for businesses in Sri Lanka and worldwide. We combine web development, ecommerce, mobile apps, ERP systems, AI automation and WhatsApp AI chatbots into one connected system, not separate tools from separate vendors.
 
-TwoStack is a software development Agency that builds complete digital ecosystems for businesses. We combine web development, AI-powered automation, and business intelligence into one unified system - not three separate tools from three separate vendors.
+## Services
 
-We are based in Colombo, Sri Lanka, and work with startups and businesses worldwide.
+- [Web Development](https://twostack.lk/services/web-development): Fast websites, portals, dashboards and web apps built with Next.js and React.
+- [Ecommerce Development](https://twostack.lk/services/ecommerce-development): Custom online stores with payments, stock, orders and automation.
+- [Mobile App Development](https://twostack.lk/services/mobile-development): iOS and Android apps connected to real business systems.
+- [ERP Systems Development](https://twostack.lk/services/erp-systems-development): POS, inventory, finance, HR and procurement in one system.
+- [AI Software Automation](https://twostack.lk/services/ai-automation): AI inside your own software: document search, workflow automation, task routing and reports.
+- [WhatsApp AI Chatbot](https://twostack.lk/services/whatsapp-ai-chatbot): Custom AI chatbot for business WhatsApp numbers. Replies in English, Sinhala, Tamil, Singlish and Thanglish. Understands voice notes and matches customer product photos against the business product database.
+- [Custom Software Development](https://twostack.lk/services/custom-software-development): Business portals, workflow systems, dashboards and integrations.
 
-## Core Services
+## WhatsApp AI Chatbot (summary)
 
-### Presence Layer (Web & Mobile Development)
-- Marketing websites built to convert
-- E-commerce storefronts with payment gateway integration
-- Client and customer portals
-- Internal tools and admin dashboards
-- iOS and Android mobile apps (native and cross-platform)
+- Answers customer questions about products, prices, stock, delivery and orders 24/7.
+- Languages: English, Sinhala, Tamil, Singlish (Sinhala typed in English letters), Thanglish (Tamil typed in English letters).
+- Understands WhatsApp voice notes by converting them to text.
+- Product photo matching: compares a customer's photo with the product database and confirms availability, price and stock when a match is found; hands over to staff when unsure.
+- Human handover with full chat history. Built on the official WhatsApp Business Platform.
+- Full details: [llms-full.txt](https://twostack.lk/llms-full.txt)
 
-### Automation Layer (AI & Workflow Automation)
-- WhatsApp AI assistants (Sinhala, Tamil, and English)
-- Order and workflow tracking
-- Automated reminders and follow-ups
-- System-to-system sync (CRM, payments, calendar)
+## Company
 
-### Intelligence Layer (Dashboards & Analytics)
-- Real-time business dashboards
-- Demand and cash flow forecasting
-- Automated weekly and monthly reporting
-- Decision flags and anomaly detection
+- [Services overview](https://twostack.lk/services)
+- [Portfolio](https://twostack.lk/portfolio)
+- [Process](https://twostack.lk/process)
+- [About](https://twostack.lk/about)
+- [Insights](https://twostack.lk/blog)
+- [Contact](https://twostack.lk/contact)
 
 ## Tech Stack
 
-Next.js, React, TypeScript, Node.js, AI/ML, Python
+Next.js, React, TypeScript, Node.js, Python, AI/ML
 
 ## Target Audience
 
-Startups, SMEs, and enterprises looking for custom software development, AI automation, and digital transformation - in Sri Lanka and worldwide.
+Startups, SMEs and enterprises looking for custom software development, AI automation and WhatsApp AI chatbots, in Sri Lanka and worldwide.
 
 ## Contact
 
 - Website: https://twostack.lk
-- Services: https://twostack.lk/services
 - Email: twostacklk@gmail.com
 - WhatsApp: +94 76 773 2288
 - Location: Colombo, Sri Lanka

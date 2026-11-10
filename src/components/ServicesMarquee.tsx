@@ -12,24 +12,30 @@ const SERVICES = [
   },
   {
     id: "02",
-    title: "AI Automation",
+    title: "WhatsApp AI Chatbot",
     subtitle:
-      "AI assistants that reply to customers in Sinhala, Tamil or English on WhatsApp, plus automated order updates and reminders.",
+      "A custom chatbot that replies to your customers on WhatsApp in Sinhala, Tamil, English, Singlish and Thanglish, and understands voice notes and product photos.",
   },
   {
     id: "03",
+    title: "AI Software Automation",
+    subtitle:
+      "AI built into your own software: document search, automatic reports, smart task routing and workflow automation.",
+  },
+  {
+    id: "04",
     title: "Mobile App Development",
     subtitle:
       "iOS and Android apps that connect smoothly with your website and backend, so everything stays in sync.",
   },
   {
-    id: "04",
+    id: "05",
     title: "ERP Systems Development",
     subtitle:
       "POS, inventory, finance, HR and other ERP modules connected in one system, syncing in real time across your entire business.",
   },
   {
-    id: "05",
+    id: "06",
     title: "Custom Software Development",
     subtitle:
       "We turn your ideas into easy-to-use digital tools, built from the ground up exactly the way you need them.",

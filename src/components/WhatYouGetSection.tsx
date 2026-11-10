@@ -25,7 +25,7 @@ const AI_MESSAGES: DemoMessage[] = [
 const CARDS = [
   {
     id: "followup",
-    label: "AI Automation",
+    label: "WhatsApp AI Business Automation",
     title: "Automatic follow-ups",
     description:
       "Payment reminders, abandoned cart alerts and order updates are sent out on their own - no one on your team has to remember to send them.",

@@ -5,12 +5,15 @@ type MetadataInput = {
   title: string;
   description: string;
   path: string;
+  /** Optional absolute or site-relative social image (1200x630). */
+  image?: string;
 };
 
 export function createMetadata({
   title,
   description,
   path,
+  image = "/og-image.jpg",
 }: MetadataInput): Metadata {
   const canonical = `${SITE.url}${path}`;
 
@@ -27,7 +30,7 @@ export function createMetadata({
       type: "website",
       images: [
         {
-          url: "/og-image.jpg",
+          url: image,
           width: 1200,
           height: 630,
           alt: `${SITE.name} — software development studio in Sri Lanka`,
@@ -38,7 +41,7 @@ export function createMetadata({
       card: "summary_large_image",
       title: `${title} | ${SITE.name}`,
       description,
-      images: ["/og-image.jpg"],
+      images: [image],
     },
     robots: {
       index: true,
@@ -97,6 +100,10 @@ export const organizationGraph = {
         "ERP Systems Development",
         "Custom Software Development",
         "Artificial Intelligence Automation",
+        "WhatsApp AI Chatbot Development",
+        "WhatsApp Business Automation",
+        "Sinhala and Tamil AI Chatbots",
+        "Voice Note and Image Recognition Chatbots",
         "Business Process Automation",
         "Software Engineering",
       ],
@@ -128,6 +135,7 @@ export function serviceSchema(input: {
   name: string;
   description: string;
   path: string;
+  serviceType?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -136,6 +144,7 @@ export function serviceSchema(input: {
     name: input.name,
     description: input.description,
     url: `${SITE.url}${input.path}`,
+    ...(input.serviceType ? { serviceType: input.serviceType } : {}),
     provider: { "@id": `${SITE.url}/#organization` },
     areaServed: [
       { "@type": "Country", name: SITE.country },
@@ -181,6 +190,21 @@ export function webPageSchema(input: {
     isPartOf: { "@id": `${SITE.url}/#website` },
     about: { "@id": `${SITE.url}/#organization` },
     inLanguage: SITE.language,
+  };
+}
+
+export function breadcrumbSchema(
+  items: ReadonlyArray<{ name: string; path: string }>,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${SITE.url}${item.path}`,
+    })),
   };
 }
 

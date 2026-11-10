@@ -1,8 +1,8 @@
-import Studio from "./Studio";
+import Agency from "./Agency";
 
-export { metadata, viewport } from "next-sanity/studio";
+export { metadata, viewport } from "next-sanity/agency";
 
-export default function StudioPage() {
+export default function AgencyPage() {
   const projectId = process.env.NEXT_SANITY_PROJECT_ID;
   const dataset = process.env.NEXT_SANITY_DATASET;
 
@@ -12,5 +12,5 @@ export default function StudioPage() {
     );
   }
 
-  return <Studio projectId={projectId} dataset={dataset} />;
+  return <Agency projectId={projectId} dataset={dataset} />;
 }

@@ -1,8 +1,20 @@
+export type ChatMessage = {
+  from: "customer" | "bot";
+  kind?: "text" | "voice" | "image";
+  text: string;
+  translation?: string;
+  /** Voice note length, or image description (used as alt text for images). */
+  meta?: string;
+  /** Image path in /public, e.g. "/black-leather-wallet.png". */
+  src?: string;
+};
 export type ServicePageData = {
   slug: string;
   eyebrow: string;
   title: string;
   metadataTitle: string;
+  /** Optional longer, keyword-rich <title>. Falls back to metadataTitle. */
+  seoTitle?: string;
   description: string;
   intro: string;
   problems: readonly string[];
@@ -11,6 +23,33 @@ export type ServicePageData = {
   outcomes: readonly string[];
   localNote: string;
   faqs: readonly { question: string; answer: string }[];
+  /** Slugs shown in "Related capabilities". Defaults to the first three other services. */
+  related?: readonly string[];
+  /** Optional internal link shown under the intro. */
+  crossLink?: { text: string; label: string; href: string };
+  /** Optional "see it in action" chat examples. */
+  demo?: {
+    heading: string;
+    intro: string;
+    note: string;
+    chats: readonly { label: string; messages: readonly ChatMessage[] }[];
+  };
+  /** Optional language section. */
+  languages?: {
+    heading: string;
+    intro: string;
+    items: readonly {
+      name: string;
+      how: string;
+      example: string;
+      meaning?: string;
+    }[];
+  };
+  /** Optional "who is this for" section. */
+  audiences?: {
+    heading: string;
+    items: readonly { title: string; body: string }[];
+  };
 };
 
 export const SERVICES: Record<string, ServicePageData> = {
@@ -371,28 +410,33 @@ export const SERVICES: Record<string, ServicePageData> = {
   },
   "ai-automation": {
     slug: "ai-automation",
-    eyebrow: "AI & workflow systems / Sri Lanka",
+    eyebrow: "AI inside your software / Sri Lanka",
     title:
-      "AI Automation in Sri Lanka, connected to real work — not just a demo chatbot.",
-    metadataTitle: "AI Automation in Sri Lanka",
+      "AI Software Automation in Sri Lanka, built into the tools your team already uses.",
+    metadataTitle: "AI Software Automation in Sri Lanka",
     description:
-      "AI Automation services in Sri Lanka by TwoStack. Multilingual assistants, document handling, smart routing, reports and automation connected to your systems.",
+      "AI software automation in Sri Lanka by TwoStack. Add AI to your own systems: smart document search, task routing, automatic reports and workflow automation.",
     intro:
-      "We use AI where it actually saves time, makes information easier to find, or speeds up a task. The AI model on its own isn't the useful part — it's the permissions, the data, and the way it connects to your systems that make it actually work.",
+      "We add AI to the software your business already runs on, so repetitive work gets done for you. That can mean finding answers in your documents, sorting and routing tasks, or writing reports automatically. The AI itself is only one part. What makes it useful is the data it can see, the permissions it has, and how safely it connects to your systems.",
+    crossLink: {
+      text: "Want an AI that chats with your customers on WhatsApp instead?",
+      label: "See our WhatsApp AI chatbot",
+      href: "/services/whatsapp-ai-chatbot",
+    },
     problems: [
       "Your team keeps answering the same questions over and over.",
       "Information is scattered across inboxes, documents and different tools.",
       "Automations fail quietly, and no one notices until it's too late.",
-      "Chatbots can talk, but can't safely get real work done.",
+      "Reports take hours because someone has to collect the numbers by hand.",
     ],
     capabilities: [
       {
-        title: "Multilingual AI assistants",
-        body: "Assistants for customers or staff that work in English, Tamil and Sinhala, built around the language your customers actually use.",
+        title: "AI assistants for your team",
+        body: "Your staff ask questions in plain English, Sinhala or Tamil and get answers from your own company information, instead of searching through files.",
       },
       {
         title: "Smart document search",
-        body: "Quick answers pulled from your own approved documents and information — with the source shown, not made up.",
+        body: "Quick answers pulled from your own approved documents and information, with the source shown, not made up.",
       },
       {
         title: "Automated workflows",
@@ -400,7 +444,7 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
       {
         title: "Human approval where it matters",
-        body: "For important decisions, a person can review and approve before anything happens — the AI doesn't get free rein.",
+        body: "For important decisions, a person can review and approve before anything happens. The AI doesn't get free rein.",
       },
       {
         title: "Full activity tracking",
@@ -408,13 +452,13 @@ export const SERVICES: Record<string, ServicePageData> = {
       },
       {
         title: "Connects to your other tools",
-        body: "Links to your website, CRM, online store, database, email or WhatsApp through secure connections.",
+        body: "Links to your website, CRM, online store, database or email through secure connections.",
       },
     ],
     systems: [
       {
         label: "01 / Input",
-        body: "Messages, documents or business events come in through a controlled, secure channel.",
+        body: "Documents, forms or business events come in through a controlled, secure channel.",
       },
       {
         label: "02 / AI processing",
@@ -432,27 +476,288 @@ export const SERVICES: Record<string, ServicePageData> = {
       "A clear record of what happened",
     ],
     localNote:
-      "Sri Lankan businesses often talk to customers across WhatsApp, email and more than one language. We build AI automation around those real channels, instead of assuming everything should be handed off to a chatbot.",
+      "Many Sri Lankan teams work across English, Sinhala and Tamil, and keep information in a mix of spreadsheets, email and chat. We build AI automation around how your team really works, and we test it on your own content, not just a generic demo.",
+    related: [
+      "whatsapp-ai-chatbot",
+      "custom-software-development",
+      "web-development",
+    ],
     faqs: [
+      {
+        question: "What is AI software automation?",
+        answer:
+          "It means adding AI to your business software so it can do routine work for you, such as finding answers in documents, sorting requests, writing summaries or preparing reports. People stay in charge of the important decisions.",
+      },
+      {
+        question: "Is this the same as a WhatsApp chatbot?",
+        answer:
+          "No. A WhatsApp AI chatbot talks to your customers on WhatsApp. AI software automation works inside your own systems to help your team. Many businesses use both, and we can build them to share the same data. You can read about the chatbot on our WhatsApp AI chatbot page.",
+      },
       {
         question: "Can you build a Sinhala or Tamil AI assistant?",
         answer:
-          "Yes. We can build assistants for Sinhala, Tamil and English. We test the quality against your actual content and customer questions, not just a generic demo.",
+          "Yes. We can build assistants for Sinhala, Tamil and English. We test the quality against your actual content and questions, not just a generic demo.",
       },
       {
         question: "Can AI automation connect to the software we already use?",
         answer:
-          "Usually, yes — as long as your current software allows safe connections. We check what can be connected safely during the planning stage.",
+          "Usually, yes, as long as your current software allows safe connections. We check what can be connected safely during the planning stage.",
       },
       {
         question: "Do you use AI agents to automate tasks?",
         answer:
-          "Where it makes sense, yes. But we always match the level of AI control to how risky the action is, and keep human approval in place for anything important.",
+          "Where it makes sense, yes. We match the level of AI control to how risky the action is, and keep human approval in place for anything important.",
       },
       {
         question: "How do you stop the AI from making things up?",
         answer:
           "We use a mix of approaches depending on the use case: pulling only from approved sources, adding checks, and requiring human approval for anything high-stakes. No method removes the risk completely, so we design around what happens if the AI gets something wrong.",
+      },
+    ],
+  },
+  "whatsapp-ai-chatbot": {
+    slug: "whatsapp-ai-chatbot",
+    eyebrow: "WhatsApp AI chatbot / Sri Lanka",
+    title:
+      "WhatsApp AI Chatbot in Sri Lanka that answers your customers in their own language.",
+    metadataTitle: "WhatsApp AI Chatbot in Sri Lanka",
+    seoTitle: "WhatsApp AI Chatbot for Business in Sri Lanka",
+    description:
+      "WhatsApp AI chatbot for Sri Lankan businesses. Replies 24/7 in Sinhala, Tamil, English, Singlish and Thanglish. Understands voice notes and product photos.",
+    intro:
+      "We build a custom AI chatbot for your business WhatsApp number. It answers customer questions about your products, prices, stock and orders, day and night. It understands Sinhala, Tamil, English, Singlish and Thanglish, listens to voice notes, and can recognise a product from a photo your customer sends.",
+    crossLink: {
+      text: "Want AI built into your own software instead?",
+      label: "See AI software automation",
+      href: "/services/ai-automation",
+    },
+    problems: [
+      "Customers message at night and nobody replies until the next morning.",
+      "Your team answers the same questions about price, stock and delivery all day.",
+      "Customers send a voice note or a photo and ask, “Do you have this?”",
+      "Customers write in Sinhala, Tamil or English letters, and replies take too long.",
+    ],
+    demo: {
+      heading: "See how a conversation looks.",
+      intro:
+        "Here are three short examples of what your customers could experience on WhatsApp. The chatbot replies in the same language and style the customer used.",
+      note: "These are example conversations. Your chatbot uses your own products, prices and tone of voice.",
+      chats: [
+        {
+          label: "Singlish text message",
+          messages: [
+            {
+              from: "customer",
+              text: "Meka red colour M size thiyenawada?",
+              translation: "Do you have this in red, size M?",
+            },
+            {
+              from: "bot",
+              text: "Ow, red M size thiyenawa. Rs. 3,900. Kandy walata delivery dawas 2–3k yanawa. Order karamu da?",
+              translation:
+                "Yes, red in size M is in stock. Rs. 3,900. Delivery to Kandy takes 2–3 days. Shall we place the order?",
+            },
+          ],
+        },
+        {
+          label: "Thanglish voice note",
+          messages: [
+            {
+              from: "customer",
+              kind: "voice",
+              meta: "0:07",
+              text: "Anna, order 1042 eppo varum?",
+              translation: "Brother, when will order 1042 arrive?",
+            },
+            {
+              from: "bot",
+              text: "Vanakkam! Order #1042 nethu dispatch aayiduchu. Naalaikku ungalukku kedaikkum.",
+              translation:
+                "Hello! Order #1042 was sent out yesterday. You will get it tomorrow.",
+            },
+          ],
+        },
+        {
+          label: "Product photo",
+          messages: [
+            {
+              from: "customer",
+              kind: "image",
+              src: "/Black Leather Wallet on Marble.png",
+              meta: "Photo of a black leather wallet",
+              text: "Do you have this?",
+            },
+            {
+              from: "bot",
+              text: "Yes, we have it! Black leather wallet, Rs. 4,500. 12 in stock. Would you like me to reserve one for you?",
+            },
+          ],
+        },
+      ],
+    },
+    capabilities: [
+      {
+        title: "Instant replies, 24/7",
+        body: "Answers questions about products, prices, delivery and opening hours in seconds, even at 2 a.m. or on a public holiday.",
+      },
+      {
+        title: "Five languages and styles",
+        body: "English, Sinhala, Tamil, Singlish and Thanglish. The chatbot replies in the same language and style your customer used.",
+      },
+      {
+        title: "Understands voice notes",
+        body: "Customers can simply talk. The chatbot listens to the voice note, understands the question and replies. We test it on real voice notes from your customers.",
+      },
+      {
+        title: "Finds products from a photo",
+        body: "A customer sends a picture and asks, “Is this available?” The chatbot compares it with your product database and says yes, with the price and stock, when it finds a match.",
+      },
+      {
+        title: "Product and order answers",
+        body: "It checks your real products, prices and orders to answer “Is it in stock?” and “Where is my order?”, and can take simple orders or pass them to your team.",
+      },
+      {
+        title: "Hands over to your team",
+        body: "When a question is tricky, or the customer asks for a person, the chat goes to your staff with the full conversation, so no one has to repeat themselves.",
+      },
+    ],
+    languages: {
+      heading: "Speaks the way your customers actually type.",
+      intro:
+        "Many people in Sri Lanka type Sinhala or Tamil using English letters. We call these Singlish (Sinhala in English letters) and Thanglish (Tamil in English letters). Your chatbot understands all five styles below and replies in the one your customer used.",
+      items: [
+        {
+          name: "English",
+          how: "Normal English",
+          example: "Do you have this in black?",
+        },
+        {
+          name: "Sinhala",
+          how: "Sinhala letters",
+          example: "මේක කළු පාටින් තියෙනවද?",
+          meaning: "Do you have this in black?",
+        },
+        {
+          name: "Tamil",
+          how: "Tamil letters",
+          example: "இது கருப்பு நிறத்தில் இருக்கிறதா?",
+          meaning: "Do you have this in black?",
+        },
+        {
+          name: "Singlish",
+          how: "Sinhala typed in English letters",
+          example: "Meka kalu patin thiyenawada?",
+          meaning: "Do you have this in black?",
+        },
+        {
+          name: "Thanglish",
+          how: "Tamil typed in English letters",
+          example: "Idhu black colour la irukka?",
+          meaning: "Do you have this in black?",
+        },
+      ],
+    },
+    systems: [
+      {
+        label: "01 / Customer message",
+        body: "Your customer sends text, a voice note or a photo to your business WhatsApp number, using the official WhatsApp Business Platform.",
+      },
+      {
+        label: "02 / AI understanding",
+        body: "The AI works out the language, turns voice notes into text, looks at photos and understands what the customer is asking for.",
+      },
+      {
+        label: "03 / Your business data",
+        body: "It checks your real products, prices, stock and orders, then replies. If it isn't sure, it passes the chat to your team.",
+      },
+    ],
+    audiences: {
+      heading: "Who is a WhatsApp AI chatbot for?",
+      items: [
+        {
+          title: "Online shops and retail stores",
+          body: "Answer “Is this available?”, price, size and delivery questions, and match customer photos to your products.",
+        },
+        {
+          title: "Restaurants and cafés",
+          body: "Share your menu, opening hours and delivery areas, and take simple order requests.",
+        },
+        {
+          title: "Salons, clinics and service businesses",
+          body: "Answer price and opening-hour questions and collect appointment requests for your team.",
+        },
+        {
+          title: "Travel, education and property",
+          body: "Answer first questions about packages, courses or listings, and collect customer details for your sales team.",
+        },
+      ],
+    },
+    outcomes: [
+      "Replies in seconds, at any time of day",
+      "Fewer repeated questions for your team",
+      "No more lost enquiries after hours",
+      "Customers served in their own language",
+    ],
+    localNote:
+      "WhatsApp is how most Sri Lankans prefer to message a business, and many type Sinhala or Tamil in English letters. Generic chatbots often struggle with that. We build and test yours on the way your customers really write and speak, including voice notes, so it feels natural and not robotic.",
+    related: [
+      "ai-automation",
+      "ecommerce-development",
+      "custom-software-development",
+    ],
+    faqs: [
+      {
+        question: "What is a WhatsApp AI chatbot?",
+        answer:
+          "It is a program on your business WhatsApp number that reads customer messages and replies automatically using AI. A basic bot makes people pick from a menu. An AI chatbot understands normal sentences and answers using your own product and order information.",
+      },
+      {
+        question:
+          "Can the chatbot reply in Sinhala, Tamil, Singlish and Thanglish?",
+        answer:
+          "Yes. It works in English, Sinhala, Tamil, Singlish (Sinhala typed in English letters) and Thanglish (Tamil typed in English letters). We test it on real messages from your customers before launch, because people write in many different ways. If a message is unclear, the chatbot asks a short question or passes the chat to your team.",
+      },
+      {
+        question: "Can it understand WhatsApp voice notes?",
+        answer:
+          "Yes. The chatbot turns the voice note into text, understands the question and replies. Accuracy depends on how clear the audio is, the accent and the language, so we test it on real voice notes from your customers. If it can't understand, it asks the customer to try again or hands over to your team.",
+      },
+      {
+        question:
+          "How does the product photo feature work? Can it say if an item is available?",
+        answer:
+          "When a customer sends a photo, the chatbot compares it with the product photos and details in your product database. If it finds a close match, it tells the customer the item is available, with the price and stock. If it isn't sure, it shows the closest items or asks your team to check, instead of guessing. It works best when your catalogue has clear product photos.",
+      },
+      {
+        question: "Will the chatbot make up wrong answers?",
+        answer:
+          "We design it to answer only from your approved information: products, prices, policies and order data. If it doesn't know, it says so and passes the chat to a person. No AI is perfect, so we also keep a record of conversations for you to review and improve.",
+      },
+      {
+        question: "Can my staff take over a conversation?",
+        answer:
+          "Yes. A customer can ask for a person at any time, and the chatbot can also hand over by itself when a question is sensitive or complicated. Your staff see the full chat so far, so the customer doesn't have to repeat anything.",
+      },
+      {
+        question: "Do I need a special WhatsApp account?",
+        answer:
+          "Yes, a chatbot needs the official WhatsApp Business Platform from Meta. We help you set up your business account and number. Meta charges its own fees for some types of messages, separate from our build fee, and we explain these before you commit.",
+      },
+      {
+        question: "Can it connect to my website, online store or stock system?",
+        answer:
+          "Yes, as long as your system allows a safe connection. If you don't have one yet, we can start from a simple product list in a spreadsheet or database and connect it to your store or ERP later.",
+      },
+      {
+        question:
+          "How much does a WhatsApp AI chatbot cost, and how long does it take?",
+        answer:
+          "It depends on how many products you have, which languages you need and which systems it connects to. We quote each project in LKR after a short chat about your business, and confirm the timeline in the quote. Message us on WhatsApp to get started.",
+      },
+      {
+        question: "Is my customers' data safe?",
+        answer:
+          "We keep only what is needed to answer your customers, limit who can see it, and choose AI services with business data-protection terms. Your proposal explains what is stored, where, and for how long.",
       },
     ],
   },
@@ -551,5 +856,6 @@ export const SERVICE_ORDER = [
   "mobile-development",
   "erp-systems-development",
   "ai-automation",
+  "whatsapp-ai-chatbot",
   "custom-software-development",
 ] as const;

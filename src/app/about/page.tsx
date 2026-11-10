@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 import { createMetadata, jsonLd, webPageSchema } from "@/lib/seo";
 
 const description =
-  "Learn how TwoStack, a small software studio in Colombo, Sri Lanka, connects websites, applications, automation and business operations.";
+  "Learn how TwoStack, a small software agency in Colombo, Sri Lanka, connects websites, applications, automation and business operations.";
 export const metadata: Metadata = createMetadata({
-  title: "About our software studio in Colombo",
+  title: "About our software agency in Colombo",
   description,
   path: "/about",
 });
@@ -39,7 +39,7 @@ export default function AboutPage() {
               Software that fits the way your business works.
             </h1>
             <p className="mt-8 max-w-2xl font-inter text-lg leading-8 text-white/65">
-              TwoStack is a small, remote software studio based in Colombo, Sri
+              TwoStack is a small, remote software agency based in Colombo, Sri
               Lanka. We work with businesses that need their digital presence
               and day-to-day operations to function together.
             </p>

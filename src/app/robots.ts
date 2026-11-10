@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
-  const protectedPaths = ["/api/", "/admin/", "/studio/"];
+  const protectedPaths = ["/api/", "/admin/", "/agency/"];
 
   return {
     rules: [

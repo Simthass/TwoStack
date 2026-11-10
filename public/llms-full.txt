@@ -1,0 +1,41 @@
+# TwoStack: WhatsApp AI Chatbot service (full details)
+
+Page: https://twostack.lk/services/whatsapp-ai-chatbot
+Provider: TwoStack, Colombo, Sri Lanka (https://twostack.lk)
+Contact: twostacklk@gmail.com, WhatsApp +94 76 773 2288
+
+## What it is
+
+A custom AI chatbot built for a business's own WhatsApp number. It replies to customer messages automatically, using the business's real product, price, stock and order information.
+
+## Key features
+
+1. Instant replies 24/7 to questions about products, prices, delivery and opening hours.
+2. Languages and styles: English, Sinhala, Tamil, Singlish (Sinhala typed in English letters) and Thanglish (Tamil typed in English letters). It replies in the language and style the customer used.
+3. Voice notes: converts WhatsApp voice notes to text, understands the question and replies. Accuracy depends on audio quality, accent and language; tested on real customer voice notes.
+4. Product photo matching: when a customer sends a product photo and asks if it is available, the chatbot compares it with the business product database. If it finds a close match it confirms availability with price and stock. If unsure it shows similar items or asks staff to check.
+5. Product and order answers: checks real products, prices and orders; can take simple orders or pass them to staff.
+6. Human handover: staff can take over any chat and see the full conversation.
+
+## Who it suits
+
+Online shops and retail stores, restaurants and cafes, salons and clinics, travel, education and property businesses in Sri Lanka.
+
+## How it works
+
+1. The customer sends text, a voice note or a photo to the business WhatsApp number (official WhatsApp Business Platform).
+2. AI detects the language, transcribes voice notes, analyses photos and understands the request.
+3. The chatbot checks business data (products, prices, stock, orders) and replies, or hands over to a person when unsure.
+
+## Honest limitations
+
+- No AI is perfect. The chatbot answers only from approved business information and hands over when it does not know.
+- Meta (WhatsApp) charges its own fees for some message types, separate from TwoStack's build fee.
+- Photo matching works best with clear product photos in the catalogue.
+- Pricing is quoted per project in LKR after a short discovery chat.
+
+## Related
+
+- AI Software Automation (AI inside business software): https://twostack.lk/services/ai-automation
+- Ecommerce Development: https://twostack.lk/services/ecommerce-development
+- Guide: https://twostack.lk/blog/whatsapp-ai-chatbot-sri-lanka-guide

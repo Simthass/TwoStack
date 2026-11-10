@@ -7,7 +7,7 @@ import { post } from "./src/sanity/schemaTypes/post";
 export default defineConfig({
   name: "twostack",
   title: "TwoStack Editorial",
-  basePath: "/studio",
+  basePath: "/agency",
   projectId: process.env.NEXT_SANITY_PROJECT_ID || "demo",
   dataset: process.env.NEXT_SANITY_DATASET || "production",
   plugins: [structureTool()],
